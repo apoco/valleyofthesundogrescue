@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
     <Reference Include="System.Web.Helpers" />
@@ -60,6 +61,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DogsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsStoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -131,6 +133,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Dogs\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NewsStory\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NewsStory\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NewsStory\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NewsStory\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NewsStory\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

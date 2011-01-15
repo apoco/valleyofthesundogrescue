@@ -13,7 +13,10 @@ namespace VOTSDR.Admin.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            Data.DataEntities de = new Data.DataEntities();
+            
+
+            return View(de.Dogs);
         }
 
         //
@@ -44,9 +47,13 @@ namespace VOTSDR.Admin.Web.Controllers
                 Data.Dog dog = Data.Dog.CreateDog(Guid.NewGuid());
                 dog.Name = collection["Name"];
                 dog.Profile = collection["Profile"];
-                dog.Age = collection["Age"];
-                dog.Birthday = DateTime.Parse(collection["Birthday"]);
-                dog.AdoptedDate = DateTime.Parse(collection["AdoptedDate"]);
+                dog.Gender = collection["Gender"];
+                dog.Breed = collection["Breed"];
+
+                DateTime birthday = new DateTime();
+                if (DateTime.TryParse(collection["Birthday"], out birthday))
+                    dog.Birthday = birthday;
+
                 de.Dogs.AddObject(dog);
                 de.SaveChanges();                
                 return RedirectToAction("Index");

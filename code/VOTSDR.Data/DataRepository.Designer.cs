@@ -276,30 +276,6 @@ namespace VOTSDR.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Story
-        {
-            get
-            {
-                return _Story;
-            }
-            set
-            {
-                OnStoryChanging(value);
-                ReportPropertyChanging("Story");
-                _Story = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Story");
-                OnStoryChanged();
-            }
-        }
-        private global::System.String _Story;
-        partial void OnStoryChanging(global::System.String value);
-        partial void OnStoryChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public global::System.String Age
         {
             get
@@ -462,6 +438,54 @@ namespace VOTSDR.Data
         private global::System.Byte[] _Thumbnail;
         partial void OnThumbnailChanging(global::System.Byte[] value);
         partial void OnThumbnailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Breed
+        {
+            get
+            {
+                return _Breed;
+            }
+            set
+            {
+                OnBreedChanging(value);
+                ReportPropertyChanging("Breed");
+                _Breed = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Breed");
+                OnBreedChanged();
+            }
+        }
+        private global::System.String _Breed;
+        partial void OnBreedChanging(global::System.String value);
+        partial void OnBreedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Gender
+        {
+            get
+            {
+                return _Gender;
+            }
+            set
+            {
+                OnGenderChanging(value);
+                ReportPropertyChanging("Gender");
+                _Gender = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Gender");
+                OnGenderChanged();
+            }
+        }
+        private global::System.String _Gender;
+        partial void OnGenderChanging(global::System.String value);
+        partial void OnGenderChanged();
 
         #endregion
     

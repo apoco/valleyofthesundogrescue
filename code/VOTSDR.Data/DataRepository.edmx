@@ -18,7 +18,6 @@
           <Property Name="DogId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Profile" Type="ntext" />
-          <Property Name="Story" Type="ntext" />
           <Property Name="Age" Type="nvarchar" MaxLength="100" />
           <Property Name="Birthday" Type="datetime" />
           <Property Name="AdoptedDate" Type="datetime" />
@@ -26,6 +25,8 @@
           <Property Name="AdoptionStory" Type="ntext" />
           <Property Name="DateFeatured" Type="datetime" />
           <Property Name="Thumbnail" Type="varbinary(max)" />
+          <Property Name="Breed" Type="nvarchar" MaxLength="250" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -73,7 +74,6 @@
           <Property Name="DogId" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Profile" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Story" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Age" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Birthday" Type="DateTime" />
           <Property Name="AdoptedDate" Type="DateTime" />
@@ -81,6 +81,8 @@
           <Property Name="AdoptionStory" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="DateFeatured" Type="DateTime" />
           <Property Type="Binary" Name="Thumbnail" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="Breed" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Gender" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -118,11 +120,12 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="votsdradminModelStoreContainer" CdmEntityContainer="DataEntities">
           <EntitySetMapping Name="Dogs"><EntityTypeMapping TypeName="votsdradminModel.Dog"><MappingFragment StoreEntitySet="Dog">
-            <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+            <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Breed" ColumnName="Breed" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
                 <ScalarProperty Name="DogId" ColumnName="DogId" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Profile" ColumnName="Profile" />
-            <ScalarProperty Name="Story" ColumnName="Story" />
             <ScalarProperty Name="Age" ColumnName="Age" />
             <ScalarProperty Name="Birthday" ColumnName="Birthday" />
             <ScalarProperty Name="AdoptedDate" ColumnName="AdoptedDate" />
@@ -171,7 +174,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="DataRepository">
-        <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1340950520833331" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.Event" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.NewsStory" Width="1.5" PointX="2.75" PointY="3.75" Height="1.787985026041667" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.SpecialNeedsStory" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />

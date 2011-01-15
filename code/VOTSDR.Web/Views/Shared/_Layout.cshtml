@@ -8,28 +8,82 @@
 </head>
 
 <body>
-    <div class="page">
-
-        <div id="header">
-            <div id="title">
-                <h1>My MVC Application</h1>
-            </div>
-
-            <div id="menucontainer">
-
-                <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                </ul>
-
-            </div>
-        </div>
-
-        <div id="main">
-            @RenderBody()
-            <div id="footer">
-            </div>
-        </div>
-    </div>
+        <div id="page" class="home">
+		<div id="page-container">
+			<div id="header">
+				<div id="logo"></div>
+				<div id="page-title">About Valley of the Sun Dog Rescue</div>
+				<div id="header-top-nav">
+					<ul>
+						<li>@Html.ActionLink("Home", "Index", "Home", new { @class = "hnav-link-top", id = "hnav-link-home" })</li>
+						<li><a id="hnav-link-adoptable" href="#" class="hnav-link-top">Adoptable Dogs</a></li>
+						<li><a id="hnav-link-stories" href="#" class="hnav-link-top">Happy Tails</a></li>
+						<li><a id="hnav-link-howtohelp" href="#" class="hnav-link-top">How YOU Can Help</a></li>
+					</ul>
+				</div>
+				<div id="header-bottom-nav">
+					<ul>
+						<li><a id="hnav-link-news" href="#" class="hnav-link-bottom">News / Events</a></li>
+						<li><a id="hnav-link-education" href="#" class="hnav-link-bottom">Education</a></li>
+						<li><a id="hnav-link-sponsors" href="#" class="hnav-link-bottom">Sponsors / Links</a></li>
+						<li><a id="hnav-link-shop" href="#" class="hnav-link-bottom">Shop</a></li>
+						<li><a id="hnav-link-contact" href="#" class="hnav-link-bottom">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content-wrapper">
+                <div id="content">
+				@RenderBody()
+                </div>
+			</div>
+			<div id="footer">
+				<div id="footer-donations" class="footer-section">
+					<a href="#" id="fst-donations">Donations Welcome!</a>
+					<p>Your tax-deductible support for surgery, vet care and supplies is always appreciated.</p>
+					<p>We accept donations through PayPal. <a id="link-paypal" href="#">Donate!</a><br/>
+					Or, learn about more <a href="#" style="font-weight: bold">ways you can help</a>.</p>
+				</div>
+				<div id="footer-locations" class="footer-section">
+					<a href="#" id="fst-locations">Adoption Times and Locations:</a>
+					<div id="fs-location">
+						<p><b>East Valley</b></p>
+						<p><b><a href="#">PetSmart</a> <a href="#">Directions</a></b><br/>
+						6932 E. Hampton Ave<br/>Mesa</p>
+					</div>
+					<div id="fs-times">
+						<p><b>Times</b></p>
+						<p>Saturdays and Sundays<br/>
+						10:00am - 2:00pm</p>
+					</div>
+				</div>
+				<div id="footer-dotw" class="footer-section">
+					<a href="#" id="fst-dotw">Dog of the Week</a>
+					<div id="fs-dotw-thumb">
+						<a href="#">Pic goes here.</a>
+					</div>
+					<div id="fs-dotw-details">
+						<div id="fs-dotw-details-name">Lucky</div>
+						<div id="fs-dotw-details-breed">Pit-bull mix</div>
+						<div id="fs-dotw-details-desc">Sweet, Loves Kids</div>
+						<a id="fs-dotw-details-link" href="#">Learn more...</a>
+					</div>
+				</div>
+				<div id="footer-nav">
+					<div id="footerbkg"></div>
+					<ul>
+						<li><a id="fnav-link-home" href="#" class="fnav-link first">Home</a></li>
+						<li><a id="fnav-link-adoptable" href="#" class="fnav-link">Adoptable Dogs</a></li>
+						<li><a id="fnav-link-stories" href="#" class="fnav-link">Happy Tails</a></li>
+						<li><a id="fnav-link-howtohelp" href="#" class="fnav-link">How YOU Can Help</a></li>
+						<li><a id="fnav-link-news" href="#" class="fnav-link">News / Events</a></li>
+						<li><a id="fnav-link-education" href="#" class="fnav-link">Education</a></li>
+						<li><a id="fnav-link-sponsors" href="#" class="fnav-link">Sponsors / Links</a></li>
+						<li><a id="fnav-link-shop" href="#" class="fnav-link">Shop</a></li>
+						<li><a id="fnav-link-contact" href="#" class="fnav-link last">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

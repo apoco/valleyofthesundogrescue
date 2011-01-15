@@ -17,13 +17,13 @@
             Name
         </th>
         <th>
+            Gender
+        </th>
+        <th>
+            Breed
+        </th>
+        <th>
             Profile
-        </th>
-        <th>
-            Story
-        </th>
-        <th>
-            Age
         </th>
         <th>
             Birthday
@@ -32,7 +32,10 @@
             AdoptedDate
         </th>
         <th>
-            ThumbnailUrl
+            Thumbnail
+        </th>
+        <th>
+            Image
         </th>
         <th>
             AdoptionStory
@@ -52,14 +55,10 @@
         <td>
             @item.Name
         </td>
+        <td>@item.Gender</td>
+        <td>@item.Breed</td>
         <td>
             @item.Profile
-        </td>
-        <td>
-            @item.Story
-        </td>
-        <td>
-            @item.Age
         </td>
         <td>
             @String.Format("{0:g}", item.Birthday)
@@ -68,7 +67,10 @@
             @String.Format("{0:g}", item.AdoptedDate)
         </td>
         <td>
-            @item.ThumbnailUrl
+            @item.Thumbnail
+        </td>
+        <td>
+            @item.Image    
         </td>
         <td>
             @item.AdoptionStory

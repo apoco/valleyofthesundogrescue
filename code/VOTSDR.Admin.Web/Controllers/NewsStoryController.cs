@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VOTSDR.Data;
 
 namespace VOTSDR.Admin.Web.Controllers
 {
     public class NewsStoryController : Controller
     {
+
+
+
         //
         // GET: /NewsStory/
 
         public ActionResult Index()
         {
-            var db = new VOTSDR.Data.DataEntities();
-
-            var newsStories = db.NewsStories;
+            var _db = new DataEntities();
+            var newsStories = _db.NewsStories;
             
             return View(newsStories);
         }
@@ -40,16 +43,27 @@ namespace VOTSDR.Admin.Web.Controllers
         // POST: /NewsStory/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(NewsStory newsStory)
         {
+            ViewBag.exMsg = "";
             try
             {
-                // TODO: Add insert logic here
+                if (!ModelState.IsValid) return View();
+
+                // we need to gen the primary key
+                newsStory.NewsStoryId = Guid.NewGuid();
+
+                // Add and Save
+                var _db = new DataEntities();
+                _db.NewsStories.AddObject(newsStory);
+                _db.SaveChanges();
 
                 return RedirectToAction("Index");
+
             }
-            catch
-            {
+            catch(Exception ex)
+            {                
+                ViewBag.exMsg = ex.Message;
                 return View();
             }
         }
@@ -57,47 +71,63 @@ namespace VOTSDR.Admin.Web.Controllers
         //
         // GET: /NewsStory/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            var _db = new DataEntities();
+            var newsStory = _db.NewsStories.FirstOrDefault(n => n.NewsStoryId == id);
+
+            return View(newsStory);
         }
 
         //
         // POST: /NewsStory/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Guid id, FormCollection formValues)
         {
             try
             {
                 // TODO: Add update logic here
+                if (!ModelState.IsValid) return View();
+
+                var _db = new DataEntities();
+                
+                var newsStory = _db.NewsStories.FirstOrDefault(n => n.NewsStoryId == id);
+                UpdateModel(newsStory, formValues);
+                _db.SaveChanges();
  
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
+                ViewBag.exMsg = ex.Message;
                 return View();
             }
         }
 
         //
         // GET: /NewsStory/Delete/5
- 
-        public ActionResult Delete(int id)
+
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            var _db = new DataEntities();
+            var newsStory = _db.NewsStories.FirstOrDefault(n => n.NewsStoryId == id);
+
+            return View(newsStory);
         }
 
         //
         // POST: /NewsStory/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Guid id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
- 
+                var _db = new DataEntities();
+                var newsStory = _db.NewsStories.FirstOrDefault(n => n.NewsStoryId == id);
+                _db.DeleteObject(newsStory);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

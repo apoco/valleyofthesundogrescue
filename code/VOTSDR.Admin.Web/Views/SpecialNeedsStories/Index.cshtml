@@ -1,0 +1,47 @@
+﻿@model IEnumerable<VOTSDR.Data.SpecialNeedsStory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            DateCreated
+        </th>
+        <th>
+            IsFeatured
+        </th>
+        <th>
+            Text
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SpecialNeedsStoryId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SpecialNeedsStoryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SpecialNeedsStoryId })
+        </td>
+        <td>
+            @String.Format("{0:g}", item.DateCreated)
+        </td>
+        <td>
+            @item.IsFeatured
+        </td>
+        <td>
+            @item.Text
+        </td>
+    </tr>
+}
+
+</table>
+

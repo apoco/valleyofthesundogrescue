@@ -111,7 +111,7 @@
           <Property Type="String" Name="Location" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Date" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Date" MaxLength="300" FixedLength="false" Unicode="true" Nullable="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -179,7 +179,7 @@
     <Diagrams>
       <Diagram Name="DataRepository">
         <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="votsdradminModel.NewsStory" Width="1.5" PointX="2.75" PointY="3.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.NewsStory" Width="1.5" PointX="2.5" PointY="3" Height="1.787985026041667" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.SpecialNeedsStory" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.Event" Width="1.5" PointX="2.875" PointY="0.75" Height="1.9802864583333317" />
       </Diagram>

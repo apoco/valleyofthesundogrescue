@@ -1,0 +1,26 @@
+﻿@model VOTSDR.Data.NewsStory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>NewsStory</legend>
+
+    <div class="display-label">Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Date)</div>
+
+    <div class="display-label">Text</div>
+    <div class="display-field">@Model.Text</div>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">@Model.Title</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.NewsStoryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

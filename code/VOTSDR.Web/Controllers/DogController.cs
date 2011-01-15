@@ -49,7 +49,8 @@ namespace VOTSDR.Web.Controllers
                 {
                     Id = dog.DogId,
                     Profile = dog.Profile,
-                    ImageUrl = Url.Action("Thumbnail", new { id = dog.DogId }),
+                    ImageUrl = Url.Action("Image", new { id = dog.DogId }),
+                    ThumbnailUrl = Url.Action("Thumbnail", new { id = dog.DogId }),
                     Name = dog.Name
                 }
             );

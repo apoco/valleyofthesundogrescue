@@ -11,6 +11,7 @@ namespace VOTSDR.Web.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string ImageUrl { get; set; }
+        public string ThumbnailUrl { get; set; }
         public string Profile { get; set; }
     }
 }

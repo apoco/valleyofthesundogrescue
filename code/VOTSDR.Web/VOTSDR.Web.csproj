@@ -90,7 +90,33 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Images\CEAE166A-D08A-4C5F-9071-286F1B0BBBDA.jpg" />
+    <Content Include="Content\images\bg-f-bars.jpg" />
+    <Content Include="Content\images\bg-h-bars.jpg" />
+    <Content Include="Content\images\btn-donate.gif" />
+    <Content Include="Content\images\logo-header.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\nav-h-b-contact.png" />
+    <Content Include="Content\images\nav-h-b-education.png" />
+    <Content Include="Content\images\nav-h-b-news.png" />
+    <Content Include="Content\images\nav-h-b-shop.png" />
+    <Content Include="Content\images\nav-h-b-sponsors.png" />
+    <Content Include="Content\images\nav-h-t-adoptable.png" />
+    <Content Include="Content\images\nav-h-t-home.png" />
+    <Content Include="Content\images\nav-h-t-howtohelp.png" />
+    <Content Include="Content\images\nav-h-t-stories.png" />
+    <Content Include="Content\images\txt-fst-donations.png" />
+    <Content Include="Content\images\txt-fst-dotw.png" />
+    <Content Include="Content\images\txt-fst-times.png" />
+    <Content Include="Content\images\txt-pagetitle.png" />
+    <Content Include="Content\images\txt-pt-adoptable.png" />
+    <Content Include="Content\images\txt-pt-contact.png" />
+    <Content Include="Content\images\txt-pt-education.png" />
+    <Content Include="Content\images\txt-pt-home.png" />
+    <Content Include="Content\images\txt-pt-howtohelp.png" />
+    <Content Include="Content\images\txt-pt-news.png" />
+    <Content Include="Content\images\txt-pt-shop.png" />
+    <Content Include="Content\images\txt-pt-sponsors.png" />
+    <Content Include="Content\images\txt-pt-stories.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -149,7 +175,29 @@
     <Content Include="Views\Dog\SuccessStories.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Content Include="Views\Home\HowToHelp.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Content\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\SponsorsAndLinks.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Shop.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ContactUs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\HowToHelp.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

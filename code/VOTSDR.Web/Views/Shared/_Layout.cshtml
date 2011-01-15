@@ -8,26 +8,26 @@
 </head>
 
 <body>
-        <div id="page" class="home">
+        <div id="page" class="@ViewBag.PageClass">
 		<div id="page-container">
 			<div id="header">
 				<div id="logo"></div>
 				<div id="page-title">About Valley of the Sun Dog Rescue</div>
 				<div id="header-top-nav">
 					<ul>
-						<li>@Html.ActionLink("Home", "Index", "Home", new { @class = "hnav-link-top", id = "hnav-link-home" })</li>
-						<li><a id="hnav-link-adoptable" href="#" class="hnav-link-top">Adoptable Dogs</a></li>
-						<li><a id="hnav-link-stories" href="#" class="hnav-link-top">Happy Tails</a></li>
-						<li><a id="hnav-link-howtohelp" href="#" class="hnav-link-top">How YOU Can Help</a></li>
+						<li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "hnav-link-top", id = "hnav-link-home" })</li>
+						<li>@Html.ActionLink("Adoptable Dogs", "Available", "Dog", null, new { @class = "hnav-link-top", id = "hnav-link-adoptable" })</li>
+						<li>@Html.ActionLink("Happy Tails", "SuccessStories", "Dog", null, new { @class = "hnav-link-top", id = "hnav-link-stories" })</li>
+						<li>@Html.ActionLink("How YOU Can Help", "HowToHelp", "Home", null, new { @class = "hnav-link-top", id = "hnav-link-howtohelp" })</li>
 					</ul>
 				</div>
 				<div id="header-bottom-nav">
 					<ul>
-						<li><a id="hnav-link-news" href="#" class="hnav-link-bottom">News / Events</a></li>
-						<li><a id="hnav-link-education" href="#" class="hnav-link-bottom">Education</a></li>
-						<li><a id="hnav-link-sponsors" href="#" class="hnav-link-bottom">Sponsors / Links</a></li>
-						<li><a id="hnav-link-shop" href="#" class="hnav-link-bottom">Shop</a></li>
-						<li><a id="hnav-link-contact" href="#" class="hnav-link-bottom">Contact Us</a></li>
+						<li>@Html.ActionLink("News / Events", "Index", "News", null, new { @class = "hnav-link-bottom", id = "hnav-link-news" })</li>
+						<li>@Html.ActionLink("Education", "Education", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-education" })</li>
+						<li>@Html.ActionLink("Sponsors / Links", "SponsorsAndLinks", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-sponsors" })</li>
+						<li>@Html.ActionLink("Shop", "Shop", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-shop" })</li>
+						<li>@Html.ActionLink("Contact Us", "ContactUs", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-contact" })</li>
 					</ul>
 				</div>
 			</div>

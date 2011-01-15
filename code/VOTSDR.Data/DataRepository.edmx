@@ -89,7 +89,7 @@
             <PropertyRef Name="NewsStoryId" />
           </Key>
           <Property Name="NewsStoryId" Type="Guid" Nullable="false" />
-          <Property Name="Date" Type="String" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="true" />
           <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
         </EntityType>

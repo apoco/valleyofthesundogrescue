@@ -3,7 +3,10 @@
 
 @model HomeIndexViewModel
          
-@{ ViewBag.Title = "Valley of the Sun Dog Rescue"; }
+@{ 
+   ViewBag.Title = "Valley of the Sun Dog Rescue";
+   ViewBag.PageClass = "home";
+}
 
 @section head {
   <style type="text/css">
@@ -79,7 +82,7 @@
           "NewsAndArticles", 
           new { ArticleId = item.Id },
           new { @class = "title" } )
-        <div class="date">@item.Date.ToShortDateString()</div>
+        <div class="date">@item.Date</div>
         <div class="summary">@item.Summary</div>
         @Html.ActionLink(
           "More Info...",

@@ -1,8 +1,136 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using VOTSDR.Web.Models;
+@model HomeIndexViewModel
+         
+@{ ViewBag.Title = "Valley of the Sun Dog Rescue"; }
+
+@section head {
+  <style type="text/css">
+    .two-column 
+    {
+        position: relative;
+    }
+    
+    .news-and-events
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 250px;
+        margin-right: 20px;
+    }
+    
+    .main-content
+    {
+        margin-left: 270px;
+    }
+    
+    .features
+    {
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .features div
+    {
+        width: 250px;
+        float: left;
+        padding: 20px;
+    }
+    
+    .post-features-content
+    {
+        clear: both;
+    }
+  </style>
 }
 
-<h2>@ViewBag.Message</h2>
+<h2>About Us</h2>
 <p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+  Valley of the Sun Dog Rescue is a no-kill animal shelter and has been a 
+  registered 501(c)3 non-profit organization since the year 2000. We specialize
+  in American Pitbulls and American Staffordshire Terriers, but we accept all
+  breeds into our rescue. 
 </p>
+<p>
+  We are headquartered and operated from our home. We are a family run 
+  organization with the help of foster care providers and volunteers. With this 
+  great working staff we rescue all breeds of dogs that are ill, injured, 
+  maimed, abandoned or simply unwanted. Our dogs are obtained from the various 
+  animal shelters in the area, as well as those animals given up by private 
+  citizens.
+</p>
+
+<div class="two-column">
+
+  <div class="news-and-events">
+    @foreach (var item in Model.NewsAndEvents)
+    {
+      <div class="article">
+        @Html.ActionLink(
+          item.Title,
+          "NewsAndArticles", 
+          new { ArticleId = item.Id },
+          new { @class = "title" } )
+        <div class="date">@item.Date</div>
+        <div class="summary">@item.Summary</div>
+        @Html.ActionLink(
+          "More Info...",
+          "NewsAndArticles", 
+          new { ArticleId = item.Id },
+          new { @class = "more" } )
+      </div>
+    }
+  </div>
+
+  <div class="main-content">
+    
+    <div class="features">
+      <div class="featured-dog">
+        <img src="@Model.FeaturedDogThumbnailUrl" alt="@Model.FeaturedDogName" />
+        <div class="profile">@Model.FeaturedDogProfile</div>
+        <div class="description">@Model.FeaturedDogDescription</div>
+        @Html.ActionLink("See more...", "Available", "Dog");
+      </div>
+
+      <div class="special-need">
+        <img src="@Model.SpecialNeedThumbnailUrl" alt="Special Need" />
+        <div class="description">@Model.SpecialNeedDescription</div>
+      </div>
+    </div>
+
+    <div class="post-features-content">
+      <h2>Our Adoption Process</h2>
+      <p>
+        We hold adoption clinics weekly at various PetSmart pet centers in the 
+        area. Although we specialize in American Pitbull and American 
+        Staffordshire Terriers, all dog breeds in need are accepted with open 
+        arms, treated and evaluated as necessary and adopted to private homes. 
+        Our prospective adopters are required to fill out an in depth adoption 
+        contract, submit to home checks for a period of one year, as well as pay 
+        an adoption fee for the animal. Additionally, there are monetary 
+        penalties that must be agreed to for any mistreatment of the adopted 
+        animal. We also reserve the right to reclaim the animal in the event of 
+        mistreatment. Further, we reserve the right to pursue any individuals for
+        mistreatment or neglect of the adopted animal through the court system or
+        law enforcement agencies. All of the above must be read, intialed and the
+        entire document signed frior to any adoption. We also have additional and
+        specific requirements of the prospective adopters and their families to 
+        adopt a “bully” breed that must be met.
+      </p>
+
+      <h2>Our Philosophy</h2>
+      <p>
+        Valley of the Sun Dog Rescue’s intent is to rescue and save adoptable 
+        dogs. We intend all of our dogs to be adopted out and used as a family 
+        pet or service dog for private individuals or families. We are opposed to
+        any act of cruelty, mistreatment or neglect to an animal. Additionally,
+        we are opposed to the training of animals for Blood Sports such as bull
+        baiting, Pit fighting, etc. These actions are thought of by our rescue as
+        cruel and show a complete disregard for the health and well being of the
+        animal.
+      </p>
+    </div>
+
+  </div>
+</div>

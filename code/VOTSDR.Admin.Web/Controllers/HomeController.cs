@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace VOTSDR.Admin.Web.Controllers
+namespace VOTSDR.Web.Controllers
 {
     public class HomeController : Controller
     {

@@ -17,10 +17,12 @@ namespace VOTSDR.Web.Controllers
                 .FirstOrDefault(d => d.DogId == id);
             if (dog == null)
             {
-                throw new HttpException(404, "Not Found");
+                return HttpNotFound();
             }
-
-            return File(dog.Image, "image/jpeg");
+            else
+            {
+                return File(dog.Image, "image/jpeg");
+            }
         }
 
         public ActionResult Thumbnail(Guid id)
@@ -30,10 +32,12 @@ namespace VOTSDR.Web.Controllers
                 .FirstOrDefault(d => d.DogId == id);
             if (dog == null)
             {
-                throw new HttpException(404, "Not Found");
+                return HttpNotFound();
             }
-
-            return File(dog.Thumbnail, "image/jpeg");
+            else
+            {
+                return File(dog.Thumbnail, "image/jpeg");
+            }
         }
 
         public ActionResult Available()

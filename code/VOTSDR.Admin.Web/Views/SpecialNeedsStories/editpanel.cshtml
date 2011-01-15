@@ -7,7 +7,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>SpecialNeedsStory</legend>
+        <legend>Special Needs Story</legend>
         
         @if (ViewBag.FormType == "Edit") {
             @Html.HiddenFor(model => model.SpecialNeedsStoryId)

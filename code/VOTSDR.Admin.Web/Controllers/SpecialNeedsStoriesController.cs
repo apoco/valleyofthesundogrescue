@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 using VOTSDR.Data;
 
 namespace VOTSDR.Admin.Web.Controllers
@@ -51,6 +52,17 @@ namespace VOTSDR.Admin.Web.Controllers
 
                 // we need to gen the primary key
                 story.SpecialNeedsStoryId = Guid.NewGuid();
+
+
+                if (Request.Files != null & Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase storyImageFile = Request.Files["image"];
+                    if (storyImageFile != null)
+                        story.Image = ImageUtils.GetBytes(storyImageFile.InputStream);
+                }
+
+
+
 
                 // Add and Save
                 var _db = new DataEntities();

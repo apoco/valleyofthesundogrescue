@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 
+using VOTSDR.Utils;
+
 namespace VOTSDR.Admin.Web.Controllers
 {
     public class DogsController : Controller
@@ -59,11 +61,11 @@ namespace VOTSDR.Admin.Web.Controllers
                 {
                     HttpPostedFileBase dogImageFile = Request.Files["dogImage"];
                     if (dogImageFile != null)
-                        dog.Image = GetBytes(dogImageFile.InputStream);
+                        dog.Image = ImageUtils.GetBytes(dogImageFile.InputStream);
 
                     HttpPostedFileBase dogThumbnailFile = Request.Files["dogThumbnail"];
                     if (dogThumbnailFile != null)
-                        dog.Thumbnail = GetBytes(dogThumbnailFile.InputStream);
+                        dog.Thumbnail = ImageUtils.GetBytes(dogThumbnailFile.InputStream);
                 }
 
                 de.Dogs.AddObject(dog);
@@ -74,14 +76,6 @@ namespace VOTSDR.Admin.Web.Controllers
             {
                 return View();
             }
-        }
-
-        private byte[] GetBytes(Stream stream)
-        {
-            long fileLength = stream.Length;
-            Byte[] bits = new byte[fileLength];
-            stream.Read(bits, 0, (int)fileLength);
-            return bits;
         }
 
         //

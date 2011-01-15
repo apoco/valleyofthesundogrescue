@@ -130,12 +130,16 @@
       <Project>{20BCE8E0-1583-406D-886D-D41669D01C06}</Project>
       <Name>VOTSDR.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VOTSDR.Utils\VOTSDR.Utils.csproj">
+      <Project>{439294D1-8FB0-4123-884C-D546CA240751}</Project>
+      <Name>VOTSDR.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Dogs\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-<Content Include="Views\NewsStory\Details.cshtml" />
+    <Content Include="Views\NewsStory\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\NewsStory\Create.cshtml" />
@@ -150,8 +154,8 @@
     <Content Include="Views\NewsStory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-<Content Include="Views\Dogs\Index.cshtml" />
-</ItemGroup>
+    <Content Include="Views\Dogs\Index.cshtml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

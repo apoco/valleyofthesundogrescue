@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<VOTSDR.Data.NewsStory>
+@using VOTSDR.Utils;
 
 @{
     ViewBag.Title = "Index";
@@ -17,25 +18,20 @@
             Date
         </th>
         <th>
-            Text
-        </th>
-        <th>
             Title
         </th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NewsStoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NewsStoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NewsStoryId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.NewsStoryId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.NewsStoryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.NewsStoryId })
         </td>
         <td>
             @String.Format("{0:g}", item.Date)
-        </td>
-        <td>
-            @item.Text
         </td>
         <td>
             @item.Title

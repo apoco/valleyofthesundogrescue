@@ -10,12 +10,35 @@ namespace VOTSDR.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
-
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult HowToHelp()
+        {
+            return View();
+        }
+
+        public ActionResult NewsAndEvents()
+        {
+            return View();
+        }
+
+        public ActionResult Education()
+        {
+            return View();
+        }
+
+        public ActionResult SponsorsAndLinks()
+        {
+            return View();
+        }
+
+        public ActionResult Shop()
+        {
+            return View();
+        }
+
+        public ActionResult ContactUs()
         {
             return View();
         }

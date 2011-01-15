@@ -25,6 +25,7 @@
           <Property Name="ImageUrl" Type="nvarchar" MaxLength="1000" />
           <Property Name="ThumbnailUrl" Type="nvarchar" MaxLength="1000" />
           <Property Name="AdoptionStory" Type="ntext" />
+          <Property Name="DateFeatured" Type="datetime" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -34,6 +35,7 @@
           <Property Name="Location" Type="nvarchar" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Description" Type="ntext" />
+          <Property Name="Date" Type="datetime" />
         </EntityType>
         <EntityType Name="NewsStory">
           <Key>
@@ -42,6 +44,7 @@
           <Property Name="NewsStoryId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Date" Type="datetime" />
           <Property Name="Text" Type="ntext" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="SpecialNeedsStory">
           <Key>
@@ -77,6 +80,7 @@
           <Property Name="ImageUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
           <Property Name="ThumbnailUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
           <Property Name="AdoptionStory" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Type="DateTime" Name="DateFeatured" Nullable="true" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -86,14 +90,16 @@
           <Property Name="Location" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
           <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
         </EntityType>
         <EntityType Name="NewsStory">
           <Key>
             <PropertyRef Name="NewsStoryId" />
           </Key>
           <Property Name="NewsStoryId" Type="Guid" Nullable="false" />
-          <Property Name="Date" Type="DateTime" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
           <Property Name="Text" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Title" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SpecialNeedsStory">
           <Key>
@@ -102,7 +108,7 @@
           <Property Name="SpecialNeedsStoryId" Type="Guid" Nullable="false" />
           <Property Name="ImageUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
           <Property Name="DateCreated" Type="DateTime" />
-          <Property Name="IsFeatured" Type="Boolean" />
+          <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
           <Property Name="Text" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
         </EntityType>
       </Schema>
@@ -112,7 +118,8 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
           <EntitySetMapping Name="Dogs"><EntityTypeMapping TypeName="DatabaseModel.Dog"><MappingFragment StoreEntitySet="Dog">
-            <ScalarProperty Name="DogId" ColumnName="DogId" />
+            <ScalarProperty Name="DateFeatured" ColumnName="DateFeatured" />
+                <ScalarProperty Name="DogId" ColumnName="DogId" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Profile" ColumnName="Profile" />
             <ScalarProperty Name="Story" ColumnName="Story" />
@@ -124,13 +131,15 @@
             <ScalarProperty Name="AdoptionStory" ColumnName="AdoptionStory" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Events"><EntityTypeMapping TypeName="DatabaseModel.Event"><MappingFragment StoreEntitySet="Event">
-            <ScalarProperty Name="EventId" ColumnName="EventId" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
             <ScalarProperty Name="Location" ColumnName="Location" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Description" ColumnName="Description" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="NewsStories"><EntityTypeMapping TypeName="DatabaseModel.NewsStory"><MappingFragment StoreEntitySet="NewsStory">
-            <ScalarProperty Name="NewsStoryId" ColumnName="NewsStoryId" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="NewsStoryId" ColumnName="NewsStoryId" />
             <ScalarProperty Name="Date" ColumnName="Date" />
             <ScalarProperty Name="Text" ColumnName="Text" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>

@@ -1,0 +1,22 @@
+﻿@model System.String
+
+@foreach (var paraContent in Model
+  .Replace("\r\n", "\n")
+  .Split(new[] { "\n\n" }, StringSplitOptions.RemoveEmptyEntries))
+{
+  <p>
+    @{
+      var i = 0;
+      var allLines = paraContent.Split('\n');
+    }
+    @foreach (var line in allLines)
+	  {
+      @line
+
+      if (i < allLines.Length - 1)
+      {
+        <br />
+      }
+	  }
+  </p>
+}

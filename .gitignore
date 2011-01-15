@@ -9,3 +9,6 @@
 /code/VOTSDR.Admin.Web/VOTSDR.Admin.Web.csproj.user
 /code/VOTSDR.Admin.Web/bin
 /code/VOTSDR.Admin.Web/obj
+/code/VOTSDR.Utils/bin
+/code/VOTSDR.Utils/obj
+/code/VOTSDR.Web/App_Data

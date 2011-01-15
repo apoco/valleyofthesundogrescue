@@ -438,6 +438,30 @@ namespace VOTSDR.Data
         private global::System.String _AdoptionStory;
         partial void OnAdoptionStoryChanging(global::System.String value);
         partial void OnAdoptionStoryChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DateFeatured
+        {
+            get
+            {
+                return _DateFeatured;
+            }
+            set
+            {
+                OnDateFeaturedChanging(value);
+                ReportPropertyChanging("DateFeatured");
+                _DateFeatured = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateFeatured");
+                OnDateFeaturedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DateFeatured;
+        partial void OnDateFeaturedChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateFeaturedChanged();
 
         #endregion
     
@@ -457,10 +481,12 @@ namespace VOTSDR.Data
         /// Create a new Event object.
         /// </summary>
         /// <param name="eventId">Initial value of the EventId property.</param>
-        public static Event CreateEvent(global::System.Guid eventId)
+        /// <param name="date">Initial value of the Date property.</param>
+        public static Event CreateEvent(global::System.Guid eventId, global::System.DateTime date)
         {
             Event @event = new Event();
             @event.EventId = eventId;
+            @event.Date = date;
             return @event;
         }
 
@@ -565,6 +591,30 @@ namespace VOTSDR.Data
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private global::System.DateTime _Date;
+        partial void OnDateChanging(global::System.DateTime value);
+        partial void OnDateChanged();
 
         #endregion
     
@@ -584,10 +634,12 @@ namespace VOTSDR.Data
         /// Create a new NewsStory object.
         /// </summary>
         /// <param name="newsStoryId">Initial value of the NewsStoryId property.</param>
-        public static NewsStory CreateNewsStory(global::System.Guid newsStoryId)
+        /// <param name="date">Initial value of the Date property.</param>
+        public static NewsStory CreateNewsStory(global::System.Guid newsStoryId, global::System.DateTime date)
         {
             NewsStory newsStory = new NewsStory();
             newsStory.NewsStoryId = newsStoryId;
+            newsStory.Date = date;
             return newsStory;
         }
 
@@ -624,9 +676,9 @@ namespace VOTSDR.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Date
+        public global::System.DateTime Date
         {
             get
             {
@@ -641,8 +693,8 @@ namespace VOTSDR.Data
                 OnDateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _Date;
-        partial void OnDateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _Date;
+        partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
     
         /// <summary>
@@ -668,6 +720,30 @@ namespace VOTSDR.Data
         private global::System.String _Text;
         partial void OnTextChanging(global::System.String value);
         partial void OnTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
 
         #endregion
     
@@ -687,10 +763,12 @@ namespace VOTSDR.Data
         /// Create a new SpecialNeedsStory object.
         /// </summary>
         /// <param name="specialNeedsStoryId">Initial value of the SpecialNeedsStoryId property.</param>
-        public static SpecialNeedsStory CreateSpecialNeedsStory(global::System.Guid specialNeedsStoryId)
+        /// <param name="isFeatured">Initial value of the IsFeatured property.</param>
+        public static SpecialNeedsStory CreateSpecialNeedsStory(global::System.Guid specialNeedsStoryId, global::System.Boolean isFeatured)
         {
             SpecialNeedsStory specialNeedsStory = new SpecialNeedsStory();
             specialNeedsStory.SpecialNeedsStoryId = specialNeedsStoryId;
+            specialNeedsStory.IsFeatured = isFeatured;
             return specialNeedsStory;
         }
 
@@ -775,9 +853,9 @@ namespace VOTSDR.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsFeatured
+        public global::System.Boolean IsFeatured
         {
             get
             {
@@ -792,8 +870,8 @@ namespace VOTSDR.Data
                 OnIsFeaturedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _IsFeatured;
-        partial void OnIsFeaturedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _IsFeatured;
+        partial void OnIsFeaturedChanging(global::System.Boolean value);
         partial void OnIsFeaturedChanged();
     
         /// <summary>

@@ -1,4 +1,6 @@
 ﻿@using VOTSDR.Web.Models;
+@using VOTSDR.Utils;
+
 @model HomeIndexViewModel
          
 @{ ViewBag.Title = "Valley of the Sun Dog Rescue"; }
@@ -19,6 +21,11 @@
         margin-right: 20px;
     }
     
+    .article
+    {
+        margin-bottom: 1em;
+    }
+    
     .main-content
     {
         margin-left: 270px;
@@ -26,14 +33,14 @@
     
     .features
     {
-        width: 600px;
+        width: 700px;
         margin-left: auto;
         margin-right: auto;
     }
     
     .features div
     {
-        width: 250px;
+        width: 300px;
         float: left;
         padding: 20px;
     }
@@ -72,7 +79,7 @@
           "NewsAndArticles", 
           new { ArticleId = item.Id },
           new { @class = "title" } )
-        <div class="date">@item.Date</div>
+        <div class="date">@item.Date.ToShortDateString()</div>
         <div class="summary">@item.Summary</div>
         @Html.ActionLink(
           "More Info...",
@@ -87,20 +94,25 @@
     
     <div class="features">
       <div class="featured-dog">
+        <h3>Dog of the Week</h3>
         <img src="@Model.FeaturedDogThumbnailUrl" alt="@Model.FeaturedDogName" />
-        <div class="profile">@Model.FeaturedDogProfile</div>
-        <div class="description">@Model.FeaturedDogDescription</div>
-        @Html.ActionLink("See more...", "Available", "Dog");
+        <div class="profile">
+          @Model.FeaturedDogProfile.Summarize()
+        </div>
+        @Html.ActionLink("See more...", "Available", "Dog")
       </div>
 
       <div class="special-need">
+        <h3>Special Needs</h3>
         <img src="@Model.SpecialNeedThumbnailUrl" alt="Special Need" />
-        <div class="description">@Model.SpecialNeedDescription</div>
+        <div class="description">
+          @Html.Partial("TextBlock", Model.SpecialNeedDescription)
+        </div>
       </div>
     </div>
 
     <div class="post-features-content">
-      <h2>Our Adoption Process</h2>
+      <h3>Our Adoption Process</h3>
       <p>
         We hold adoption clinics weekly at various PetSmart pet centers in the 
         area. Although we specialize in American Pitbull and American 
@@ -119,7 +131,7 @@
         adopt a “bully” breed that must be met.
       </p>
 
-      <h2>Our Philosophy</h2>
+      <h3>Our Philosophy</h3>
       <p>
         Valley of the Sun Dog Rescue’s intent is to rescue and save adoptable 
         dogs. We intend all of our dogs to be adopted out and used as a family 

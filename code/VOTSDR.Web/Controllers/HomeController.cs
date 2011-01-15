@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VOTSDR.Web.Models;
+using VOTSDR.Data;
+using VOTSDR.Utils;
 
 namespace VOTSDR.Web.Controllers
 {
@@ -11,32 +13,72 @@ namespace VOTSDR.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View(
-                new HomeIndexViewModel
+            var entities = new DatabaseEntities();
+
+            var news =
+                from article in entities
+                    .NewsStories
+                    .OrderByDescending(s => s.Date)
+                    .Take(10)
+                    .ToList()
+                select new NewsOrEventSummaryViewModel
                 {
-                    FeaturedDogDescription = "Featured dog description",
-                    FeaturedDogName = "Bingo",
-                    FeaturedDogProfile = "Featured dog profile",
-                    FeaturedDogThumbnailUrl = "http://www.dogbreedinfo.com/images18/ChihuahuaViansBigMacAttackMac3.JPG",
+                    Id = article.NewsStoryId,
+                    Date = article.Date,
+                    Title = article.Title,
+                    Summary = article.Text.Summarize(200),
+                };
 
-                    SpecialNeedThumbnailUrl = "http://veterinarianlisting.net/files/2010/03/vet_5.jpg",
-                    SpecialNeedDescription = "This is our special needs",
+            var events =
+                from evt in entities
+                    .Events
+                    .OrderByDescending(e => e.Date)
+                    .Take(10)
+                    .ToList()
+                select new NewsOrEventSummaryViewModel
+                {
+                    Id = evt.EventId,
+                    Date = evt.Date,
+                    Title = evt.Name,
+                    Summary = evt.Description.Summarize(200),
+                };
 
-                    NewsAndEvents = new List<NewsOrEventSummaryViewModel>
-                    {
-                        new NewsOrEventSummaryViewModel { 
-                            Date = new DateTime(2011, 02, 15),
-                            Title = "Arizona Pitbulls Something",
-                            Summary = "Bunch of news",
-                        },
-                        new NewsOrEventSummaryViewModel {
-                            Date = new DateTime(2011, 01, 01),
-                            Title = "So and so blah blah",
-                            Summary = "Here's what's going on...",
-                        },
-                    },
-                }
-            );
+            var viewData = new HomeIndexViewModel
+            {
+                NewsAndEvents = news
+                    .Concat(events)
+                    .OrderByDescending(i => i.Date),
+            };
+
+            // Load the latest featured dog
+            var featuredDog = entities
+                .Dogs
+                .OrderByDescending(d => d.DateFeatured)
+                .Where(d => d.DateFeatured.HasValue)
+                .FirstOrDefault();
+            if (featuredDog != null)
+            {
+                viewData.FeaturedDogThumbnailUrl = Url.Action(
+                    "Image", "Image", 
+                    new { id = featuredDog.ThumbnailUrl } );
+                viewData.FeaturedDogName = featuredDog.Name;
+                viewData.FeaturedDogProfile = featuredDog.Profile;
+            }
+
+            var featuredNeed = entities
+                .SpecialNeedsStories
+                .Where(s => s.IsFeatured)
+                .OrderByDescending(s => s.DateCreated)
+                .FirstOrDefault();
+            if (featuredNeed != null)
+            {
+                viewData.SpecialNeedThumbnailUrl =Url.Action(
+                    "Image", "Image",
+                    new { id = featuredNeed.ImageUrl });
+                viewData.SpecialNeedDescription = featuredNeed.Text;
+            }
+
+            return View(viewData);
         }
 
         public ActionResult HowToHelp()

@@ -43,9 +43,9 @@
             <PropertyRef Name="NewsStoryId" />
           </Key>
           <Property Name="NewsStoryId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Date" Type="datetime" />
           <Property Name="Text" Type="ntext" />
           <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="SpecialNeedsStory">
           <Key>
@@ -89,7 +89,7 @@
             <PropertyRef Name="NewsStoryId" />
           </Key>
           <Property Name="NewsStoryId" Type="Guid" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="false" />
           <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
         </EntityType>

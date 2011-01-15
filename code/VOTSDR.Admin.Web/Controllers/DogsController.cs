@@ -57,8 +57,13 @@ namespace VOTSDR.Admin.Web.Controllers
 
                 if (Request.Files != null & Request.Files.Count > 0)
                 {
-                    if (Request.files
-                    dog.Image = GetBytes(Request.Files["dogImage"].InputStream);
+                    HttpPostedFileBase dogImageFile = Request.Files["dogImage"];
+                    if (dogImageFile != null)
+                        dog.Image = GetBytes(dogImageFile.InputStream);
+
+                    HttpPostedFileBase dogThumbnailFile = Request.Files["dogThumbnail"];
+                    if (dogThumbnailFile != null)
+                        dog.Thumbnail = GetBytes(dogThumbnailFile.InputStream);
                 }
 
                 de.Dogs.AddObject(dog);

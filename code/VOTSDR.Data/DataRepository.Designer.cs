@@ -657,7 +657,7 @@ namespace VOTSDR.Data
         /// </summary>
         /// <param name="newsStoryId">Initial value of the NewsStoryId property.</param>
         /// <param name="date">Initial value of the Date property.</param>
-        public static NewsStory CreateNewsStory(global::System.Guid newsStoryId, global::System.DateTime date)
+        public static NewsStory CreateNewsStory(global::System.Guid newsStoryId, global::System.String date)
         {
             NewsStory newsStory = new NewsStory();
             newsStory.NewsStoryId = newsStoryId;
@@ -700,7 +700,7 @@ namespace VOTSDR.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime Date
+        public global::System.String Date
         {
             get
             {
@@ -710,13 +710,13 @@ namespace VOTSDR.Data
             {
                 OnDateChanging(value);
                 ReportPropertyChanging("Date");
-                _Date = StructuralObject.SetValidValue(value);
+                _Date = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Date");
                 OnDateChanged();
             }
         }
-        private global::System.DateTime _Date;
-        partial void OnDateChanging(global::System.DateTime value);
+        private global::System.String _Date;
+        partial void OnDateChanging(global::System.String value);
         partial void OnDateChanged();
     
         /// <summary>

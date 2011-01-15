@@ -3,40 +3,37 @@ The base color for this template is #5c87b2. If you'd like
 to use a different color start by replacing all instances of
 #5c87b2 with your new color.
 ----------------------------------------------------------*/
-body
+*, html, body, div, p, li
 {
-    background-color: #5c87b2;
-    font-size: 75%;
-    font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
-    margin: 0;
-    padding: 0;
-    color: #696969;
+	margin: 0;
+	padding: 0;
+	font-family: tahoma, sans-serif;
+}
+
+a
+{
+	color: #9f282f;
 }
 
 a:link
 {
-    color: #034af3;
+    color: #9f282f;
     text-decoration: underline;
 }
 a:visited
 {
-    color: #505abc;
+    color: #fd8a36;
 }
 a:hover
 {
-    color: #1d60ff;
+    color: #fd8a36;
     text-decoration: none;
 }
 a:active
 {
-    color: #12eb87;
+    color: #fd8a36;
 }
 
-p, ul
-{
-    margin-bottom: 20px;
-    line-height: 1.6em;
-}
 
 /* HEADINGS   
 ----------------------------------------------------------*/
@@ -78,52 +75,6 @@ first child of the left and right table columns */
 
 /* PRIMARY LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
-
-/* you can specify a greater or lesser percentage for the 
-page width. Or, you can specify an exact pixel width. */
-.page
-{
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#header
-{
-    position: relative;
-    margin-bottom: 0px;
-    color: #000;
-    padding: 0;
-}
-
-#header h1
-{
-    font-weight: bold;
-    padding: 5px 0;
-    margin: 0;
-    color: #fff;
-    border: none;
-    line-height: 2em;
-    font-size: 32px !important;
-}
-
-#main
-{
-    padding: 30px 30px 15px 30px;
-    background-color: #fff;
-    margin-bottom: 30px;
-    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
-}
-
-#footer
-{
-    color: #999;
-    padding: 10px 0;
-    text-align: center;
-    line-height: normal;
-    margin: 0;
-    font-size: .9em;
-}
 
 /* TAB MENU   
 ----------------------------------------------------------*/
@@ -342,4 +293,430 @@ div#title
 .tri-state
 {
     width: 6em;
+}
+
+/* === _Layout HEADER and FOOTER ================== */
+
+#page
+{
+	width: 100%;
+	height: 100%;
+	background: #fffdc1 url(images/bg-h-bars.jpg) repeat-x 50% 38px;
+}
+
+#page-container
+{
+	width: 1024px;
+	margin: 0 auto;
+	height: 100%;
+	background: #fff;
+	position: relative;
+	z-index: 1;
+}
+
+#header
+{
+	width: 1024px;
+	height: 130px;
+	background: #fff url(images/bg-h-bars.jpg) repeat-x 0 38px;
+	position: relative;
+}
+
+#header ul
+{
+	list-style:none;
+}
+
+.hnav-link-top
+{
+	height: 28px;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	position: absolute;
+	overflow:hidden;
+	text-indent: -900em;
+}
+
+.hnav-link-bottom
+{
+	height: 21px;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	position: absolute;
+	overflow:hidden;
+	text-indent: -900em;
+}
+
+.home #hnav-link-home,
+.adoptable #hnav-link-adoptable,
+.stories #hnav-link-stories,
+.howtohelp #hnav-link-howtohelp
+{
+	background-position: 0 -28px;
+	cursor: default !important;
+}
+
+.news #hnav-link-news,
+.education #hnav-link-education,
+.sponsors #hnav-link-sponsors,
+.shop #hnav-link-shop,
+.contact #hnav-link-contact
+{
+	background-position: 0 -21px;
+	cursor: default !important;
+}
+
+.hnav-link-top:hover
+{
+	background-position: 0 -56px;
+}
+
+.hnav-link-bottom:hover
+{
+	background-position: 0 -42px;
+}
+
+#hnav-link-home
+{
+	width: 62px;
+	background-image: url(images/nav-h-t-home.png);
+	top: 9px;
+	left: 242px;
+}
+
+#hnav-link-adoptable
+{
+	width: 155px;
+	background-image: url(images/nav-h-t-adoptable.png);
+	top: 9px;
+	left: 324px;
+}
+
+#hnav-link-stories
+{
+	width: 112px;
+	background-image: url(images/nav-h-t-stories.png);
+	top: 9px;
+	left: 494px;
+}
+
+#hnav-link-howtohelp
+{
+	width: 172px;
+	background-image: url(images/nav-h-t-howtohelp.png);
+	top: 9px;
+	left: 620px;
+}
+
+#hnav-link-news
+{
+	width: 121px;
+	background-image: url(images/nav-h-b-news.png);
+	top: 109px;
+	left: 557px;
+}
+
+#hnav-link-education
+{
+	width: 75px;
+	background-image: url(images/nav-h-b-education.png);
+	top: 109px;
+	left: 671px;
+}
+
+#hnav-link-education
+{
+	width: 75px;
+	background-image: url(images/nav-h-b-education.png);
+	top: 109px;
+	left: 671px;
+}
+
+#hnav-link-sponsors
+{
+	width: 115px;
+	background-image: url(images/nav-h-b-sponsors.png);
+	top: 109px;
+	left: 756px;
+}
+
+#hnav-link-shop
+{
+	width: 41px;
+	background-image: url(images/nav-h-b-shop.png);
+	top: 109px;
+	left: 882px;
+}
+
+#hnav-link-contact
+{
+	width: 80px;
+	background-image: url(images/nav-h-b-contact.png);
+	top: 109px;
+	left: 929px;
+}
+
+#logo
+{
+	width: 201px;
+	height: 131px;
+	background: transparent url(images/logo-header.png) no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#page-title
+{
+	position: absolute;
+	top: 70px;
+	left: 195px;
+	height: 40px;
+	width: 542px;
+	overflow: hidden;
+	text-indent: -900em;
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
+.home #page-title,
+.adoptable #page-title,
+.stories #page-title,
+.howtohelp #page-title,
+.news #page-title,
+.education #page-title,
+.sponsors #page-title,
+.shop #page-title,
+.contact #page-title
+{
+	cursor: move !important;
+}
+
+.home #page-title
+{
+	background-image: url(images/txt-pt-home.png);
+}
+
+.adoptable #page-title
+{
+	background-image: url(images/txt-pt-adoptable.png);
+}
+
+.stories #page-title
+{
+	background-image: url(images/txt-pt-stories.png);
+}
+
+.howtohelp #page-title
+{
+	background-image: url(images/txt-pt-howtohelp.png);
+}
+
+.news #page-title
+{
+	background-image: url(images/txt-pt-education.png);
+}
+
+.education #page-title
+{
+	background-image: url(images/txt-pt-education.png);
+}
+
+.sponsors #page-title
+{
+	background-image: url(images/txt-pt-sponsors.png);
+}
+
+.shop #page-title
+{
+	background-image: url(images/txt-pt-shop.png);
+}
+
+.contact #page-title
+{
+	background-image: url(images/txt-pt-contact.png);
+}
+
+#content-wrapper
+{
+	width: 1024px;
+	min-height: 400px;
+}
+#content
+{
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+}
+
+#footer
+{
+	height: 170px;
+	width: 1024px;
+	background: transparent url(images/bg-f-bars.jpg) repeat-x 0 0;
+	position: relative;
+}
+
+#footer-nav ul
+{
+	list-style: none;
+}
+
+#footer-nav
+{
+	clear: both;
+	margin-left: 20px;
+}
+
+.fnav-link
+{
+	color: #9f282f;
+	display: block;
+	float: left;
+	position: relative;
+	top: 0;
+	padding: 0 7px;
+	border-right: 2px solid #fd8a36;
+	text-decoration: none;
+	font-size: 10pt;
+}
+.fnav-link.first
+{
+	padding-left:0;
+}
+.fnav-link.last
+{
+	border-right: none;
+}
+
+.footer-section
+{
+	height: 110px;
+	float: left;
+	margin-bottom: 15px;
+	margin-top: 10px;
+}
+.footer-section p
+{
+	padding-bottom: 7px;
+}
+
+#fst-donations,
+#fst-locations,
+#fst-dotw
+{
+	display: block;
+	overflow: hidden;
+	text-indent: -900em;
+	height: 30px;
+}
+
+
+#footer-donations
+{
+	width: 320px;
+	border-right: 2px solid #9f282f;
+	margin-right: 10px;
+	margin-left: 20px;
+	padding: 0 20px 0 0;
+	font-size: 14px;
+	position: relative;
+}
+
+#fst-donations
+{
+	width: 210px;
+	background: transparent url(images/txt-fst-donations.png) no-repeat -5px -5px;
+}
+#link-paypal
+{
+	background: transparent url(images/btn-donate.gif) no-repeat 0 0;
+	display: block;
+	position: absolute;
+	right: 25px;
+	top: 68px;
+	overflow: hidden;
+	text-indent: -900em;
+	height: 21px;
+	width: 74px;
+}
+
+#footer-locations
+{
+	width: 315px;
+	border-right: 2px solid #9f282f;
+	margin-right: 10px;
+	margin-left: 20px;
+	font-size: 14px;
+	padding: 0 20px 0 0;
+}
+
+#fs-location,
+#fs-times
+{
+	float: left;
+}
+#fs-location
+{
+	margin-right: 20px;
+}
+
+#fst-locations
+{
+	width: 320px;
+	background: transparent url(images/txt-fst-times.png) no-repeat -5px -5px;
+}
+
+#footer-dotw
+{
+	width: 250px;
+	margin-right: 10px;
+	margin-left: 20px;
+	clear: right;
+	font-size: 14px;
+}
+
+#fst-dotw
+{
+	width: 320px;
+	background: transparent url(images/txt-fst-dotw.png) no-repeat -5px -5px;
+}
+#fs-dotw-details
+{
+	float: left;
+}
+#fs-dotw-details-name
+{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+#fs-dotw-details-link
+{
+	font-weight: bold;
+}
+
+#fs-dotw-thumb
+{
+	height: 70px;
+	width: 70px;
+	border: 4px solid #fff;
+	float: left;
+	margin-right: 10px;
+	background-color: #9f282f;
+}
+#fs-dotw-thumb a
+{
+	border: none;
+	color: #fff;
+}
+
+#footerbkg
+{
+	width: 300%;
+	height: 180px;
+	background: transparent url(images/bg-f-bars.jpg) repeat-x 25% 0;
+	position: absolute;
+	top:0;
+	left: -50%;
+	z-index: -1;
 }

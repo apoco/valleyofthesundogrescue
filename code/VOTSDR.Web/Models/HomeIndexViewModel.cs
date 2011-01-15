@@ -14,7 +14,7 @@ namespace VOTSDR.Web.Models
         public string FeaturedDogDescription { get; set; }
         public string FeaturedDogProfile { get; set; }
 
-        public byte[] SpecialNeedThumbnail { get; set; }
+        public string SpecialNeedThumbnailUrl { get; set; }
         public string SpecialNeedDescription { get; set; }
 
         public IEnumerable<NewsOrEventSummaryViewModel> NewsAndEvents { get; set; }

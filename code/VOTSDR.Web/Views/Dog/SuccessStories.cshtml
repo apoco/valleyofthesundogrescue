@@ -1,0 +1,15 @@
+﻿@using VOTSDR.Web.Models
+@model IEnumerable<SuccessStoryViewModel>
+@{
+    ViewBag.Title = "SuccessStories";
+}
+
+@section head { }
+
+<h2>Happy Tails</h2>
+
+@foreach (var story in Model)
+{
+  <img src="@story.ImageUrl" alt="@story.DogName" />
+  @Html.Partial("TextBlock", story.Story)
+}

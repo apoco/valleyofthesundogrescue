@@ -31,8 +31,6 @@ namespace VOTSDR.Web
 
         protected void Application_Start()
         {
-            AppDomain.CurrentDomain.SetData("SQLServerCompactEditionUnderWebHosting", true);
-
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);

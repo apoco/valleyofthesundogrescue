@@ -12,6 +12,8 @@ namespace VOTSDR.Utils
     {
         public static string Summarize(this string str, int? charLimit = null)
         {
+            str = str ?? string.Empty;
+
             // Get the first "paragraph" of text
             var result = str.Replace("\r\n", "\n");
             var paraEnd = result.IndexOf("\n\n");

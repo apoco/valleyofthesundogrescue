@@ -10,6 +10,32 @@ namespace VOTSDR.Web.Controllers
 {
     public class DogController : Controller
     {
+        public ActionResult Image(Guid id)
+        {
+            var dog = new DataEntities()
+                .Dogs
+                .FirstOrDefault(d => d.DogId == id);
+            if (dog == null)
+            {
+                throw new HttpException(404, "Not Found");
+            }
+
+            return File(dog.Image, "image/jpeg");
+        }
+
+        public ActionResult Thumbnail(Guid id)
+        {
+            var dog = new DataEntities()
+                .Dogs
+                .FirstOrDefault(d => d.DogId == id);
+            if (dog == null)
+            {
+                throw new HttpException(404, "Not Found");
+            }
+
+            return File(dog.Thumbnail, "image/jpeg");
+        }
+
         public ActionResult Available()
         {
             var dogs = new List<Dog>(
@@ -23,8 +49,7 @@ namespace VOTSDR.Web.Controllers
                 {
                     Id = dog.DogId,
                     Profile = dog.Profile,
-                    //ImageUrl = Url.Action(
-                    //    "Image", "Image", new { id = dog.ThumbnailUrl } ),
+                    ImageUrl = Url.Action("Thumbnail", new { id = dog.DogId }),
                     Name = dog.Name
                 }
             );
@@ -32,7 +57,22 @@ namespace VOTSDR.Web.Controllers
 
         public ActionResult SuccessStories()
         {
-            return View();
+            var dogs = (
+                from dog in new DataEntities().Dogs
+                where dog.AdoptedDate.HasValue
+                orderby dog.AdoptedDate descending
+                select new { dog.Name, dog.DogId, dog.AdoptionStory }
+            ).ToList();
+
+            return View(
+                from dog in dogs
+                select new SuccessStoryViewModel
+                {
+                    DogName = dog.Name,
+                    ImageUrl = Url.Action("Thumbnail", new { id = dog.DogId }),
+                    Story = dog.AdoptionStory,
+                }
+            );
         }
     }
 }

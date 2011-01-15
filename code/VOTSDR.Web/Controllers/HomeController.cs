@@ -59,9 +59,9 @@ namespace VOTSDR.Web.Controllers
             if (featuredDog != null)
             {
                 viewData.FeaturedDogId = featuredDog.DogId;
-                //viewData.FeaturedDogThumbnailUrl = Url.Action(
-                //    "Image", "Image", 
-                //    new { id = featuredDog.ThumbnailUrl } );
+                viewData.FeaturedDogThumbnailUrl = Url.Action(
+                    "Thumbnail", "Dog",
+                    new { id = featuredDog.DogId });
                 viewData.FeaturedDogName = featuredDog.Name;
                 viewData.FeaturedDogProfile = featuredDog.Profile;
             }
@@ -77,6 +77,10 @@ namespace VOTSDR.Web.Controllers
                     "Image", "Image",
                     new { id = featuredNeed.Image });*/
                 viewData.SpecialNeedDescription = featuredNeed.Text;
+            }
+            else
+            {
+                viewData.SpecialNeedDescription = string.Empty;
             }
 
             return View(viewData);

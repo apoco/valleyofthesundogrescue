@@ -79,14 +79,14 @@
       <div class="article">
         @Html.ActionLink(
           item.Title,
-          "NewsAndArticles", 
+          "Index", "News",
           new { ArticleId = item.Id },
           new { @class = "title" } )
         <div class="date">@item.Date</div>
         <div class="summary">@item.Summary</div>
         @Html.ActionLink(
           "More Info...",
-          "NewsAndArticles", 
+          "Index", "News",
           new { ArticleId = item.Id },
           new { @class = "more" } )
       </div>

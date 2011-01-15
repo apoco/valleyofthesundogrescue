@@ -10,6 +10,32 @@ namespace VOTSDR.Web.Controllers
 {
     public class DogController : Controller
     {
+        public ActionResult Image(Guid id)
+        {
+            var dog = new DataEntities()
+                .Dogs
+                .FirstOrDefault(d => d.DogId == id);
+            if (dog == null)
+            {
+                throw new HttpException(404, "Not Found");
+            }
+
+            return File(dog.Image, "image/jpeg");
+        }
+
+        public ActionResult Image(Guid id)
+        {
+            var dog = new DataEntities()
+                .Dogs
+                .FirstOrDefault(d => d.DogId == id);
+            if (dog == null)
+            {
+                throw new HttpException(404, "Not Found");
+            }
+
+            return File(dog.ThumbnailUrl, "image/jpeg");
+        }
+
         public ActionResult Available()
         {
             var dogs = new List<Dog>(
@@ -24,7 +50,7 @@ namespace VOTSDR.Web.Controllers
                     Id = dog.DogId,
                     Profile = dog.Profile,
                     ImageUrl = Url.Action(
-                        "Image", "Image", new { id = dog.ThumbnailUrl } ),
+                        "Image", "Dog", new { id = dog.DogId } ),
                     Name = dog.Name
                 }
             );

@@ -92,7 +92,9 @@
   <ItemGroup>
     <Content Include="App_Data\Images\CEAE166A-D08A-4C5F-9071-286F1B0BBBDA.jpg" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

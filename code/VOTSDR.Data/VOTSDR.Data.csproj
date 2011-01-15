@@ -95,7 +95,6 @@
   <ItemGroup>
     <None Include="App.Config">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <EntityDeploy Include="DataRepository.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

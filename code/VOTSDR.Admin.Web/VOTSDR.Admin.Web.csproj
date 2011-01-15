@@ -135,8 +135,7 @@
     <Content Include="Views\Dogs\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Content Include="Views\NewsStory\Details.cshtml" />
+<Content Include="Views\NewsStory\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\NewsStory\Create.cshtml" />
@@ -149,10 +148,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\NewsStory\Index.cshtml" />
-=======
-    <Content Include="Views\Dogs\Index.cshtml" />
->>>>>>> c3aa1e52f561b8d96af94155ca749fbcd95a444e
   </ItemGroup>
+  <ItemGroup>
+<Content Include="Views\Dogs\Index.cshtml" />
+</ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

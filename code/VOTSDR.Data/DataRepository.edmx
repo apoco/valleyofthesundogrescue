@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="DatabaseModelStoreContainer">
-          <EntitySet Name="Dog" EntityType="DatabaseModel.Store.Dog" store:Type="Tables" />
-          <EntitySet Name="Event" EntityType="DatabaseModel.Store.Event" store:Type="Tables" />
-          <EntitySet Name="NewsStory" EntityType="DatabaseModel.Store.NewsStory" store:Type="Tables" />
-          <EntitySet Name="SpecialNeedsStory" EntityType="DatabaseModel.Store.SpecialNeedsStory" store:Type="Tables" />
+      <Schema Namespace="votsdradminModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="votsdradminModelStoreContainer">
+          <EntitySet Name="Dog" EntityType="votsdradminModel.Store.Dog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Event" EntityType="votsdradminModel.Store.Event" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NewsStory" EntityType="votsdradminModel.Store.NewsStory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SpecialNeedsStory" EntityType="votsdradminModel.Store.SpecialNeedsStory" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="Dog">
           <Key>
@@ -22,7 +22,7 @@
           <Property Name="Age" Type="nvarchar" MaxLength="100" />
           <Property Name="Birthday" Type="datetime" />
           <Property Name="AdoptedDate" Type="datetime" />
-          <Property Name="ImageUrl" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Image" Type="varbinary(max)" />
           <Property Name="ThumbnailUrl" Type="nvarchar" MaxLength="1000" />
           <Property Name="AdoptionStory" Type="ntext" />
           <Property Name="DateFeatured" Type="datetime" />
@@ -51,20 +51,21 @@
             <PropertyRef Name="SpecialNeedsStoryId" />
           </Key>
           <Property Name="SpecialNeedsStoryId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ImageUrl" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Image" Type="varbinary(max)" />
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="IsFeatured" Type="bit" />
           <Property Name="Text" Type="ntext" />
         </EntityType>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Dogs" EntityType="DatabaseModel.Dog" />
-          <EntitySet Name="Events" EntityType="DatabaseModel.Event" />
-          <EntitySet Name="NewsStories" EntityType="DatabaseModel.NewsStory" />
-          <EntitySet Name="SpecialNeedsStories" EntityType="DatabaseModel.SpecialNeedsStory" />
+      <Schema Namespace="votsdradminModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dogs" EntityType="votsdradminModel.Dog" />
+          <EntitySet Name="Events" EntityType="votsdradminModel.Event" />
+          <EntitySet Name="NewsStories" EntityType="votsdradminModel.NewsStory" />
+          <EntitySet Name="SpecialNeedsStories" EntityType="votsdradminModel.SpecialNeedsStory" />
         </EntityContainer>
         <EntityType Name="Dog">
           <Key>
@@ -72,15 +73,15 @@
           </Key>
           <Property Name="DogId" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Profile" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
-          <Property Name="Story" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="Profile" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Story" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Age" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Birthday" Type="DateTime" />
           <Property Name="AdoptedDate" Type="DateTime" />
-          <Property Name="ImageUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ThumbnailUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
-          <Property Name="AdoptionStory" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
-          <Property Type="DateTime" Name="DateFeatured" Nullable="true" />
+          <Property Name="AdoptionStory" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DateFeatured" Type="DateTime" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -89,8 +90,8 @@
           <Property Name="EventId" Type="Guid" Nullable="false" />
           <Property Name="Location" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
           <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
-          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="NewsStory">
           <Key>
@@ -98,54 +99,54 @@
           </Key>
           <Property Name="NewsStoryId" Type="Guid" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" />
-          <Property Name="Text" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
-          <Property Type="String" Name="Title" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="SpecialNeedsStory">
           <Key>
             <PropertyRef Name="SpecialNeedsStoryId" />
           </Key>
           <Property Name="SpecialNeedsStoryId" Type="Guid" Nullable="false" />
-          <Property Name="ImageUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="DateCreated" Type="DateTime" />
           <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
-          <Property Name="Text" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
-          <EntitySetMapping Name="Dogs"><EntityTypeMapping TypeName="DatabaseModel.Dog"><MappingFragment StoreEntitySet="Dog">
-            <ScalarProperty Name="DateFeatured" ColumnName="DateFeatured" />
-                <ScalarProperty Name="DogId" ColumnName="DogId" />
+        <EntityContainerMapping StorageEntityContainer="votsdradminModelStoreContainer" CdmEntityContainer="DataEntities">
+          <EntitySetMapping Name="Dogs"><EntityTypeMapping TypeName="votsdradminModel.Dog"><MappingFragment StoreEntitySet="Dog">
+            <ScalarProperty Name="DogId" ColumnName="DogId" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Profile" ColumnName="Profile" />
             <ScalarProperty Name="Story" ColumnName="Story" />
             <ScalarProperty Name="Age" ColumnName="Age" />
             <ScalarProperty Name="Birthday" ColumnName="Birthday" />
             <ScalarProperty Name="AdoptedDate" ColumnName="AdoptedDate" />
-            <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+            <ScalarProperty Name="Image" ColumnName="Image" />
             <ScalarProperty Name="ThumbnailUrl" ColumnName="ThumbnailUrl" />
             <ScalarProperty Name="AdoptionStory" ColumnName="AdoptionStory" />
+            <ScalarProperty Name="DateFeatured" ColumnName="DateFeatured" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Events"><EntityTypeMapping TypeName="DatabaseModel.Event"><MappingFragment StoreEntitySet="Event">
-            <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <EntitySetMapping Name="Events"><EntityTypeMapping TypeName="votsdradminModel.Event"><MappingFragment StoreEntitySet="Event">
+            <ScalarProperty Name="EventId" ColumnName="EventId" />
             <ScalarProperty Name="Location" ColumnName="Location" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="NewsStories"><EntityTypeMapping TypeName="DatabaseModel.NewsStory"><MappingFragment StoreEntitySet="NewsStory">
-            <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="NewsStoryId" ColumnName="NewsStoryId" />
+          <EntitySetMapping Name="NewsStories"><EntityTypeMapping TypeName="votsdradminModel.NewsStory"><MappingFragment StoreEntitySet="NewsStory">
+            <ScalarProperty Name="NewsStoryId" ColumnName="NewsStoryId" />
             <ScalarProperty Name="Date" ColumnName="Date" />
             <ScalarProperty Name="Text" ColumnName="Text" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SpecialNeedsStories"><EntityTypeMapping TypeName="DatabaseModel.SpecialNeedsStory"><MappingFragment StoreEntitySet="SpecialNeedsStory">
+          <EntitySetMapping Name="SpecialNeedsStories"><EntityTypeMapping TypeName="votsdradminModel.SpecialNeedsStory"><MappingFragment StoreEntitySet="SpecialNeedsStory">
             <ScalarProperty Name="SpecialNeedsStoryId" ColumnName="SpecialNeedsStoryId" />
-            <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+            <ScalarProperty Name="Image" ColumnName="Image" />
             <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
             <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
             <ScalarProperty Name="Text" ColumnName="Text" />
@@ -171,10 +172,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="DataRepository">
-        <EntityTypeShape EntityType="DatabaseModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Event" Width="1.5" PointX="2.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.NewsStory" Width="1.5" PointX="2.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.SpecialNeedsStory" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.Event" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.NewsStory" Width="1.5" PointX="2.75" PointY="3.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.SpecialNeedsStory" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

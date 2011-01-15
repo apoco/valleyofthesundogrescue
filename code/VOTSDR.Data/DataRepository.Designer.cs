@@ -24,32 +24,32 @@ namespace VOTSDR.Data
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class DatabaseEntities : ObjectContext
+    public partial class DataEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new DatabaseEntities object using the connection string found in the 'DatabaseEntities' section of the application configuration file.
+        /// Initializes a new DataEntities object using the connection string found in the 'DataEntities' section of the application configuration file.
         /// </summary>
-        public DatabaseEntities() : base("name=DatabaseEntities", "DatabaseEntities")
+        public DataEntities() : base("name=DataEntities", "DataEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new DatabaseEntities object.
+        /// Initialize a new DataEntities object.
         /// </summary>
-        public DatabaseEntities(string connectionString) : base(connectionString, "DatabaseEntities")
+        public DataEntities(string connectionString) : base(connectionString, "DataEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new DatabaseEntities object.
+        /// Initialize a new DataEntities object.
         /// </summary>
-        public DatabaseEntities(EntityConnection connection) : base(connection, "DatabaseEntities")
+        public DataEntities(EntityConnection connection) : base(connection, "DataEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -175,7 +175,7 @@ namespace VOTSDR.Data
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DatabaseModel", Name="Dog")]
+    [EdmEntityTypeAttribute(NamespaceName="votsdradminModel", Name="Dog")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Dog : EntityObject
@@ -372,24 +372,24 @@ namespace VOTSDR.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String ImageUrl
+        public global::System.Byte[] Image
         {
             get
             {
-                return _ImageUrl;
+                return StructuralObject.GetValidValue(_Image);
             }
             set
             {
-                OnImageUrlChanging(value);
-                ReportPropertyChanging("ImageUrl");
-                _ImageUrl = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ImageUrl");
-                OnImageUrlChanged();
+                OnImageChanging(value);
+                ReportPropertyChanging("Image");
+                _Image = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Image");
+                OnImageChanged();
             }
         }
-        private global::System.String _ImageUrl;
-        partial void OnImageUrlChanging(global::System.String value);
-        partial void OnImageUrlChanged();
+        private global::System.Byte[] _Image;
+        partial void OnImageChanging(global::System.Byte[] value);
+        partial void OnImageChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -470,7 +470,7 @@ namespace VOTSDR.Data
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DatabaseModel", Name="Event")]
+    [EdmEntityTypeAttribute(NamespaceName="votsdradminModel", Name="Event")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Event : EntityObject
@@ -623,7 +623,7 @@ namespace VOTSDR.Data
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DatabaseModel", Name="NewsStory")]
+    [EdmEntityTypeAttribute(NamespaceName="votsdradminModel", Name="NewsStory")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class NewsStory : EntityObject
@@ -752,7 +752,7 @@ namespace VOTSDR.Data
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DatabaseModel", Name="SpecialNeedsStory")]
+    [EdmEntityTypeAttribute(NamespaceName="votsdradminModel", Name="SpecialNeedsStory")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class SpecialNeedsStory : EntityObject
@@ -807,24 +807,24 @@ namespace VOTSDR.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String ImageUrl
+        public global::System.Byte[] Image
         {
             get
             {
-                return _ImageUrl;
+                return StructuralObject.GetValidValue(_Image);
             }
             set
             {
-                OnImageUrlChanging(value);
-                ReportPropertyChanging("ImageUrl");
-                _ImageUrl = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ImageUrl");
-                OnImageUrlChanged();
+                OnImageChanging(value);
+                ReportPropertyChanging("Image");
+                _Image = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Image");
+                OnImageChanged();
             }
         }
-        private global::System.String _ImageUrl;
-        partial void OnImageUrlChanging(global::System.String value);
-        partial void OnImageUrlChanged();
+        private global::System.Byte[] _Image;
+        partial void OnImageChanging(global::System.Byte[] value);
+        partial void OnImageChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

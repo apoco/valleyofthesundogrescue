@@ -13,7 +13,7 @@ namespace VOTSDR.Web.Controllers
     {
         public ActionResult Index()
         {
-            var entities = new DatabaseEntities();
+            var entities = new DataEntities();
 
             var news =
                 from article in entities
@@ -73,9 +73,9 @@ namespace VOTSDR.Web.Controllers
                 .FirstOrDefault();
             if (featuredNeed != null)
             {
-                viewData.SpecialNeedThumbnailUrl =Url.Action(
+                /*viewData.SpecialNeedThumbnail =Url.Action(
                     "Image", "Image",
-                    new { id = featuredNeed.ImageUrl });
+                    new { id = featuredNeed.Image });*/
                 viewData.SpecialNeedDescription = featuredNeed.Text;
             }
 

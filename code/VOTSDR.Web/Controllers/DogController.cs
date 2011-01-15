@@ -13,7 +13,7 @@ namespace VOTSDR.Web.Controllers
         public ActionResult Available()
         {
             var dogs = new List<Dog>(
-                from dog in new DatabaseEntities().Dogs
+                from dog in new DataEntities().Dogs
                 where !dog.AdoptedDate.HasValue
                 orderby dog.DateFeatured
                 select dog);

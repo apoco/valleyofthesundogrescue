@@ -40,11 +40,18 @@ namespace VOTSDR.Admin.Web.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-
+                Data.DataEntities de = new Data.DataEntities();
+                Data.Dog dog = Data.Dog.CreateDog(Guid.NewGuid());
+                dog.Name = collection["Name"];
+                dog.Profile = collection["Profile"];
+                dog.Age = collection["Age"];
+                dog.Birthday = DateTime.Parse(collection["Birthday"]);
+                dog.AdoptedDate = DateTime.Parse(collection["AdoptedDate"]);
+                de.Dogs.AddObject(dog);
+                de.SaveChanges();                
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

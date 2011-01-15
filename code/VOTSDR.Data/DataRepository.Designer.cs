@@ -396,30 +396,6 @@ namespace VOTSDR.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String ThumbnailUrl
-        {
-            get
-            {
-                return _ThumbnailUrl;
-            }
-            set
-            {
-                OnThumbnailUrlChanging(value);
-                ReportPropertyChanging("ThumbnailUrl");
-                _ThumbnailUrl = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ThumbnailUrl");
-                OnThumbnailUrlChanged();
-            }
-        }
-        private global::System.String _ThumbnailUrl;
-        partial void OnThumbnailUrlChanging(global::System.String value);
-        partial void OnThumbnailUrlChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public global::System.String AdoptionStory
         {
             get
@@ -462,6 +438,30 @@ namespace VOTSDR.Data
         private Nullable<global::System.DateTime> _DateFeatured;
         partial void OnDateFeaturedChanging(Nullable<global::System.DateTime> value);
         partial void OnDateFeaturedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] Thumbnail
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_Thumbnail);
+            }
+            set
+            {
+                OnThumbnailChanging(value);
+                ReportPropertyChanging("Thumbnail");
+                _Thumbnail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Thumbnail");
+                OnThumbnailChanged();
+            }
+        }
+        private global::System.Byte[] _Thumbnail;
+        partial void OnThumbnailChanging(global::System.Byte[] value);
+        partial void OnThumbnailChanged();
 
         #endregion
     

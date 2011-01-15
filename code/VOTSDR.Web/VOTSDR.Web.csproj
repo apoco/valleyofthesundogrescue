@@ -176,6 +176,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Content Include="Views\Home\HowToHelp.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\SponsorsAndLinks.cshtml" />

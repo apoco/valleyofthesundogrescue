@@ -63,6 +63,7 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsStoriesController.cs" />
+    <Compile Include="Controllers\SpecialNeedsStoriesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,6 +178,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Events\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\editpanel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\Edit.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

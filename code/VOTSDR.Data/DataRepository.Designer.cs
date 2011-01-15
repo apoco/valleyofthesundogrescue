@@ -276,30 +276,6 @@ namespace VOTSDR.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Age
-        {
-            get
-            {
-                return _Age;
-            }
-            set
-            {
-                OnAgeChanging(value);
-                ReportPropertyChanging("Age");
-                _Age = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Age");
-                OnAgeChanged();
-            }
-        }
-        private global::System.String _Age;
-        partial void OnAgeChanging(global::System.String value);
-        partial void OnAgeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public Nullable<global::System.DateTime> Birthday
         {
             get
@@ -656,12 +632,10 @@ namespace VOTSDR.Data
         /// Create a new NewsStory object.
         /// </summary>
         /// <param name="newsStoryId">Initial value of the NewsStoryId property.</param>
-        /// <param name="date">Initial value of the Date property.</param>
-        public static NewsStory CreateNewsStory(global::System.Guid newsStoryId, global::System.String date)
+        public static NewsStory CreateNewsStory(global::System.Guid newsStoryId)
         {
             NewsStory newsStory = new NewsStory();
             newsStory.NewsStoryId = newsStoryId;
-            newsStory.Date = date;
             return newsStory;
         }
 
@@ -698,7 +672,7 @@ namespace VOTSDR.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Date
         {
@@ -710,7 +684,7 @@ namespace VOTSDR.Data
             {
                 OnDateChanging(value);
                 ReportPropertyChanging("Date");
-                _Date = StructuralObject.SetValidValue(value, false);
+                _Date = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Date");
                 OnDateChanged();
             }

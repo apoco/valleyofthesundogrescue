@@ -74,7 +74,6 @@
           <Property Name="DogId" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Profile" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Age" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Birthday" Type="DateTime" />
           <Property Name="AdoptedDate" Type="DateTime" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
@@ -89,7 +88,7 @@
             <PropertyRef Name="NewsStoryId" />
           </Key>
           <Property Name="NewsStoryId" Type="Guid" Nullable="false" />
-          <Property Name="Date" Type="String" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="true" />
           <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
         </EntityType>
@@ -111,7 +110,7 @@
           <Property Type="String" Name="Location" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Date" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Date" MaxLength="300" FixedLength="false" Unicode="true" Nullable="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -126,7 +125,6 @@
                 <ScalarProperty Name="DogId" ColumnName="DogId" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Profile" ColumnName="Profile" />
-            <ScalarProperty Name="Age" ColumnName="Age" />
             <ScalarProperty Name="Birthday" ColumnName="Birthday" />
             <ScalarProperty Name="AdoptedDate" ColumnName="AdoptedDate" />
             <ScalarProperty Name="Image" ColumnName="Image" />
@@ -178,8 +176,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="DataRepository">
-        <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="votsdradminModel.NewsStory" Width="1.5" PointX="2.75" PointY="3.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1340950520833331" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.NewsStory" Width="1.5" PointX="2.875" PointY="2.75" Height="1.787985026041667" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.SpecialNeedsStory" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.Event" Width="1.5" PointX="2.875" PointY="0.75" Height="1.9802864583333317" />
       </Diagram>

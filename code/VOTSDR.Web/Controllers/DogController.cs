@@ -23,7 +23,7 @@ namespace VOTSDR.Web.Controllers
             return File(dog.Image, "image/jpeg");
         }
 
-        public ActionResult Image(Guid id)
+        public ActionResult Thumbnail(Guid id)
         {
             var dog = new DataEntities()
                 .Dogs
@@ -33,7 +33,7 @@ namespace VOTSDR.Web.Controllers
                 throw new HttpException(404, "Not Found");
             }
 
-            return File(dog.ThumbnailUrl, "image/jpeg");
+            return File(dog.Thumbnail, "image/jpeg");
         }
 
         public ActionResult Available()
@@ -49,8 +49,7 @@ namespace VOTSDR.Web.Controllers
                 {
                     Id = dog.DogId,
                     Profile = dog.Profile,
-                    ImageUrl = Url.Action(
-                        "Image", "Dog", new { id = dog.DogId } ),
+                    ImageUrl = Url.Action("Thumbnail", new { id = dog.DogId }),
                     Name = dog.Name
                 }
             );

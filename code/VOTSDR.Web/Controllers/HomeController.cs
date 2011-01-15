@@ -60,8 +60,8 @@ namespace VOTSDR.Web.Controllers
             {
                 viewData.FeaturedDogId = featuredDog.DogId;
                 viewData.FeaturedDogThumbnailUrl = Url.Action(
-                    "Image", "Image", 
-                    new { id = featuredDog.ThumbnailUrl } );
+                    "Thumbnail", "Dog",
+                    new { id = featuredDog.DogId });
                 viewData.FeaturedDogName = featuredDog.Name;
                 viewData.FeaturedDogProfile = featuredDog.Profile;
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace VOTSDR.Admin.Web.Controllers
 {
@@ -54,6 +55,12 @@ namespace VOTSDR.Admin.Web.Controllers
                 if (DateTime.TryParse(collection["Birthday"], out birthday))
                     dog.Birthday = birthday;
 
+                if (Request.Files != null & Request.Files.Count > 0)
+                {
+                    if (Request.files
+                    dog.Image = GetBytes(Request.Files["dogImage"].InputStream);
+                }
+
                 de.Dogs.AddObject(dog);
                 de.SaveChanges();                
                 return RedirectToAction("Index");
@@ -63,7 +70,15 @@ namespace VOTSDR.Admin.Web.Controllers
                 return View();
             }
         }
-        
+
+        private byte[] GetBytes(Stream stream)
+        {
+            long fileLength = stream.Length;
+            Byte[] bits = new byte[fileLength];
+            stream.Read(bits, 0, (int)fileLength);
+            return bits;
+        }
+
         //
         // GET: /Dogs/Edit/5
  

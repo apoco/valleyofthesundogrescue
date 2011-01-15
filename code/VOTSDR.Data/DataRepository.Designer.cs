@@ -84,22 +84,6 @@ namespace VOTSDR.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Event> Events
-        {
-            get
-            {
-                if ((_Events == null))
-                {
-                    _Events = base.CreateObjectSet<Event>("Events");
-                }
-                return _Events;
-            }
-        }
-        private ObjectSet<Event> _Events;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<NewsStory> NewsStories
         {
             get
@@ -128,6 +112,22 @@ namespace VOTSDR.Data
             }
         }
         private ObjectSet<SpecialNeedsStory> _SpecialNeedsStories;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Event> Events
+        {
+            get
+            {
+                if ((_Events == null))
+                {
+                    _Events = base.CreateObjectSet<Event>("Events");
+                }
+                return _Events;
+            }
+        }
+        private ObjectSet<Event> _Events;
 
         #endregion
         #region AddTo Methods
@@ -138,14 +138,6 @@ namespace VOTSDR.Data
         public void AddToDogs(Dog dog)
         {
             base.AddObject("Dogs", dog);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Events EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEvents(Event @event)
-        {
-            base.AddObject("Events", @event);
         }
     
         /// <summary>
@@ -162,6 +154,14 @@ namespace VOTSDR.Data
         public void AddToSpecialNeedsStories(SpecialNeedsStory specialNeedsStory)
         {
             base.AddObject("SpecialNeedsStories", specialNeedsStory);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Events EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEvents(Event @event)
+        {
+            base.AddObject("Events", @event);
         }
 
         #endregion
@@ -505,12 +505,10 @@ namespace VOTSDR.Data
         /// Create a new Event object.
         /// </summary>
         /// <param name="eventId">Initial value of the EventId property.</param>
-        /// <param name="date">Initial value of the Date property.</param>
-        public static Event CreateEvent(global::System.Guid eventId, global::System.DateTime date)
+        public static Event CreateEvent(global::System.Guid eventId)
         {
             Event @event = new Event();
             @event.EventId = eventId;
-            @event.Date = date;
             return @event;
         }
 
@@ -619,9 +617,9 @@ namespace VOTSDR.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime Date
+        public global::System.String Date
         {
             get
             {
@@ -631,13 +629,13 @@ namespace VOTSDR.Data
             {
                 OnDateChanging(value);
                 ReportPropertyChanging("Date");
-                _Date = StructuralObject.SetValidValue(value);
+                _Date = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Date");
                 OnDateChanged();
             }
         }
-        private global::System.DateTime _Date;
-        partial void OnDateChanging(global::System.DateTime value);
+        private global::System.String _Date;
+        partial void OnDateChanging(global::System.String value);
         partial void OnDateChanged();
 
         #endregion

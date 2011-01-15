@@ -36,16 +36,16 @@
           <Property Name="Location" Type="nvarchar" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Description" Type="ntext" />
-          <Property Name="Date" Type="datetime" />
+          <Property Name="Date" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="NewsStory">
           <Key>
             <PropertyRef Name="NewsStoryId" />
           </Key>
           <Property Name="NewsStoryId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Date" Type="datetime" />
           <Property Name="Text" Type="ntext" />
           <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="SpecialNeedsStory">
           <Key>
@@ -63,9 +63,9 @@
       <Schema Namespace="votsdradminModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="DataEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Dogs" EntityType="votsdradminModel.Dog" />
-          <EntitySet Name="Events" EntityType="votsdradminModel.Event" />
           <EntitySet Name="NewsStories" EntityType="votsdradminModel.NewsStory" />
           <EntitySet Name="SpecialNeedsStories" EntityType="votsdradminModel.SpecialNeedsStory" />
+          <EntitySet Name="Events" EntityType="votsdradminModel.Event" />
         </EntityContainer>
         <EntityType Name="Dog">
           <Key>
@@ -84,22 +84,12 @@
           <Property Type="String" Name="Breed" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Gender" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
-        <EntityType Name="Event">
-          <Key>
-            <PropertyRef Name="EventId" />
-          </Key>
-          <Property Name="EventId" Type="Guid" Nullable="false" />
-          <Property Name="Location" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
-          <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" />
-        </EntityType>
         <EntityType Name="NewsStory">
           <Key>
             <PropertyRef Name="NewsStoryId" />
           </Key>
           <Property Name="NewsStoryId" Type="Guid" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="false" />
           <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
         </EntityType>
@@ -112,6 +102,16 @@
           <Property Name="DateCreated" Type="DateTime" />
           <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
           <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Type="Guid" Name="EventId" Nullable="false" />
+          <Property Type="String" Name="Location" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Date" MaxLength="300" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -133,13 +133,6 @@
             <ScalarProperty Name="AdoptionStory" ColumnName="AdoptionStory" />
             <ScalarProperty Name="DateFeatured" ColumnName="DateFeatured" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Events"><EntityTypeMapping TypeName="votsdradminModel.Event"><MappingFragment StoreEntitySet="Event">
-            <ScalarProperty Name="EventId" ColumnName="EventId" />
-            <ScalarProperty Name="Location" ColumnName="Location" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Date" ColumnName="Date" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="NewsStories"><EntityTypeMapping TypeName="votsdradminModel.NewsStory"><MappingFragment StoreEntitySet="NewsStory">
             <ScalarProperty Name="NewsStoryId" ColumnName="NewsStoryId" />
             <ScalarProperty Name="Date" ColumnName="Date" />
@@ -153,6 +146,17 @@
             <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
             <ScalarProperty Name="Text" ColumnName="Text" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="votsdradminModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -175,9 +179,9 @@
     <Diagrams>
       <Diagram Name="DataRepository">
         <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="votsdradminModel.Event" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.NewsStory" Width="1.5" PointX="2.75" PointY="3.75" Height="1.787985026041667" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.SpecialNeedsStory" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.Event" Width="1.5" PointX="2.875" PointY="0.75" Height="1.9802864583333317" />
       </Diagram>
     </Diagrams>
   </Designer>

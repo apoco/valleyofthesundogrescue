@@ -79,7 +79,7 @@
           "NewsAndArticles", 
           new { ArticleId = item.Id },
           new { @class = "title" } )
-        <div class="date">@item.Date.ToShortDateString()</div>
+        <div class="date">@item.Date</div>
         <div class="summary">@item.Summary</div>
         @Html.ActionLink(
           "More Info...",

@@ -2,3 +2,6 @@
 /code/VOTSDR.Web/VOTSDR.Web.csproj.user
 /code/VOTSDR.Web/bin
 /code/VOTSDR.Web/obj
+/code/VOTSDR.Data/VOTSDR.Data.csproj.user
+/code/VOTSDR.Data/obj
+/code/VOTSDR.Data/bin

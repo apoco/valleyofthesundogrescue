@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="votsdradminModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="votsdradminModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="votsdradminModelStoreContainer">
           <EntitySet Name="Dog" EntityType="votsdradminModel.Store.Dog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Event" EntityType="votsdradminModel.Store.Event" store:Type="Tables" Schema="dbo" />
@@ -23,9 +23,9 @@
           <Property Name="Birthday" Type="datetime" />
           <Property Name="AdoptedDate" Type="datetime" />
           <Property Name="Image" Type="varbinary(max)" />
-          <Property Name="ThumbnailUrl" Type="nvarchar" MaxLength="1000" />
           <Property Name="AdoptionStory" Type="ntext" />
           <Property Name="DateFeatured" Type="datetime" />
+          <Property Name="Thumbnail" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -56,8 +56,7 @@
           <Property Name="IsFeatured" Type="bit" />
           <Property Name="Text" Type="ntext" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="votsdradminModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -79,9 +78,9 @@
           <Property Name="Birthday" Type="DateTime" />
           <Property Name="AdoptedDate" Type="DateTime" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="ThumbnailUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
           <Property Name="AdoptionStory" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="DateFeatured" Type="DateTime" />
+          <Property Type="Binary" Name="Thumbnail" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -119,7 +118,8 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="votsdradminModelStoreContainer" CdmEntityContainer="DataEntities">
           <EntitySetMapping Name="Dogs"><EntityTypeMapping TypeName="votsdradminModel.Dog"><MappingFragment StoreEntitySet="Dog">
-            <ScalarProperty Name="DogId" ColumnName="DogId" />
+            <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="DogId" ColumnName="DogId" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Profile" ColumnName="Profile" />
             <ScalarProperty Name="Story" ColumnName="Story" />
@@ -127,7 +127,6 @@
             <ScalarProperty Name="Birthday" ColumnName="Birthday" />
             <ScalarProperty Name="AdoptedDate" ColumnName="AdoptedDate" />
             <ScalarProperty Name="Image" ColumnName="Image" />
-            <ScalarProperty Name="ThumbnailUrl" ColumnName="ThumbnailUrl" />
             <ScalarProperty Name="AdoptionStory" ColumnName="AdoptionStory" />
             <ScalarProperty Name="DateFeatured" ColumnName="DateFeatured" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
@@ -172,7 +171,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="DataRepository">
-        <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1340950520833331" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.Event" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.NewsStory" Width="1.5" PointX="2.75" PointY="3.75" Height="1.787985026041667" IsExpanded="true" />
         <EntityTypeShape EntityType="votsdradminModel.SpecialNeedsStory" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />

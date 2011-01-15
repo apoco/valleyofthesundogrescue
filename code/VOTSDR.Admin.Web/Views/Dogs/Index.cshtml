@@ -1,0 +1,83 @@
+﻿@model IEnumerable<VOTSDR.Data.Dog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Name
+        </th>
+        <th>
+            Profile
+        </th>
+        <th>
+            Story
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Birthday
+        </th>
+        <th>
+            AdoptedDate
+        </th>
+        <th>
+            ThumbnailUrl
+        </th>
+        <th>
+            AdoptionStory
+        </th>
+        <th>
+            DateFeatured
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DogId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DogId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DogId })
+        </td>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Profile
+        </td>
+        <td>
+            @item.Story
+        </td>
+        <td>
+            @item.Age
+        </td>
+        <td>
+            @String.Format("{0:g}", item.Birthday)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.AdoptedDate)
+        </td>
+        <td>
+            @item.ThumbnailUrl
+        </td>
+        <td>
+            @item.AdoptionStory
+        </td>
+        <td>
+            @String.Format("{0:g}", item.DateFeatured)
+        </td>
+    </tr>
+}
+
+</table>
+

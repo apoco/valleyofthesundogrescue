@@ -57,16 +57,21 @@ namespace VOTSDR.Web.Controllers
 
         public ActionResult SuccessStories()
         {
-            var dogs =
+            var dogs = (
                 from dog in new DataEntities().Dogs
                 where dog.AdoptedDate.HasValue
                 orderby dog.AdoptedDate descending
-                select new SuccessStoryViewModel { 
-                    //ImageUrl = 
-                    Story = dog.AdoptionStory,
-                };
-            return View(
+                select new { dog.Name, dog.DogId, dog.AdoptionStory }
+            ).ToList();
 
+            return View(
+                from dog in dogs
+                select new SuccessStoryViewModel
+                {
+                    DogName = dog.Name,
+                    ImageUrl = Url.Action("Thumbnail", new { id = dog.DogId }),
+                    Story = dog.AdoptionStory,
+                }
             );
         }
     }

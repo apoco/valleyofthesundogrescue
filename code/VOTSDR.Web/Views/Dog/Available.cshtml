@@ -4,14 +4,57 @@
 
 @{
     ViewBag.Title = "Valley of the Sun - Adoptable Dogs";
+    ViewBag.PageClass = "adoptable";
 }
 
 @section head
 {
+<style>
+#gallery 
+{
+	position: relative;
+	overflow: hidden;
+	clear: both;
+	background: #fffdc1;
+	margin: 0;
+	padding: 5px;
+	min-width: 900px;
+}
+#gallery a
+{
+	float: left; display: block;
+	width: 225px; height: 225px;
+	border: 4px solid #9f282f;
+	margin: 5px;
+}
+#gallery img
+{
+	width: 225px; height: 225px;
+}
+#list-profile
+{
+}
+#list-profile a
+{
+}
+#list-profile img
+{
+	max-width: 500px;
+	max-height: 500px;
+}
+</style>
 }
 
-<h2>Adoptable Dogs</h2>
+<div id="gallery">
+@foreach (var dog in Model)
+{
+  <a id="@dog.Id">
+  <img alt="@dog.Name" src="@dog.ThumbnailUrl" /></a>
+}
+</div>
 
+<h2>Dog Profiles</h2>
+<div id="list-profile">
 @foreach (var dog in Model)
 {
   <a id="@dog.Id"></a>
@@ -19,3 +62,4 @@
   <img alt="@dog.Name" src="@dog.ImageUrl" />
   @Html.Partial("TextBlock", dog.Profile)
 }
+</div>

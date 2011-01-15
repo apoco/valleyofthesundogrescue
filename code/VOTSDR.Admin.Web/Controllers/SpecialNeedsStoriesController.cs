@@ -7,43 +7,42 @@ using VOTSDR.Data;
 
 namespace VOTSDR.Admin.Web.Controllers
 {
-    public class NewsStoryController : Controller
+    public class SpecialNeedsStoriesController : Controller
     {
-
-
-
         //
-        // GET: /NewsStory/
+        // GET: /SpecialNeedsStories/
 
         public ActionResult Index()
         {
             var _db = new DataEntities();
-            var newsStories = _db.NewsStories;
-            
-            return View(newsStories);
+            var stories = _db.SpecialNeedsStories;
+            return View(stories);
         }
 
         //
-        // GET: /NewsStory/Details/5
+        // GET: /SpecialNeedsStories/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+            var _db = new DataEntities();
+            var story = _db.SpecialNeedsStories.FirstOrDefault(n => n.SpecialNeedsStoryId == id);
+            return View(story);
         }
 
         //
-        // GET: /NewsStory/Create
+        // GET: /SpecialNeedsStories/Create
 
         public ActionResult Create()
         {
+            ViewBag.FormType = "Create";
             return View();
         } 
 
         //
-        // POST: /NewsStory/Create
+        // POST: /SpecialNeedsStories/Create
 
         [HttpPost]
-        public ActionResult Create(NewsStory newsStory)
+        public ActionResult Create(SpecialNeedsStory story)
         {
             ViewBag.exMsg = "";
             try
@@ -51,54 +50,54 @@ namespace VOTSDR.Admin.Web.Controllers
                 if (!ModelState.IsValid) return View();
 
                 // we need to gen the primary key
-                newsStory.NewsStoryId = Guid.NewGuid();
+                story.SpecialNeedsStoryId = Guid.NewGuid();
 
                 // Add and Save
                 var _db = new DataEntities();
-                _db.NewsStories.AddObject(newsStory);
+                _db.SpecialNeedsStories.AddObject(story);
                 _db.SaveChanges();
 
                 return RedirectToAction("Index");
-
             }
-            catch(Exception ex)
-            {                
+            catch (Exception ex)
+            {
                 ViewBag.exMsg = ex.Message;
                 return View();
             }
         }
         
         //
-        // GET: /NewsStory/Edit/5
+        // GET: /SpecialNeedsStories/Edit/5
  
         public ActionResult Edit(Guid id)
         {
+            ViewBag.FormType = "Edit";
             var _db = new DataEntities();
-            var newsStory = _db.NewsStories.FirstOrDefault(n => n.NewsStoryId == id);
-
-            return View(newsStory);
+            var sns = _db.SpecialNeedsStories.FirstOrDefault(n => n.SpecialNeedsStoryId == id);
+            return View(sns);
         }
 
         //
-        // POST: /NewsStory/Edit/5
+        // POST: /SpecialNeedsStories/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Guid id, FormCollection formValues)
+        public ActionResult Edit(Guid id, FormCollection collection)
         {
+            ViewBag.FormType = "Edit";
+            ViewBag.exMsg = "";
             try
             {
-                // TODO: Add update logic here
                 if (!ModelState.IsValid) return View();
 
                 var _db = new DataEntities();
-                
-                var newsStory = _db.NewsStories.FirstOrDefault(n => n.NewsStoryId == id);
-                UpdateModel(newsStory, formValues);
+
+                var story = _db.SpecialNeedsStories.FirstOrDefault(n => n.SpecialNeedsStoryId == id);
+                UpdateModel(story, collection);
                 _db.SaveChanges();
  
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ViewBag.exMsg = ex.Message;
                 return View();
@@ -106,18 +105,17 @@ namespace VOTSDR.Admin.Web.Controllers
         }
 
         //
-        // GET: /NewsStory/Delete/5
-
+        // GET: /SpecialNeedsStories/Delete/5
+ 
         public ActionResult Delete(Guid id)
         {
             var _db = new DataEntities();
-            var newsStory = _db.NewsStories.FirstOrDefault(n => n.NewsStoryId == id);
-
-            return View(newsStory);
+            var story = _db.SpecialNeedsStories.FirstOrDefault(n => n.SpecialNeedsStoryId == id);
+            return View(story);
         }
 
         //
-        // POST: /NewsStory/Delete/5
+        // POST: /SpecialNeedsStories/Delete/5
 
         [HttpPost]
         public ActionResult Delete(Guid id, FormCollection collection)
@@ -125,9 +123,10 @@ namespace VOTSDR.Admin.Web.Controllers
             try
             {
                 var _db = new DataEntities();
-                var newsStory = _db.NewsStories.FirstOrDefault(n => n.NewsStoryId == id);
-                _db.DeleteObject(newsStory);
+                var story = _db.SpecialNeedsStories.FirstOrDefault(n => n.SpecialNeedsStoryId == id);
+                _db.DeleteObject(story);
                 _db.SaveChanges();
+ 
                 return RedirectToAction("Index");
             }
             catch

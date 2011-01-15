@@ -60,8 +60,10 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DogsController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NewsStoryController.cs" />
+    <Compile Include="Controllers\NewsStoriesController.cs" />
+    <Compile Include="Controllers\SpecialNeedsStoriesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,25 +141,61 @@
     <Content Include="Views\Dogs\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\NewsStory\Details.cshtml" />
+    <Content Include="Views\NewsStories\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\NewsStory\Create.cshtml" />
+    <Content Include="Views\NewsStories\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\NewsStory\Edit.cshtml" />
+    <Content Include="Views\NewsStories\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\NewsStory\Delete.cshtml" />
+    <Content Include="Views\NewsStories\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\NewsStory\Index.cshtml" />
+    <Content Include="Views\NewsStories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Dogs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\NewsStory\editpanel.cshtml" />
+    <Content Include="Views\NewsStories\editpanel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Events\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Events\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Events\editpanel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Events\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Events\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Events\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\editpanel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Dogs\Edit.cshtml" />

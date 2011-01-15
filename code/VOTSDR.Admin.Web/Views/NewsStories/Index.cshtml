@@ -2,7 +2,7 @@
 @using VOTSDR.Utils;
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "News Stories";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -27,7 +27,7 @@
     <tr>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.NewsStoryId }) |
-            <!--@Html.ActionLink("Details", "Details", new { id = item.NewsStoryId }) | -->
+            @Html.ActionLink("Details", "Details", new { id = item.NewsStoryId }) | 
             @Html.ActionLink("Delete", "Delete", new { id = item.NewsStoryId })
         </td>
         <td>

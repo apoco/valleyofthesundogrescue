@@ -51,7 +51,7 @@ namespace VOTSDR.Admin.Web.Controllers
                 de.SaveChanges();                
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return View();
             }

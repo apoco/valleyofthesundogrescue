@@ -74,7 +74,7 @@ namespace VOTSDR.Admin.Web.Controllers
         public ActionResult Edit(Guid id)
         {
             var _db = new DataEntities();
-            var newsStory = _db.NewsStories.Where(n =>  n.NewsStoryId == id);
+            var newsStory = _db.NewsStories.FirstOrDefault(n => n.NewsStoryId == id);
 
             return View(newsStory);
         }
@@ -83,16 +83,24 @@ namespace VOTSDR.Admin.Web.Controllers
         // POST: /NewsStory/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Guid id, NewsStory newsStory)
+        public ActionResult Edit(Guid id, FormCollection formValues)
         {
             try
             {
                 // TODO: Add update logic here
+                if (!ModelState.IsValid) return View();
+
+                var _db = new DataEntities();
+                
+                var newsStory = _db.NewsStories.FirstOrDefault(n => n.NewsStoryId == id);
+                UpdateModel(newsStory, formValues);
+                _db.SaveChanges();
  
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
+                ViewBag.exMsg = ex.Message;
                 return View();
             }
         }

@@ -58,6 +58,7 @@ namespace VOTSDR.Web.Controllers
                 .FirstOrDefault();
             if (featuredDog != null)
             {
+                viewData.FeaturedDogId = featuredDog.DogId;
                 viewData.FeaturedDogThumbnailUrl = Url.Action(
                     "Image", "Image", 
                     new { id = featuredDog.ThumbnailUrl } );

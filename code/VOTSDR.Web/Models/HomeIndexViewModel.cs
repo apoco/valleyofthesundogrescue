@@ -8,6 +8,7 @@ namespace VOTSDR.Web.Models
 {
     public class HomeIndexViewModel
     {
+        public Guid FeaturedDogId { get; set; }
         public string FeaturedDogName { get; set; }
         public string FeaturedDogThumbnailUrl { get; set; }
         public string FeaturedDogDescription { get; set; }

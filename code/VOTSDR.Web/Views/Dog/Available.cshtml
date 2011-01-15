@@ -1,0 +1,21 @@
+﻿@using VOTSDR.Web.Models
+
+@model IEnumerable<AdoptableDogViewModel>
+
+@{
+    ViewBag.Title = "Valley of the Sun - Adoptable Dogs";
+}
+
+@section head
+{
+}
+
+<h2>Adoptable Dogs</h2>
+
+@foreach (var dog in Model)
+{
+  <a id="@dog.Id"></a>
+  <h3>&ldquo;@dog.Name&rdquo;</h3>
+  <img alt="@dog.Name" src="@dog.ImageUrl" />
+  @Html.Partial("TextBlock", dog.Profile)
+}

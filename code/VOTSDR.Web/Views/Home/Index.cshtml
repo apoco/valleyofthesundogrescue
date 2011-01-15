@@ -99,7 +99,9 @@
         <div class="profile">
           @Model.FeaturedDogProfile.Summarize()
         </div>
-        @Html.ActionLink("See more...", "Available", "Dog")
+        @Html.ActionLink(
+          "See more...", "Available", "Dog", 
+          new { id=Model.FeaturedDogId }, null)
       </div>
 
       <div class="special-need">

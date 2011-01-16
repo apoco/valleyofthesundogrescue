@@ -1,24 +1,14 @@
 ﻿@model VOTSDR.Data.SpecialNeedsStory
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Special Needs Story Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Special Needs Story Details</h2>
 
-<fieldset>
-    <legend>SpecialNeedsStory</legend>
+@Html.Partial("detailspanel")
 
-    <div class="display-label">DateCreated</div>
-    <div class="display-field">@String.Format("{0:g}", Model.DateCreated)</div>
-
-    <div class="display-label">IsFeatured</div>
-    <div class="display-field">@Model.IsFeatured</div>
-
-    <div class="display-label">Text</div>
-    <div class="display-field">@Model.Text</div>
-</fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.SpecialNeedsStoryId }) |
     @Html.ActionLink("Back to List", "Index")

@@ -7,22 +7,8 @@
 
 <h2>Event Details</h2>
 
-<fieldset>
-    <legend>Event</legend>
+@Html.Partial("detailspanel")
 
-    <div class="display-label">Date</div>
-    <div class="display-field">@Model.Date</div>
-
-    <div class="display-label">Location</div>
-    <div class="display-field">@Model.Location</div>
-
-    <div class="display-label">Name</div>
-    <div class="display-field">@Model.Name</div>
-
-    <div class="display-label">Description</div>
-    <div class="display-field">@Model.Description</div>
-
-</fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.EventId }) |
     @Html.ActionLink("Back to List", "Index")

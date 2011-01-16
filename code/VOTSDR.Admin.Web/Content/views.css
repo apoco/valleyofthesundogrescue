@@ -1,0 +1,31 @@
+﻿.edit-textarea {height: 90px; width: 650px;}
+
+.newsstory-createdate { margin: 5px;}
+.newsstory-date { margin: 5px;}
+.newsstory-title { margin: 5px;}
+.newsstory-content { margin: 5px;}
+
+.event-date { margin: 5px;}
+.event-name { margin: 5px;}
+.event-location { margin: 5px;}
+.event-description { margin: 5px;}
+
+
+.special-edit-text {height: 90px; width: 650px;}
+
+.special-date { margin: 5px;}
+.special-featured { margin: 5px;}
+.special-text { margin: 5px;}
+.special-image  
+{
+    background-color: #FFFFFF;
+    border: 4px solid #9F282F;
+    display: block;
+    float: left;
+    height: 225px;
+    margin: 5px;
+    max-height: 225px;
+    max-width: 225px;
+    overflow: hidden;
+    width: 225px;
+ }

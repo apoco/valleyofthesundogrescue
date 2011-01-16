@@ -1,25 +1,16 @@
 ﻿@model VOTSDR.Data.SpecialNeedsStory
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Delete Special Needs Story";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>SpecialNeedsStory</legend>
 
-    <div class="display-label">DateCreated</div>
-    <div class="display-field">@String.Format("{0:g}", Model.DateCreated)</div>
+@Html.Partial("detailspanel")
 
-    <div class="display-label">IsFeatured</div>
-    <div class="display-field">@Model.IsFeatured</div>
-
-    <div class="display-label">Text</div>
-    <div class="display-field">@Model.Text</div>
-</fieldset>
 @using (Html.BeginForm()) {
     <p>
         <input type="submit" value="Delete" /> |

@@ -108,4 +108,31 @@ namespace VOTSDR.Data
     }
     #endregion
 
+
+
+    #region Content
+    [MetadataType(typeof(Content_Validation))]
+    public partial class Content { }
+    public class Content_Validation
+    {
+        [StringLength(50, MinimumLength = 1)]
+        [Required(ErrorMessage = "Area is required.")]
+        public string Area { get; set; }
+
+        [Required(ErrorMessage = "Markup is required.")]
+        public string Markup { get; set; }
+
+        [Display(Name = "Is Default")]
+        public string IsDefault { get; set; }
+
+        [Display(Name = "Publish On")]
+        public string PublishOn { get; set; }
+
+        [Display(Name = "Publish Until")]
+        public string PublishUntil { get; set; }
+
+    }
+    #endregion
+
+
 }

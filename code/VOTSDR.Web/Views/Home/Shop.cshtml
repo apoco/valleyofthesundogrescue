@@ -7,40 +7,55 @@
 @section head {
   <style type="text/css">
       .shop-pageinfo {padding: 5px;}
-      .shop-image {margin: 2px 0px; float: left;}
-      .shop-description {margin: 0 10px; float: left;}
-      .ship-price {float: left;}
-      .shop-item {margin: 10px 0 0 0;border-bottom: 1px solid #fff; min-height: 300px; clear: both;}
+      .shop-image {margin: 0 20px 0 0; float: left;}
+      .shop-description {margin: 0 10px;}
+      .shop-price {margin: 10px 0; font-weight: bold;}
+      .shop-item 
+      {
+      	margin: 10px 0 0 0;
+      	border: 4px solid  #fffdc1; 
+      	min-height: 300px; 
+      	clear: both;
+      	padding: 20px;	
+      	overflow: hidden;
+      	background: transparent url(../Content/images/bg-content-blocks.jpg) repeat-x 0 -5px;
+      }
+      .shop .item
+      {
+      	font-size: 20px;
+      }
+      .shop .section 
+      {
+        width: 974px;
+      }
   </style>
  }
 
-<p class="shop-info">
-  All proceeds from the purchases below are tax-deductable. 100% of the 
-  proceeds go to Valley of the Sun Dog Rescue. If you are interested in 
-  purchasing any items seen below, 
-  @Html.ActionLink("please click here", "ContactUs").
-</p>
+ <div class="section">
+    <p class="shop-info">
+      All proceeds from the purchases below are tax-deductable. 100% of the 
+      proceeds go to Valley of the Sun Dog Rescue. If you are interested in 
+      purchasing any items seen below, 
+      @Html.ActionLink("contact us", "ContactUs").
+    </p>
 
-<div class="shop-item">
-    <div class="shop-image"><img src="@Url.Content("~/Content/images/shop/bumpersticker.jpg")" alt="valley of the sun dog rescue bumper sticker"/></div>
-    <div class="shop-description">Bumper sticker</div>
-    <div class="shop-price">$5 Donation</div>
+    <div class="shop-item">
+        <div class="shop-image"><img src="@Url.Content("~/Content/images/shop/bumpersticker.jpg")" alt="valley of the sun dog rescue bumper sticker"/></div>
+        <div class="shop-description"><span class="item"><b>Item: </b>Bumper sticker</span><br /><br />Show your support for the Valley of the Sun Dog Rescue as you drive around town, put it on your laptop, or stick it on your forehead.  Every little bit helps!</div>
+        <div class="shop-price">@Html.ActionLink("Yours for a $5 Donation!", "ContactUs")</div>
+    </div>
+
+    <div class="shop-item">
+        <div class="shop-image"><img src="@Url.Content("~/Content/images/shop/punishteeshirt.jpg")" alt="valley of the sun dog rescue tee shirt"/></div>
+        <div class="shop-description"><span class="item"><b>Item: </b>T-shirt sizes s/m/L/xL/xxL</span> <br /><br /> Let the world know that Pit-bulls are not what they think!  Wearing this t-shirt is a great way to spread awareness and support the cause.</div>
+        <div class="shop-price">@Html.ActionLink("Yours for a $15 Donation!", "ContactUs")</div>
+    </div>
+
+    <div class="shop-item">
+        <div class="shop-image"><img src="@Url.Content("~/Content/images/shop/windowsticker.jpg")" alt="valley of the sun dog rescue window sticker"/></div>
+        <div class="shop-description"><span class="item"><b>Item: </b>Window decal</span><br /><br />Sport this sticker on your car's back window and be the envy of everyone on the road while spreading the word about Valley of the Sun Dog Rescue.</div>
+        <div class="shop-price">@Html.ActionLink("Yours for a $5 Donation!", "ContactUs")</div>
+    </div>
+
+    <div style="clear:both;"/>
 </div>
-
-<div class="shop-item">
-    <div class="shop-image"><img src="@Url.Content("~/Content/images/shop/punishteeshirt.jpg")" alt="valley of the sun dog rescue tee shirt"/></div>
-    <div class="shop-description">T-shirt sizes s/m/L/xL/xxL</div>
-    <div class="shop-price">$15 Donaiton</div>
-</div>
-
-<div class="shop-item">
-    <div class="shop-image"><img src="@Url.Content("~/Content/images/shop/windowsticker.jpg")" alt="valley of the sun dog rescue window sticker"/></div>
-    <div class="shop-description">Window decal</div>
-    <div class="shop-price">$5 Donation</div>
-</div>
-
-<div style="clear:both;"/>
-
-<p class="shop-info">
-    @Html.ActionLink("Contact Us", "ContactUs").
-</p>

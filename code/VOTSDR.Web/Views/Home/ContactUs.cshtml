@@ -1,7 +1,7 @@
 ﻿@model VOTSDR.Web.Models.ContactUsViewModel
 
 @{
-    ViewBag.Title = "ContactUs";
+    ViewBag.Title = "Contact Us";
     ViewBag.PageClass = "contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -17,6 +17,8 @@
     clear: both;
     overflow: hidden;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 #contact label
 {
@@ -34,8 +36,8 @@
 
 #contact .submit
 {
-	margin: 20px auto;
-	width: 100px;
+	margin: 10px 0 0 248px;
+	width: 80px;
 }
 #contact .streetaddress input
 {
@@ -43,13 +45,22 @@
 }
 #contact .comments textarea
 {
-	width: 320px;
-	height: 8em;
+	width: 325px;
+	height: 10em;
+}
+#contact .comments label
+{
+	text-align: left;
+}
+.contact p
+{
+	margin-bottom: 7px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 350px;
 }
 </style>
  }
-
-<h2>Contact Us</h2>
 
 <p>
   Please specify in “comments” as to what you are contacting us for to receive 

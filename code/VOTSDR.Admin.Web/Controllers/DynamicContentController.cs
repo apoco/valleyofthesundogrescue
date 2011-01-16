@@ -5,37 +5,35 @@ using System.Web;
 using System.Web.Mvc;
 
 using VOTSDR.Data;
-//using VOTSDR.Admin.Web.Models;
 
 namespace VOTSDR.Admin.Web.Controllers
 {
-    [Authorize]
-    public class EventsController : Controller
+    public class DynamicContentController : Controller
     {
         //
-        // GET: /Events/
+        // GET: /Content/
 
         public ActionResult Index()
         {
             var _db = new DataEntities();
-            var events = _db.Events;
-
-            return View(events);
+            var contents = _db.Contents;
+            return View(contents);
         }
 
         //
-        // GET: /Events/Details/5
+        // GET: /Content/Details/5
 
         public ActionResult Details(Guid id)
         {
             var _db = new DataEntities();
-            var evt = _db.Events.FirstOrDefault(e => e.EventId == id);
+            var content = _db.Contents.FirstOrDefault(e => e.ContentId == id);
 
-            return View(evt);
+            return View(content);
         }
 
+
         //
-        // GET: /Events/Create
+        // GET: /Content/Create
 
         public ActionResult Create()
         {
@@ -44,10 +42,10 @@ namespace VOTSDR.Admin.Web.Controllers
         } 
 
         //
-        // POST: /Events/Create
+        // POST: /Content/Create
 
         [HttpPost]
-        public ActionResult Create(Event evt)
+        public ActionResult Create(Content content)
         {
             ViewBag.exMsg = "";
             try
@@ -55,11 +53,11 @@ namespace VOTSDR.Admin.Web.Controllers
                 if (!ModelState.IsValid) return View();
 
                 // we need to gen the primary key
-                evt.EventId = Guid.NewGuid();
+                content.ContentId = Guid.NewGuid();
 
                 // Add and Save
                 var _db = new DataEntities();
-                _db.Events.AddObject(evt);
+                _db.Contents.AddObject(content);
                 _db.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -72,20 +70,20 @@ namespace VOTSDR.Admin.Web.Controllers
         }
         
         //
-        // GET: /Events/Edit/5
+        // GET: /Content/Edit/5
 
         public ActionResult Edit(Guid id)
         {
             ViewBag.FormType = "Edit";
 
             var _db = new DataEntities();
-            var evt = _db.Events.FirstOrDefault(e => e.EventId == id);
+            var content = _db.Contents.FirstOrDefault(e => e.ContentId == id);
 
-            return View(evt);
+            return View(content);
         }
 
         //
-        // POST: /Events/Edit/5
+        // POST: /Content/Edit/5
 
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection)
@@ -97,11 +95,11 @@ namespace VOTSDR.Admin.Web.Controllers
                 if (!ModelState.IsValid) return View();
 
                 var _db = new DataEntities();
+                var content = _db.Contents.FirstOrDefault(e => e.ContentId == id);
 
-                var evt = _db.Events.FirstOrDefault(e => e.EventId == id);
-                UpdateModel(evt, collection);
+                UpdateModel(content, collection);
                 _db.SaveChanges();
- 
+
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -112,17 +110,19 @@ namespace VOTSDR.Admin.Web.Controllers
         }
 
         //
-        // GET: /Events/Delete/5
+        // GET: /Content/Delete/5
  
         public ActionResult Delete(Guid id)
         {
+
             var _db = new DataEntities();
-            var evt = _db.Events.FirstOrDefault(e => e.EventId == id);
-            return View(evt);
+            var content = _db.Contents.FirstOrDefault(e => e.ContentId == id);
+
+            return View(content);
         }
 
         //
-        // POST: /Events/Delete/5
+        // POST: /Content/Delete/5
 
         [HttpPost]
         public ActionResult Delete(Guid id, FormCollection collection)
@@ -130,9 +130,9 @@ namespace VOTSDR.Admin.Web.Controllers
             try
             {
                 var _db = new DataEntities();
-                var evt = _db.Events.FirstOrDefault(e => e.EventId == id);
+                var content = _db.Contents.FirstOrDefault(e => e.ContentId == id);
 
-                _db.DeleteObject(evt);
+                _db.DeleteObject(content);
                 _db.SaveChanges();
  
                 return RedirectToAction("Index");

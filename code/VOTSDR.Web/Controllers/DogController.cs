@@ -51,7 +51,7 @@ namespace VOTSDR.Web.Controllers
                 orderby dog.DateFeatured
                 select new { 
                     dog.DogId, dog.Profile, dog.Name, dog.Birthday, 
-                    dog.DateFeatured, dog.Breed }
+                    dog.DateFeatured, dog.Breed, dog.Gender }
             ).ToList();
 
             return View(

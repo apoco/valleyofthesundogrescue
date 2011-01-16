@@ -44,10 +44,10 @@
 					<div>
             We accept donations through PayPal.
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display: inline">
-              <input type="hidden" name="cmd" value="_s-xclick">
-              <input type="hidden" name="hosted_button_id" value="KMBFDNHC9EMQQ">
-              <input type="image" src="@Url.Content("~/Content/images/btn-donate.gif")" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" id="link-paypal">
-              <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input type="hidden" name="hosted_button_id" value="KMBFDNHC9EMQQ" />
+              <input type="image" src="@Url.Content("~/Content/images/btn-donate.gif")" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" id="link-paypal" />
+              <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
             </form> 
 					  Or, learn about more 
             @Html.ActionLink(
@@ -60,8 +60,13 @@
 					<span id="fst-locations">Adoption Times and Locations:</span>
 					<div id="fs-location">
 						<p><b>East Valley</b></p>
-						<p><b><a href="http://goo.gl/maps/Ozpo" target="_blank">PetSmart Directions</a></b><br/>
-						6932 E. Hampton Ave<br/>Mesa</p>
+						<p>
+              <b>
+                <a href="http://adoptions.petsmart.com/" target="_blank">PetSmart</a>
+                <a href="http://goo.gl/maps/Ozpo" target="_blank">Directions</a>
+              </b><br/>
+						  6932 E. Hampton Ave<br/>Mesa
+            </p>
 					</div>
 					<div id="fs-times">
 						<p><b>Times</b></p>

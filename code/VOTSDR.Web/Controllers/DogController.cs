@@ -19,7 +19,7 @@ namespace VOTSDR.Web.Controllers
                 .FirstOrDefault(d => d.DogId == id);
             if (dog == null || dog.Image == null)
             {
-                return HttpNotFound();
+                return File(Server.MapPath("~/content/images/default-dog-pic.png"), "image/png");
             }
             else
             {
@@ -35,7 +35,7 @@ namespace VOTSDR.Web.Controllers
                 .FirstOrDefault(d => d.DogId == id);
             if (dog == null || dog.Thumbnail == null)
             {
-                return HttpNotFound();
+                return File(Server.MapPath("~/content/images/default-dog-thumb.png"), "image/png");
             }
             else
             {

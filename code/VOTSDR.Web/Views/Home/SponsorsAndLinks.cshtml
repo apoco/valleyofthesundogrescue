@@ -9,19 +9,52 @@
 
 @section head { 
 <style>
-    h3, h4 { margin: 10px 0 5px;}
-    p {margin: 2px 5px;}
+    .sponsors ul{margin: 0 0 0 20px;}
+    .sponsors h3
+    {
+        margin-bottom: 7px;
+        padding: 5px 0 5px 10px;
+        border-top: 3px solid #fffdc1;
+        border-bottom: 3px solid #fffdc1;
+        text-transform: uppercase;
+        background: transparent url(../Content/images/bg-content-blocks.jpg) repeat-x 0 -5px;
+        color: #9f282f;
+        width: 974px;
+    }
+    .sponsors p { margin: 2px 5px; }
+    
+    .sponsors .section {padding-bottom: 30px;}
+
 </style>
 }
 
-<h2>Sponsors & Links</h2>
+<div class="section">
+    <h3>Sponsors</h3>
+    <p class="sponsors">@Html.Partial("TextBlock", Model.SponsorMarkup)</p>
+</div>
 
-<h3>Sponsors</h3>
-
-<p>@Html.Partial("TextBlock", Model.SponsorMarkup)</p>
-
-<h3>Links</h3>
-
-<p>@Html.Partial("TextBlock", Model.LinkMarkup)</p>
+<div class="section">
+    <h3>Links</h3>
+    <ul>
+        <li>
+        <a href="http://www.pets911.com/" target="blank">Pets911</a>
+        </li>
+        <li>
+        <a href="http://www.adoptapet.com/" target="blank">Adopt a Pet</a>
+        </li>
+        <li>
+        <a href="http://bull911.com/" target="blank">Bull911</a>
+        </li>
+        <li>
+        <a href="http://www.rescueshelter.com/" target="blank">The Rescue Shelter Network</a>
+        </li>
+        <li>
+        <a href="http://www.rescueme.org/" target="blank">Rescue Me!</a>
+        </li>
+        <li>
+        <a href="http://www.facebook.com/home.php#!/pages/Valley-of-the-Sun-Dog-Rescue/163075013735212" target="blank">Facebook</a>
+        </li>
+    </ul>
+</div>
 
 

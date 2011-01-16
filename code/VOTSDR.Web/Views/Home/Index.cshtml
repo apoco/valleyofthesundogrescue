@@ -119,6 +119,24 @@
     	padding-right: 10px;
     	margin-right: 20px;
     }
+    .featured-dog img, .special-need img
+    {
+    	display:block;
+    	margin-left: auto;
+    	margin-right: auto;
+    }
+    
+    .featured-dog img
+    {
+     	margin-top: 0;
+     	margin-bottom: 10px;
+    }
+    
+    .special-need img
+    {
+     	margin-top: 10px;
+     	margin-bottom: 0;
+    }
     
     .post-features-content
     {
@@ -203,13 +221,14 @@
             <div class="features">
               <div class="featured-dog feature-section">
                 <h3>Dog of the Week</h3>
-                <img src="@Model.FeaturedDogThumbnailUrl" alt="@Model.FeaturedDogName" />
+                <a href="@Url.Action("Available", "Dog")#dog-@Model.FeaturedDogId">
+                  <img src="@Model.FeaturedDogThumbnailUrl" 
+                    alt="@Model.FeaturedDogName" />
+                </a>
                 <div class="profile">
                   @Model.FeaturedDogProfile.Summarize()
                 </div>
-                @Html.ActionLink(
-                  "See more...", "Available", "Dog", 
-                  new { id=Model.FeaturedDogId }, null)
+                @Html.ActionLink("See more...", "Available", "Dog")
               </div>
 
               <div class="special-need feature-section">

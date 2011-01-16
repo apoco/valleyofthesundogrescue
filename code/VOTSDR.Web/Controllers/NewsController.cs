@@ -8,7 +8,7 @@ using VOTSDR.Web.Models;
 
 namespace VOTSDR.Web.Controllers
 {
-    public class NewsController : Controller
+    public class NewsController : BaseController
     {
         public ActionResult Index()
         {

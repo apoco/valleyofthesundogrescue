@@ -11,7 +11,7 @@ using System.Configuration;
 
 namespace VOTSDR.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
@@ -103,8 +103,8 @@ namespace VOTSDR.Web.Controllers
         public ActionResult SponsorsAndLinks()
         {
             var sponsorContent = GetCurrentContent("sponsors");
-            var linksContent = GetCurrentContent("links");
-            var model = new SponsorsAndLinksModel { SponsorMarkup = sponsorContent.Markup, LinkMarkup = linksContent.Markup };
+            //var linksContent = GetCurrentContent("links");
+            var model = new SponsorsAndLinksModel { SponsorMarkup = sponsorContent.Markup };
             
             return View(model);
         }

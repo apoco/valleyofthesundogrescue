@@ -82,7 +82,6 @@ namespace VOTSDR.Data
     public class Dog_Validation
     {
         [StringLength(100, MinimumLength = 1)]
-        [Required(ErrorMessage = "Name is required.")]
         [Display(Name = "Name")]
         public string Name { get; set; }
         

@@ -76,6 +76,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -84,6 +85,7 @@
     </Compile>
     <Compile Include="Models\AdoptableDogViewModel.cs" />
     <Compile Include="Models\ContactUsViewModel.cs" />
+    <Compile Include="Models\DogOfTheWeekSummaryViewModel.cs" />
     <Compile Include="Models\EducationModel.cs" />
     <Compile Include="Models\HomeIndexViewModel.cs" />
     <Compile Include="Models\NewsOrEventSummaryViewModel.cs" />

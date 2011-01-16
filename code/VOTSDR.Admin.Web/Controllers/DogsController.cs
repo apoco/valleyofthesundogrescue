@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using VOTSDR.Data;
 
 using VOTSDR.Utils;
 
@@ -13,11 +14,24 @@ namespace VOTSDR.Admin.Web.Controllers
     {
         //
         // GET: /Dogs/
+        private const int pageSize = 10;
 
         public ActionResult Index()
         {
             Data.DataEntities de = new Data.DataEntities();
             
+
+            return View(de.Dogs);
+        }
+
+        public ActionResult Index(int pageNumber)
+        {
+            Data.DataEntities de = new DataEntities();
+
+            int totalDogs = de.Dogs.Count();
+
+            int totalPages = (int)Math.Ceiling((double)totalDogs / (double)pageSize);
+
 
             return View(de.Dogs);
         }
@@ -46,8 +60,8 @@ namespace VOTSDR.Admin.Web.Controllers
         {
             try
             {
-                Data.DataEntities de = new Data.DataEntities();
-                Data.Dog dog = Data.Dog.CreateDog(Guid.NewGuid());
+                DataEntities de = new DataEntities();
+                Dog dog = Dog.CreateDog(Guid.NewGuid());
                 dog.Name = collection["Name"];
                 dog.Profile = collection["Profile"];
                 dog.Gender = collection["Gender"];
@@ -60,11 +74,11 @@ namespace VOTSDR.Admin.Web.Controllers
                 if (Request.Files != null & Request.Files.Count > 0)
                 {
                     HttpPostedFileBase dogImageFile = Request.Files["dogImage"];
-                    if (dogImageFile != null)
+                    if (dogImageFile != null && dogImageFile.ContentLength > 0)
                         dog.Image = ImageUtils.GetBytes(dogImageFile.InputStream);
 
                     HttpPostedFileBase dogThumbnailFile = Request.Files["dogThumbnail"];
-                    if (dogThumbnailFile != null)
+                    if (dogThumbnailFile != null && dogImageFile.ContentLength > 0)
                         dog.Thumbnail = ImageUtils.GetBytes(dogThumbnailFile.InputStream);
                 }
 
@@ -78,24 +92,86 @@ namespace VOTSDR.Admin.Web.Controllers
             }
         }
 
+        public ActionResult Image(Guid id)
+        {
+            var dog = new DataEntities()
+                .Dogs
+                .FirstOrDefault(d => d.DogId == id);
+            if (dog == null || dog.Image == null)
+            {
+                return null;
+            }
+            else
+            {
+                return File(dog.Image, "image/jpeg");
+            }
+        }
+
+        public ActionResult Thumbnail(Guid id)
+        {
+            var dog = new DataEntities()
+                .Dogs
+                .FirstOrDefault(d => d.DogId == id);
+            if (dog == null || dog.Thumbnail == null)
+            {
+                return null;
+            }
+            else
+            {
+                return File(dog.Thumbnail, "image/jpeg");
+            }
+        }
+
         //
         // GET: /Dogs/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            DataEntities de = new DataEntities();
+            Dog dog = de.Dogs.FirstOrDefault<Dog>(d => d.DogId == id);
+
+            return View(dog);
         }
 
         //
         // POST: /Dogs/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Guid id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
- 
+                DataEntities de = new DataEntities();
+                Dog dog = (Dog)de.Dogs.FirstOrDefault<Dog>(d => d.DogId == id);
+
+                dog.Name = collection["Name"];
+                dog.Profile = collection["Profile"];
+                dog.Gender = collection["Gender"];
+                dog.Breed = collection["Breed"];
+                dog.AdoptionStory = collection["AdoptionStory"];
+
+                DateTime birthday = new DateTime();
+                if (DateTime.TryParse(collection["Birthday"], out birthday))
+                    dog.Birthday = birthday;
+
+                DateTime adoptedDate = new DateTime();
+                if (DateTime.TryParse(collection["AdoptedDate"], out adoptedDate))
+                    dog.AdoptedDate = adoptedDate;
+
+                if (Request.Files != null & Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase dogImageFile = Request.Files["dogImage"];
+                    if (dogImageFile != null && dogImageFile.ContentLength > 0)
+                        dog.Image = GetBytes(dogImageFile.InputStream);
+
+                    HttpPostedFileBase dogThumbnailFile = Request.Files["dogThumbnail"];
+                    if (dogThumbnailFile != null && dogThumbnailFile.ContentLength > 0)
+                        dog.Thumbnail = GetBytes(dogThumbnailFile.InputStream);
+                }                
+                
+                UpdateModel<Dog>(dog);
+                de.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             catch
@@ -106,22 +182,30 @@ namespace VOTSDR.Admin.Web.Controllers
 
         //
         // GET: /Dogs/Delete/5
- 
-        public ActionResult Delete(int id)
+
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            DataEntities de = new DataEntities();
+            Dog dog = de.Dogs.FirstOrDefault<Dog>(d => d.DogId == id);
+
+
+            return View(dog);
         }
 
         //
         // POST: /Dogs/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Guid id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
- 
+                DataEntities de = new DataEntities();
+                Dog dog = de.Dogs.FirstOrDefault<Dog>(d => d.DogId == id);
+                if (dog != null)
+                    de.Dogs.DeleteObject(dog);
+                de.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             catch

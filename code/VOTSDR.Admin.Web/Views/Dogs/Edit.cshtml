@@ -1,0 +1,112 @@
+﻿@model VOTSDR.Data.Dog
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Edit", "Dogs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Dog</legend>
+
+        @Html.HiddenFor(model => model.DogId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Profile)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Profile)
+            @Html.ValidationMessageFor(model => model.Profile)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Birthday)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Birthday)
+            @Html.ValidationMessageFor(model => model.Birthday)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdoptedDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdoptedDate)
+            @Html.ValidationMessageFor(model => model.AdoptedDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdoptionStory)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdoptionStory)
+            @Html.ValidationMessageFor(model => model.AdoptionStory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateFeatured)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateFeatured)
+            @Html.ValidationMessageFor(model => model.DateFeatured)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Breed)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Breed)
+            @Html.ValidationMessageFor(model => model.Breed)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Gender)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Gender)
+            @Html.ValidationMessageFor(model => model.Gender)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Image)
+        </div>
+        <div class="editor-field">
+            <input type="file" id="dogImage" name="dogImage" />
+            <img alt="@Model.Name" width="60px" height="60px" src="@Url.Action("Image", new { id = Model.DogId })" />
+            @Html.ValidationMessageFor(model => model.Image)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Thumbnail)
+        </div>
+        <div class="editor-field">
+            <input type="file" id="dogThumbnail" name="dogThumbnail" />
+            <img alt="@Model.Name" width="60px" height="60px" src="@Url.Action("Thumbnail", new { id = Model.DogId })" />
+            @Html.ValidationMessageFor(model => model.Thumbnail)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

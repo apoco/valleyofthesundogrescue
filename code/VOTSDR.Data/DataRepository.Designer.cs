@@ -276,30 +276,6 @@ namespace VOTSDR.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Age
-        {
-            get
-            {
-                return _Age;
-            }
-            set
-            {
-                OnAgeChanging(value);
-                ReportPropertyChanging("Age");
-                _Age = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Age");
-                OnAgeChanged();
-            }
-        }
-        private global::System.String _Age;
-        partial void OnAgeChanging(global::System.String value);
-        partial void OnAgeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public Nullable<global::System.DateTime> Birthday
         {
             get

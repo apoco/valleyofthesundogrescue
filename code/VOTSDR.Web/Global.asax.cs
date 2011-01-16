@@ -22,6 +22,50 @@ namespace VOTSDR.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "DogImage", "dogs/{id}/image.jpg",
+                new { controller = "Dog", action = "Image" });
+
+            routes.MapRoute(
+                "DogThumbnail", "dogs/{id}/thumbnail.jpg",
+                new { controller = "Dog", action = "Thumbnail" });
+
+            routes.MapRoute(
+                "AvailableDogs", "dogs/",
+                new { controller = "Dog", action = "Available" });
+
+            routes.MapRoute(
+                "SuccessStories", "dogs/adopted",
+                new { controller = "Dog", action = "SuccessStories" });
+
+            routes.MapRoute(
+                "HowToHelp", "help",
+                new { controller = "Home", action = "HowToHelp" });
+
+            routes.MapRoute(
+                "Education", "education",
+                new { controller = "Home", action = "Education" });
+
+            routes.MapRoute(
+                "SponsorsAndLinks", "sponsors-and-links",
+                new { controller = "Home", action = "SponsorsAndLinks" });
+
+            routes.MapRoute(
+                "Shop", "shop",
+                new { controller = "Home", action = "Shop" });
+
+            routes.MapRoute(
+                "ContactUs", "contact",
+                new { controller = "Home", action = "ContactUs" });
+
+            routes.MapRoute(
+                "ContactUsSuccess", "contact",
+                new { controller = "Home", action = "ContactUsSuccess" });
+
+            routes.MapRoute(
+                "NewsAndEvents", "news",
+                new { controller = "News", action = "Index" });
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults

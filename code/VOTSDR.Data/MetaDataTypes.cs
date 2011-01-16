@@ -103,8 +103,6 @@ namespace VOTSDR.Data
         [StringLength(250)]
         [Display(Name = "Breed")]
         public string Breed { get; set; }
-
-
     }
     #endregion
 

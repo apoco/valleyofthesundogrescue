@@ -102,6 +102,7 @@
     <Content Include="Content\images\default-dog-pic.png" />
     <Content Include="Content\images\default-dog-thumb.png" />
     <Content Include="Content\images\nav-h-b-phone.png" />
+    <Content Include="Content\images\facebooksmall.png" />
     <Content Include="Content\images\shop\bumpersticker.JPG" />
     <Content Include="Content\images\logo-header.png" />
     <Content Include="Content\images\logo.png" />
@@ -115,6 +116,7 @@
     <Content Include="Content\images\nav-h-t-howtohelp.png" />
     <Content Include="Content\images\nav-h-t-stories.png" />
     <Content Include="Content\images\shop\punishteeshirt.JPG" />
+    <Content Include="Content\images\twitterbirdsmall.png" />
     <Content Include="Content\images\txt-fst-donations.png" />
     <Content Include="Content\images\txt-fst-dotw.png" />
     <Content Include="Content\images\txt-fst-times.png" />

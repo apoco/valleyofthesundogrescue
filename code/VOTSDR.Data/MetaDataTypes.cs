@@ -76,4 +76,37 @@ namespace VOTSDR.Data
     #endregion
 
 
+    #region Dog
+    [MetadataType(typeof(Dog_Validation))]
+    public partial class Dog { }
+    public class Dog_Validation
+    {
+        [StringLength(100, MinimumLength = 1)]
+        [Required(ErrorMessage = "Name is required.")]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+        
+        [Display(Name = "Photo")]
+        public Byte[] Image { get; set; }
+
+        [Display(Name = "Gender (M/F)")]
+        public string Gender { get; set; }
+        
+        [Display(Name = "Adopted Date")]
+        public string AdoptedDate { get; set; }
+
+        [Display(Name = "Date Featured")]
+        public string DateFeatured { get; set; }
+
+        [Display(Name = "Adoption Story")]
+        public string AdoptionStory { get; set; }
+
+        [StringLength(250)]
+        [Display(Name = "Breed")]
+        public string Breed { get; set; }
+
+
+    }
+    #endregion
+
 }

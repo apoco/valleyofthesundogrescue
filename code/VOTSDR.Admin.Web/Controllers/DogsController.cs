@@ -82,15 +82,9 @@ namespace VOTSDR.Admin.Web.Controllers
             {
                 DataEntities de = new DataEntities();
                 Dog dog = Dog.CreateDog(Guid.NewGuid());
-                dog.Name = collection["Name"];
-                dog.Profile = collection["Profile"];
-                dog.Gender = collection["Gender"];
-                dog.Breed = collection["Breed"];
 
-                DateTime birthday = new DateTime();
-                if (DateTime.TryParse(collection["Birthday"], out birthday))
-                    dog.Birthday = birthday;
-
+                UpdateModel(dog, collection);
+                
                 if (Request.Files != null & Request.Files.Count > 0)
                 {
                     HttpPostedFileBase dogImageFile = Request.Files["dogImage"];
@@ -172,20 +166,8 @@ namespace VOTSDR.Admin.Web.Controllers
                 DataEntities de = new DataEntities();
                 Dog dog = (Dog)de.Dogs.FirstOrDefault<Dog>(d => d.DogId == id);
 
-                dog.Name = collection["Name"];
-                dog.Profile = collection["Profile"];
-                dog.Gender = collection["Gender"];
-                dog.Breed = collection["Breed"];
-                dog.AdoptionStory = collection["AdoptionStory"];
-
-                DateTime birthday = new DateTime();
-                if (DateTime.TryParse(collection["Birthday"], out birthday))
-                    dog.Birthday = birthday;
-
-                DateTime adoptedDate = new DateTime();
-                if (DateTime.TryParse(collection["AdoptedDate"], out adoptedDate))
-                    dog.AdoptedDate = adoptedDate;
-
+                UpdateModel(dog, collection);
+                                
                 if (Request.Files != null & Request.Files.Count > 0)
                 {
                     HttpPostedFileBase dogImageFile = Request.Files["dogImage"];

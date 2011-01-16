@@ -16,5 +16,6 @@ namespace VOTSDR.Web.Models
         public string Age { get; set; }
         public bool Featured { get; set; }
         public string Breed { get; set; }
+        public string Gender { get; set; }
     }
 }

@@ -65,7 +65,8 @@ namespace VOTSDR.Web.Controllers
                     Name = dog.Name,
                     Age = GetDogAge(dog.Birthday ?? DateTime.Today),
                     Featured = dog.DateFeatured != null,
-                    Breed = dog.Breed
+                    Breed = dog.Breed,
+                    Gender = dog.Gender.ToLower() == "m" ? "Male" : "Female"
                 }
             );
         }

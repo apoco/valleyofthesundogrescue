@@ -6,7 +6,48 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section head { }
+@section head {
+<style type="text/css">
+#contact
+{
+	width: 330px;
+    padding: 0;
+    background: transparent url(../Content/images/bg-content-blocks.jpg) repeat-x 0 -5px;
+    padding: 15px;
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+#contact label
+{
+	text-align: right;
+	margin: 0 10px 0 0;
+	width: 115px;
+	display: block;
+	float: left;
+}
+#contact input, #contact textarea
+{
+	margin: 3px 0;
+	width: 200px;
+}
+
+#contact .submit
+{
+	margin: 20px auto;
+	width: 100px;
+}
+#contact .streetaddress input
+{
+	height: 4em;
+}
+#contact .comments textarea
+{
+	width: 320px;
+	height: 8em;
+}
+</style>
+ }
 
 <h2>Contact Us</h2>
 
@@ -15,29 +56,31 @@
   a prompt response. Thank You.
 </p>
 
-@using (Html.BeginForm())
-{
-  <div class="field">
-    @Html.LabelFor(m => m.Name)
-    @Html.TextBoxFor(m => m.Name)
-    @Html.ValidationMessageFor(m => m.Name)
-  </div>
-  <div class="field">
-    @Html.LabelFor(m => m.PhoneNumber)
-    @Html.TextBoxFor(m => m.PhoneNumber)
-  </div>
-  <div class="field">
-    @Html.LabelFor(m => m.EmailAddress)
-    @Html.TextBoxFor(m => m.EmailAddress)
-  </div>
-  <div class="field">
-    @Html.LabelFor(m => m.StreetAddress)
-    @Html.TextBoxFor(m => m.StreetAddress)
-  </div>
-  <div class="field">
-    @Html.LabelFor(m => m.Comments)
-    @Html.TextAreaFor(m => m.Comments)
-    @Html.ValidationMessageFor(m => m.Comments)
-  </div>
-  <input type="submit" value="Contact Us" name="SendContactUsMessage" />
+    @using (Html.BeginForm())
+    {
+      <div id="contact">
+          <div class="field">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+          </div>
+          <div class="field">
+            @Html.LabelFor(m => m.PhoneNumber)
+            @Html.TextBoxFor(m => m.PhoneNumber)
+          </div>
+          <div class="field">
+            @Html.LabelFor(m => m.EmailAddress)
+            @Html.TextBoxFor(m => m.EmailAddress)
+          </div>
+          <div class="field streetaddress">
+            @Html.LabelFor(m => m.StreetAddress)
+            @Html.TextAreaFor(m => m.StreetAddress)
+          </div>
+          <div class="field comments">
+            @Html.LabelFor(m => m.Comments)
+            @Html.TextAreaFor(m => m.Comments)
+            @Html.ValidationMessageFor(m => m.Comments)
+          </div>
+          <input class="submit" type="submit" value="Contact Us" name="SendContactUsMessage" />
+      </div>
 }

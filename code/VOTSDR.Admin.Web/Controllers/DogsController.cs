@@ -22,7 +22,7 @@ namespace VOTSDR.Admin.Web.Controllers
 
             int totalDogs;
 
-            IEnumerable<Dog> dogs = null;
+            IEnumerable<DogList> dogs = null;
             switch (viewType)
             {
                 case "Adopted":
@@ -50,7 +50,8 @@ namespace VOTSDR.Admin.Web.Controllers
                         .OrderBy(o => o.Name)
                         .Where(w => w.AdoptedDate != null)
                         .Skip((pageNumber - 1) * pageSize)
-                        .Take(pageSize);
+                        .Take(pageSize)
+                        .Select(d => new DogList { DogId = d.DogId, Name = d.Name, Breed = d.Breed, Gender = d.Gender, Birthday = d.Birthday, Thumbnail = d.Thumbnail });
                     break;
                 case "Available":
                 default:
@@ -58,7 +59,8 @@ namespace VOTSDR.Admin.Web.Controllers
                         .OrderBy(o => o.Name)
                         .Where(w => w.AdoptedDate == null)
                         .Skip((pageNumber - 1) * pageSize)
-                        .Take(pageSize);
+                        .Take(pageSize)
+                        .Select(d => new DogList { DogId = d.DogId, Name = d.Name, Breed = d.Breed, Gender = d.Gender, Birthday = d.Birthday, Thumbnail = d.Thumbnail });
                     break;
             }
 

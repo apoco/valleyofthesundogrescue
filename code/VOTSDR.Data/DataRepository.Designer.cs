@@ -128,6 +128,22 @@ namespace VOTSDR.Data
             }
         }
         private ObjectSet<Event> _Events;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Content> Contents
+        {
+            get
+            {
+                if ((_Contents == null))
+                {
+                    _Contents = base.CreateObjectSet<Content>("Contents");
+                }
+                return _Contents;
+            }
+        }
+        private ObjectSet<Content> _Contents;
 
         #endregion
         #region AddTo Methods
@@ -163,6 +179,14 @@ namespace VOTSDR.Data
         {
             base.AddObject("Events", @event);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Contents EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToContents(Content content)
+        {
+            base.AddObject("Contents", content);
+        }
 
         #endregion
     }
@@ -171,6 +195,183 @@ namespace VOTSDR.Data
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="votsdradminModel", Name="Content")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Content : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Content object.
+        /// </summary>
+        /// <param name="contentId">Initial value of the ContentId property.</param>
+        /// <param name="isDefault">Initial value of the IsDefault property.</param>
+        public static Content CreateContent(global::System.Guid contentId, global::System.Boolean isDefault)
+        {
+            Content content = new Content();
+            content.ContentId = contentId;
+            content.IsDefault = isDefault;
+            return content;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ContentId
+        {
+            get
+            {
+                return _ContentId;
+            }
+            set
+            {
+                if (_ContentId != value)
+                {
+                    OnContentIdChanging(value);
+                    ReportPropertyChanging("ContentId");
+                    _ContentId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ContentId");
+                    OnContentIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _ContentId;
+        partial void OnContentIdChanging(global::System.Guid value);
+        partial void OnContentIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Area
+        {
+            get
+            {
+                return _Area;
+            }
+            set
+            {
+                OnAreaChanging(value);
+                ReportPropertyChanging("Area");
+                _Area = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Area");
+                OnAreaChanged();
+            }
+        }
+        private global::System.String _Area;
+        partial void OnAreaChanging(global::System.String value);
+        partial void OnAreaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Markup
+        {
+            get
+            {
+                return _Markup;
+            }
+            set
+            {
+                OnMarkupChanging(value);
+                ReportPropertyChanging("Markup");
+                _Markup = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Markup");
+                OnMarkupChanged();
+            }
+        }
+        private global::System.String _Markup;
+        partial void OnMarkupChanging(global::System.String value);
+        partial void OnMarkupChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> PublishOn
+        {
+            get
+            {
+                return _PublishOn;
+            }
+            set
+            {
+                OnPublishOnChanging(value);
+                ReportPropertyChanging("PublishOn");
+                _PublishOn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PublishOn");
+                OnPublishOnChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _PublishOn;
+        partial void OnPublishOnChanging(Nullable<global::System.DateTime> value);
+        partial void OnPublishOnChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> PublishUntil
+        {
+            get
+            {
+                return _PublishUntil;
+            }
+            set
+            {
+                OnPublishUntilChanging(value);
+                ReportPropertyChanging("PublishUntil");
+                _PublishUntil = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PublishUntil");
+                OnPublishUntilChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _PublishUntil;
+        partial void OnPublishUntilChanging(Nullable<global::System.DateTime> value);
+        partial void OnPublishUntilChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsDefault
+        {
+            get
+            {
+                return _IsDefault;
+            }
+            set
+            {
+                OnIsDefaultChanging(value);
+                ReportPropertyChanging("IsDefault");
+                _IsDefault = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsDefault");
+                OnIsDefaultChanged();
+            }
+        }
+        private global::System.Boolean _IsDefault;
+        partial void OnIsDefaultChanging(global::System.Boolean value);
+        partial void OnIsDefaultChanged();
+
+        #endregion
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.

@@ -64,7 +64,7 @@
     string which = item.IsEvent ? "event" : "newsarticle";
            
   <div class="article-or-event @which">
-    <a id="@item.Id"></a>
+    <a id="item-@item.Id"></a>
     @if (item.IsEvent)
     {
         <div class="date"><span>Upcoming Event: </span>@item.Date</div>

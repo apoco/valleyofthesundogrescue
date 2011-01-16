@@ -1,0 +1,16 @@
+﻿@model VOTSDR.Data.Content
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+@Html.Partial("detailspanel")
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ContentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

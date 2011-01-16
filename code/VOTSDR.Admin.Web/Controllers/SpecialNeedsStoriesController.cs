@@ -102,15 +102,14 @@ namespace VOTSDR.Admin.Web.Controllers
                 if (!ModelState.IsValid) return View();
 
                 var _db = new DataEntities();
-
                 var story = _db.SpecialNeedsStories.FirstOrDefault(n => n.SpecialNeedsStoryId == id);
+                
                 UpdateModel(story, collection);
-
-
+                
                 if (Request.Files != null & Request.Files.Count > 0)
                 {
                     HttpPostedFileBase storyImageFile = Request.Files["dogImage"];
-                    if (storyImageFile != null)
+                    if (storyImageFile != null && storyImageFile.ContentLength > 0)
                         story.Image = ImageUtils.GetBytes(storyImageFile.InputStream);
                 }
 

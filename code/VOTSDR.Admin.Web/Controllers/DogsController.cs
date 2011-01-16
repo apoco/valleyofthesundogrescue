@@ -12,26 +12,19 @@ namespace VOTSDR.Admin.Web.Controllers
     {
         //
         // GET: /Dogs/
-        private const int pageSize = 10;
+        private const int pageSize = 3;
 
-        public ActionResult Index()
-        {
-            Data.DataEntities de = new Data.DataEntities();
-            
-
-            return View(de.Dogs);
-        }
-
-        public ActionResult Index(int pageNumber)
+        public ActionResult Index(int pageNumber = 1)
         {
             Data.DataEntities de = new DataEntities();
 
             int totalDogs = de.Dogs.Count();
 
             int totalPages = (int)Math.Ceiling((double)totalDogs / (double)pageSize);
+            ViewBag.totalPages = totalPages;
+            ViewBag.currentPage = pageNumber;
 
-
-            return View(de.Dogs);
+            return View(de.Dogs.OrderBy(o=>o.Name).Skip((pageNumber-1)*pageSize).Take(pageSize));
         }
 
         //

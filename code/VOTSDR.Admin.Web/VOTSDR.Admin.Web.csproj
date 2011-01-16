@@ -68,9 +68,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\MetaDataTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\views.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -202,6 +204,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Dogs\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SpecialNeedsStories\detailspanel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NewsStories\detailspanel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Events\detailspanel.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

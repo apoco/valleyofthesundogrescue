@@ -22,15 +22,31 @@
             @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { @class = "dog-edit-name" })
             @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Breed)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Breed, new { @class = "dog-edit-breed" })
+            @Html.ValidationMessageFor(model => model.Breed)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Gender)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Gender, new { @class = "dog-edit-gender" })
+            @Html.ValidationMessageFor(model => model.Gender)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Profile)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Profile)
+            @Html.TextAreaFor(model => model.Profile, new { @class = "edit-textarea" })
             @Html.ValidationMessageFor(model => model.Profile)
         </div>
 
@@ -42,6 +58,32 @@
             @Html.ValidationMessageFor(model => model.Birthday)
         </div>
 
+        <div class="editor-field">
+            <span class="editor-label">
+                @Html.LabelFor(model => model.Thumbnail)
+            </span>
+            <input type="file" id="dogThumbnail" name="dogThumbnail" />
+            <img alt="@Model.Name" width="60px" height="60px" src="@Url.Action("Thumbnail", new { id = Model.DogId })" />
+            @Html.ValidationMessageFor(model => model.Thumbnail)
+        </div>
+
+        <div class="editor-field">
+            <span class="editor-label">
+                @Html.LabelFor(model => model.Image)
+            </span>
+            <input type="file" id="dogImage" name="dogImage" />
+            <img alt="@Model.Name" width="60px" height="60px" src="@Url.Action("Image", new { id = Model.DogId })" />
+            @Html.ValidationMessageFor(model => model.Image)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateFeatured)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateFeatured)
+            @Html.ValidationMessageFor(model => model.DateFeatured)
+        </div>
+        
         <div class="editor-label">
             @Html.LabelFor(model => model.AdoptedDate)
         </div>
@@ -54,50 +96,8 @@
             @Html.LabelFor(model => model.AdoptionStory)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.AdoptionStory)
+            @Html.TextAreaFor(model => model.AdoptionStory, new { @class = "edit-textarea" })
             @Html.ValidationMessageFor(model => model.AdoptionStory)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DateFeatured)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DateFeatured)
-            @Html.ValidationMessageFor(model => model.DateFeatured)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Breed)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Breed)
-            @Html.ValidationMessageFor(model => model.Breed)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Gender)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Gender)
-            @Html.ValidationMessageFor(model => model.Gender)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Image)
-        </div>
-        <div class="editor-field">
-            <input type="file" id="dogImage" name="dogImage" />
-            <img alt="@Model.Name" width="60px" height="60px" src="@Url.Action("Image", new { id = Model.DogId })" />
-            @Html.ValidationMessageFor(model => model.Image)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Thumbnail)
-        </div>
-        <div class="editor-field">
-            <input type="file" id="dogThumbnail" name="dogThumbnail" />
-            <img alt="@Model.Name" width="60px" height="60px" src="@Url.Action("Thumbnail", new { id = Model.DogId })" />
-            @Html.ValidationMessageFor(model => model.Thumbnail)
         </div>
 
         <p>

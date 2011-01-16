@@ -3,9 +3,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h2>Dogs</h2>
+
 <div>
-    <label>
-        Now Viewing:&nbsp;</label>@ViewBag.viewType
+    <label style="font-weight: bold;">Now Viewing:&nbsp;</label>
+    &nbsp;
+    @ViewBag.viewType
     @switch ((String)ViewBag.viewType)
     {
         case "Adopted":
@@ -17,8 +21,6 @@
 
     }
 </div>
-<h2>
-    Index</h2>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -36,9 +38,6 @@
             Breed
         </th>
         <th>
-            Profile
-        </th>
-        <th>
             Birthday
         </th>
         <th>
@@ -46,15 +45,6 @@
         </th>
         <th>
             Thumbnail
-        </th>
-        <th>
-            Image
-        </th>
-        <th>
-            AdoptionStory
-        </th>
-        <th>
-            DateFeatured
         </th>
     </tr>
     @foreach (var item in Model)
@@ -64,38 +54,18 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.DogId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.DogId })
             </td>
-            <td>
-                @item.Name
-            </td>
-            <td>@item.Gender
-            </td>
-            <td>@item.Breed
-            </td>
-            <td>
-                @item.Profile
-            </td>
-            <td>
-                @String.Format("{0:g}", item.Birthday)
-            </td>
-            <td>
-                @String.Format("{0:g}", item.AdoptedDate)
-            </td>
-            <td>
-                <img alt="@item.Name" width="60px" height="60px" src="@Url.Action("Thumbnail", new { id = item.DogId })" />
-            </td>
-            <td>
-                <img alt="@item.Name" width="60px" height="60px" src="@Url.Action("Image", new { id = item.DogId })" />
-            </td>
-            <td>
-                @item.AdoptionStory
-            </td>
-            <td>
-                @String.Format("{0:g}", item.DateFeatured)
-            </td>
+            <td>@item.Name</td>
+            <td>@item.Gender</td>
+            <td>@item.Breed</td>
+            <td>@String.Format("{0:g}", item.Birthday)</td>
+            <td>@String.Format("{0:g}", item.AdoptedDate)</td>
+            <td><img alt="@item.Name" width="60px" height="60px" src="@Url.Action("Thumbnail", new { id = item.DogId })" /></td>
+            
         </tr>
     }
     <tr>
-        <td>
+        <td colspan="7">
+            Pages: 
             @for (int i = 1; i <= ViewBag.totalPages; i++)
             {
                 @Html.ActionLink(i.ToString(), "Index", new { pageNumber = i }, new { style = (ViewBag.currentPage == i) ? "font-weight:bold;" : String.Empty });

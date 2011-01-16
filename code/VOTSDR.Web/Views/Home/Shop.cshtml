@@ -4,13 +4,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section head { }
+@section head {
+  <style type="text/css">
+      .shop-pageinfo {padding: 5px;}
+      .shop-image {margin: 2px 0px; float: left;}
+      .shop-description {margin: 0 10px; float: left;}
+      .ship-price {float: left;}
+      .shop-item {margin: 10px 0 0 0;border-bottom: 1px solid #fff; min-height: 300px; clear: both;}
+  </style>
+ }
 
 <h2>Shop</h2>
 
-<p>
+<p class="shop-info">
   All proceeds from the purchases below are tax-deductable. 100% of the 
   proceeds go to Valley of the Sun Dog Rescue. If you are interested in 
   purchasing any items seen below, 
   @Html.ActionLink("please click here", "ContactUs").
+</p>
+
+<div class="shop-item">
+    <div class="shop-image"><img src="@Url.Content("~/Content/images/shop/bumpersticker.jpg")" alt="valley of the sun dog rescue bumper sticker"/></div>
+    <div class="shop-description">Bumper sticker</div>
+    <div class="shop-price">$5 Donation</div>
+</div>
+
+<div class="shop-item">
+    <div class="shop-image"><img src="@Url.Content("~/Content/images/shop/punishteeshirt.jpg")" alt="valley of the sun dog rescue tee shirt"/></div>
+    <div class="shop-description">T-shirt sizes s/m/L/xL/xxL</div>
+    <div class="shop-price">$15 Donaiton</div>
+</div>
+
+<div class="shop-item">
+    <div class="shop-image"><img src="@Url.Content("~/Content/images/shop/windowsticker.jpg")" alt="valley of the sun dog rescue window sticker"/></div>
+    <div class="shop-description">Window decal</div>
+    <div class="shop-price">$5 Donation</div>
+</div>
+
+<div style="clear:both;"/>
+
+<p class="shop-info">
+    @Html.ActionLink("Contact Us", "ContactUs").
 </p>

@@ -150,7 +150,12 @@ namespace VOTSDR.Web.Controllers
 
         public ActionResult ContactUs()
         {
-            return View(new ContactUsViewModel());
+            var vm = new ContactUsViewModel
+            {
+                WebMasterEmailAddress =
+                    ConfigurationManager.AppSettings["ContactUsEmailAddress"]
+            };
+            return View(vm);
         }
 
         [HttpPost]
@@ -216,6 +221,8 @@ namespace VOTSDR.Web.Controllers
             }
             else
             {
+                contactForm.WebMasterEmailAddress =
+                    ConfigurationManager.AppSettings["ContactUsEmailAddress"];
                 return View(contactForm);
             }
         }

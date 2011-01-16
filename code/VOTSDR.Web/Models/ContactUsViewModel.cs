@@ -22,5 +22,7 @@ namespace VOTSDR.Web.Models
         
         [Required]
         public string Comments { get; set; }
+
+        public string WebMasterEmailAddress { get; set; }
     }
 }

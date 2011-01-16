@@ -9,7 +9,7 @@ using System.Web.UI;
 
 namespace VOTSDR.Web.Controllers
 {
-    public class DogController : Controller
+    public class DogController : BaseController
     {
         [OutputCache(Location=OutputCacheLocation.ServerAndClient, Duration=300)]
         public ActionResult Image(Guid id)
@@ -84,19 +84,6 @@ namespace VOTSDR.Web.Controllers
                     Story = dog.AdoptionStory,
                 }
             );
-        }
-
-        private string GetDogAge(DateTime Birthday)
-        {
-            TimeSpan span = DateTime.Today.Subtract(Birthday);
-
-            string age =  (span.Days <= 30) ? span.Days.ToString() + " days":
-                (span.Days <= 365) ? (span.Days / 30).ToString() + " months":
-                (span.Days >= 365) ? (span.Days / 365).ToString() + " years " + 
-                    ((span.Days % 365) > 30 ? ((span.Days % 365) / 30).ToString() + " months" : "") :                
-                "";
-
-            return age;
         }
     }
 }

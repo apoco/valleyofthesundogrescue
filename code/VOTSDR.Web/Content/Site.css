@@ -709,6 +709,11 @@ div#title
 	border: none;
 	color: #fff;
 }
+#fs-dotw-thumb img
+{
+    width: 70px;
+    height: 70px;
+}
 
 #footerbkg
 {

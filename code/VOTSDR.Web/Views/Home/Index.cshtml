@@ -203,13 +203,14 @@
             <div class="features">
               <div class="featured-dog feature-section">
                 <h3>Dog of the Week</h3>
-                <img src="@Model.FeaturedDogThumbnailUrl" alt="@Model.FeaturedDogName" />
+                <a href="@Url.Action("Available", "Dog")#dog-@Model.FeaturedDogId">
+                  <img src="@Model.FeaturedDogThumbnailUrl" 
+                    alt="@Model.FeaturedDogName" />
+                </a>
                 <div class="profile">
                   @Model.FeaturedDogProfile.Summarize()
                 </div>
-                @Html.ActionLink(
-                  "See more...", "Available", "Dog", 
-                  new { id=Model.FeaturedDogId }, null)
+                @Html.ActionLink("See more...", "Available", "Dog")
               </div>
 
               <div class="special-need feature-section">

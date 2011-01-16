@@ -30,7 +30,7 @@ namespace VOTSDR.Web
                 new { controller = "Dog", action = "Thumbnail" });
 
             routes.MapRoute(
-                "AvailableDogs", "dogs/#{id}",
+                "AvailableDogs", "dogs/",
                 new { controller = "Dog", action = "Available" });
 
             routes.MapRoute(

@@ -14,6 +14,9 @@
     <tr>
         <th></th>
         <th>
+            Sort Date
+        </th>
+        <th>
             Friendly Date
         </th>
         <th>
@@ -32,7 +35,10 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
         </td>
         <td>
-            @item.Date
+            @String.Format("{0:g}", item.DateCreated)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.Date)
         </td>
         <td>
             @item.Name

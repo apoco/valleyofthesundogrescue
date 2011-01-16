@@ -603,6 +603,10 @@ div#title
 {
 	text-decoration: none;
 }
+.fnav-link img
+{
+	border: none;
+}
 
 .fnav-link.first
 {

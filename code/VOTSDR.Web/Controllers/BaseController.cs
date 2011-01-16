@@ -34,6 +34,8 @@ namespace VOTSDR.Web.Controllers
                 Breed = dog.Breed
             };
 
+            ViewBag.SupportsTelUrls = Request.Browser.CanInitiateVoiceCall;
+
             base.OnResultExecuting(filterContext);
         }
 

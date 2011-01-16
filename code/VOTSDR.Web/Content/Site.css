@@ -22,16 +22,16 @@ a:link
 }
 a:visited
 {
-    color: #fd8a36;
+    color: #ed4e23;
 }
 a:hover
 {
-    color: #fd8a36;
+    color: #ed4e23;
     text-decoration: none;
 }
 a:active
 {
-    color: #fd8a36;
+    color: #ed4e23;
 }
 
 
@@ -489,7 +489,7 @@ div#title
 .shop #page-title,
 .contact #page-title
 {
-	cursor: move !important;
+	
 }
 
 .home #page-title

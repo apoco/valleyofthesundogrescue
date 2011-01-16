@@ -58,7 +58,10 @@ namespace VOTSDR.Web.Controllers
                     Profile = dog.Profile,
                     ImageUrl = Url.Action("Image", new { id = dog.DogId }),
                     ThumbnailUrl = Url.Action("Thumbnail", new { id = dog.DogId }),
-                    Name = dog.Name
+                    Name = dog.Name,
+                    Age = GetDogAge(dog.Birthday ?? DateTime.Today),
+                    Featured = dog.DateFeatured != null,
+                    Breed = dog.Breed
                 }
             );
         }
@@ -81,6 +84,19 @@ namespace VOTSDR.Web.Controllers
                     Story = dog.AdoptionStory,
                 }
             );
+        }
+
+        private string GetDogAge(DateTime Birthday)
+        {
+            TimeSpan span = DateTime.Today.Subtract(Birthday);
+
+            string age =  (span.Days <= 30) ? span.Days.ToString() + " days":
+                (span.Days <= 365) ? (span.Days / 30).ToString() + " months":
+                (span.Days >= 365) ? (span.Days / 365).ToString() + " years " + 
+                    ((span.Days % 365) > 30 ? ((span.Days % 365) / 30).ToString() + " months" : "") :                
+                "";
+
+            return age;
         }
     }
 }

@@ -48,7 +48,16 @@
 {
   <div class="article-or-event">
     <a id="@item.Id"></a>
-    <div class="date">@item.Date</div>
+    <div class="date">
+    @if (item.IsEvent)
+    {
+        <span>Event: </span>
+    }
+    else
+    {
+        <span>News: </span>
+    }
+    @item.Date</div>
     <div class="title">@item.Title </div>
     @if (string.IsNullOrEmpty(item.Location))
     {

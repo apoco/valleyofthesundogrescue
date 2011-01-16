@@ -1,0 +1,51 @@
+﻿@model VOTSDR.Data.Dog
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Dog</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Profile</div>
+    <div class="display-field">@Model.Profile</div>
+
+    <div class="display-label">Birthday</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Birthday)</div>
+
+    <div class="display-label">AdoptedDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.AdoptedDate)</div>
+
+    <div class="display-label">AdoptionStory</div>
+    <div class="display-field">@Model.AdoptionStory</div>
+
+    <div class="display-label">DateFeatured</div>
+    <div class="display-field">@String.Format("{0:g}", Model.DateFeatured)</div>
+
+    <div class="display-label">Breed</div>
+    <div class="display-field">@Model.Breed</div>
+
+    <div class="display-label">Gender</div>
+    <div class="display-field">@Model.Gender</div>
+
+    <div class="display-label">Image</div>
+    <img alt="@Model.Name" width="60px" height="60px" src="@Url.Action("Image", new { id = Model.DogId })" />
+
+    <div class="display-label">Thumbnail</div>
+    <img alt="@Model.Name" width="60px" height="60px" src="@Url.Action("Thumbnail", new { id = Model.DogId })" />
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

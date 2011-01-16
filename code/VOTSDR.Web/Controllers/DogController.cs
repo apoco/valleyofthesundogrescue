@@ -19,7 +19,7 @@ namespace VOTSDR.Web.Controllers
                 .FirstOrDefault(d => d.DogId == id);
             if (dog == null)
             {
-                throw new HttpException(404, "Not Found");
+                return HttpNotFound();
             }
             else
             {
@@ -35,7 +35,7 @@ namespace VOTSDR.Web.Controllers
                 .FirstOrDefault(d => d.DogId == id);
             if (dog == null)
             {
-                throw new HttpException(404, "Not Found");
+                return HttpNotFound();
             }
             else
             {

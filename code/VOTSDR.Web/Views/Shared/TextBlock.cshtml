@@ -1,7 +1,12 @@
-﻿@model System.String
+﻿@using System.Text.RegularExpressions;
+@model System.String
+         
+@{
+  var content = Model.Replace("\r\n", "\n");
+  var urlFormat = new Regex(@"(^|\s)(https?://.*?)($|\s)");
+}
 
-@foreach (var paraContent in Model
-  .Replace("\r\n", "\n")
+@foreach (var paraContent in content
   .Split(new[] { "\n\n" }, StringSplitOptions.RemoveEmptyEntries))
 {
   <p>
@@ -11,7 +16,27 @@
     }
     @foreach (var line in allLines)
 	  {
-      @line
+      var toOutput = HttpUtility.HtmlEncode(line);
+      toOutput = urlFormat.Replace(
+          toOutput,
+          new MatchEvaluator(
+            m =>
+            {
+              var url = m.Groups[2].Value.Trim();
+              var puncToPreserve = string.Empty;
+              while (url.EndsWith("?") || url.EndsWith(".") || url.EndsWith("!"))
+              {
+                puncToPreserve = url.Last() + puncToPreserve;
+                url = url.Substring(0, url.Length - 1);
+              }
+              return string.Format(
+                "{0}<a href=\"{1}\">{1}</a>{2}{3}", m.Groups[1].Value, url, 
+                puncToPreserve, m.Groups[3]);
+            }
+          )
+        );
+      
+      @Html.Raw(toOutput)
 
       if (i < allLines.Length - 1)
       {

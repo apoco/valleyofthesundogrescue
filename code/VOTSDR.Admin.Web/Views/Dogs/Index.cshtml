@@ -5,8 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div>
+    <input type="radio" id="Available" title="Available" />
+    <input type="radio" id="Adopted" title="Adopted" />
+</div>
 
+<h2>Index</h2>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -67,10 +71,10 @@
             @String.Format("{0:g}", item.AdoptedDate)
         </td>
         <td>
-            @item.Thumbnail
+            <img alt="@item.Name" width="60px" height="60px" src="@Url.Action("Thumbnail", new { id=item.DogId })" />
         </td>
         <td>
-            @item.Image    
+            <img alt="@item.Name" width="60px" height="60px" src="@Url.Action("Image", new { id=item.DogId })" />
         </td>
         <td>
             @item.AdoptionStory

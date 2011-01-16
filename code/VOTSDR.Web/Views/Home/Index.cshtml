@@ -141,11 +141,12 @@
             <div class="summary">@item.Summary</div>
             @Html.ActionLink(
               "More Info...",
-              "NewsAndArticles", 
+              "Index", "News", 
               new { ArticleId = item.Id },
               new { @class = "more" } )
           </div>
         }
+ 
       </div>
       </td>
       <td>

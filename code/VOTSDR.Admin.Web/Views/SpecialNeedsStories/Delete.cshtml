@@ -1,4 +1,4 @@
-﻿@model VOTSDR.Data.NewsStory
+﻿@model VOTSDR.Data.SpecialNeedsStory
 
 @{
     ViewBag.Title = "Delete";
@@ -9,16 +9,16 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <fieldset>
-    <legend>News Story</legend>
+    <legend>SpecialNeedsStory</legend>
 
-    <div class="display-label">Date</div>
-    <div class="display-field">@String.Format("{0:g}", Model.Date)</div>
+    <div class="display-label">DateCreated</div>
+    <div class="display-field">@String.Format("{0:g}", Model.DateCreated)</div>
+
+    <div class="display-label">IsFeatured</div>
+    <div class="display-field">@Model.IsFeatured</div>
 
     <div class="display-label">Text</div>
     <div class="display-field">@Model.Text</div>
-
-    <div class="display-label">Title</div>
-    <div class="display-field">@Model.Title</div>
 </fieldset>
 @using (Html.BeginForm()) {
     <p>

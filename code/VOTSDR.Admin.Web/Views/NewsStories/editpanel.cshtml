@@ -5,7 +5,9 @@
     <fieldset>
         <legend>News Story</legend>
 
-        @Html.HiddenFor(model => model.NewsStoryId)
+        @if(ViewBag.FormType=="Edit") {
+            @Html.HiddenFor(model => model.NewsStoryId)
+        }
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Date)
@@ -31,8 +33,14 @@
             @Html.ValidationMessageFor(model => model.Text)
         </div>
 
-        <p>
-            <input type="submit" value="Save" />
+        <p> 
+            @if (ViewBag.FormType == "Edit") {
+                <input type="submit" value="Save" />
+            }
+            @if (ViewBag.FormType == "Create")
+            {
+                <input type="submit" value="Create" />
+            }
         </p>
     </fieldset>
 }

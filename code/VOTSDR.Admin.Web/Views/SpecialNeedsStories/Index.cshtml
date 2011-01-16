@@ -20,7 +20,7 @@
             Is Featured
         </th>
         <th>
-            Text
+            Image
         </th>
     </tr>
 
@@ -35,10 +35,10 @@
             @String.Format("{0:g}", item.DateCreated)
         </td>
         <td>
-            @item.IsFeatured
+            @(item.IsFeatured ? "Featured" : "")
         </td>
         <td>
-            @item.Text
+            <img alt="dog picture" width="60px" height="60px" src="@Url.Action("Image", new { id = item.SpecialNeedsStoryId })" />
         </td>
     </tr>
 }

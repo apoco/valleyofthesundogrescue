@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 
 using VOTSDR.Data;
+using VOTSDR.Utils;
 
 namespace VOTSDR.Admin.Web.Controllers
 {
@@ -61,9 +62,6 @@ namespace VOTSDR.Admin.Web.Controllers
                         story.Image = ImageUtils.GetBytes(storyImageFile.InputStream);
                 }
 
-
-
-
                 // Add and Save
                 var _db = new DataEntities();
                 _db.SpecialNeedsStories.AddObject(story);
@@ -105,6 +103,16 @@ namespace VOTSDR.Admin.Web.Controllers
 
                 var story = _db.SpecialNeedsStories.FirstOrDefault(n => n.SpecialNeedsStoryId == id);
                 UpdateModel(story, collection);
+
+
+                if (Request.Files != null & Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase storyImageFile = Request.Files["dogImage"];
+                    if (storyImageFile != null)
+                        story.Image = ImageUtils.GetBytes(storyImageFile.InputStream);
+                }
+
+
                 _db.SaveChanges();
  
                 return RedirectToAction("Index");
@@ -146,5 +154,23 @@ namespace VOTSDR.Admin.Web.Controllers
                 return View();
             }
         }
+
+
+        public ActionResult Image(Guid id)
+        {
+
+            var _db = new DataEntities();
+            var story = _db.SpecialNeedsStories.FirstOrDefault(n => n.SpecialNeedsStoryId == id);
+            if (story == null || story.Image == null)
+            {
+                return null;
+            }
+            else
+            {
+                return File(story.Image, "image/jpeg");
+            }
+        }
+
+
     }
 }

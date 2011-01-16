@@ -24,17 +24,17 @@ namespace VOTSDR.Admin.Web.Controllers
             return View(de.Dogs);
         }
 
-        public ActionResult Index(int pageNumber)
-        {
-            Data.DataEntities de = new DataEntities();
+        //public ActionResult Index(int pageNumber)
+        //{
+        //    Data.DataEntities de = new DataEntities();
 
-            int totalDogs = de.Dogs.Count();
+        //    int totalDogs = de.Dogs.Count();
 
-            int totalPages = (int)Math.Ceiling((double)totalDogs / (double)pageSize);
+        //    int totalPages = (int)Math.Ceiling((double)totalDogs / (double)pageSize);
 
 
-            return View(de.Dogs);
-        }
+        //    return View(de.Dogs);
+        //}
 
         //
         // GET: /Dogs/Details/5
@@ -162,11 +162,11 @@ namespace VOTSDR.Admin.Web.Controllers
                 {
                     HttpPostedFileBase dogImageFile = Request.Files["dogImage"];
                     if (dogImageFile != null && dogImageFile.ContentLength > 0)
-                        dog.Image = GetBytes(dogImageFile.InputStream);
+                        dog.Image = ImageUtils.GetBytes(dogImageFile.InputStream);
 
                     HttpPostedFileBase dogThumbnailFile = Request.Files["dogThumbnail"];
                     if (dogThumbnailFile != null && dogThumbnailFile.ContentLength > 0)
-                        dog.Thumbnail = GetBytes(dogThumbnailFile.InputStream);
+                        dog.Thumbnail = ImageUtils.GetBytes(dogThumbnailFile.InputStream);
                 }                
                 
                 UpdateModel<Dog>(dog);

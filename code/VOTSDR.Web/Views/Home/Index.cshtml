@@ -198,17 +198,13 @@
           {
           <div class="article">
             @Html.ActionLink(
-              item.Title,
-              "Index", "News",
-              new { ArticleId = item.Id },
-              new { @class = "title" })
+              item.Title, "Index", "News", null, null, "item-" + item.Id, 
+              null, new { @class = "title" })
             <div class="date">@item.Date</div>
             <div class="summary">@item.Summary</div>
             @Html.ActionLink(
-              "More Info...",
-              "Index", "News",
-              new { ArticleId = item.Id },
-              new { @class = "more" })
+              "More Info...", "Index", "News", null, null, "item-" + item.Id,
+              null, new { @class = "more" })
           </div>
           }
         }

@@ -45,11 +45,15 @@ namespace VOTSDR.Web.Controllers
 
         public ActionResult Available()
         {
-            var dogs = new List<Dog>(
+            var dogs = (
                 from dog in new DataEntities().Dogs
                 where !dog.AdoptedDate.HasValue
                 orderby dog.DateFeatured
-                select dog);
+                select new { 
+                    dog.DogId, dog.Profile, dog.Name, dog.Birthday, 
+                    dog.DateFeatured, dog.Breed, dog.Gender }
+            ).ToList();
+
             return View(
                 from dog in dogs 
                 select new AdoptableDogViewModel

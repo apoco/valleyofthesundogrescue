@@ -6,11 +6,23 @@
     <edmx:StorageModels>
     <Schema Namespace="votsdradminModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="votsdradminModelStoreContainer">
+          <EntitySet Name="Content" EntityType="votsdradminModel.Store.Content" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Dog" EntityType="votsdradminModel.Store.Dog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Event" EntityType="votsdradminModel.Store.Event" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="NewsStory" EntityType="votsdradminModel.Store.NewsStory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SpecialNeedsStory" EntityType="votsdradminModel.Store.SpecialNeedsStory" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="ContentId" />
+          </Key>
+          <Property Name="ContentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Area" Type="nvarchar" MaxLength="50" />
+          <Property Name="Markup" Type="ntext" />
+          <Property Name="PublishOn" Type="datetime" />
+          <Property Name="PublishUntil" Type="datetime" />
+          <Property Name="IsDefault" Type="bit" />
+        </EntityType>
         <EntityType Name="Dog">
           <Key>
             <PropertyRef Name="DogId" />
@@ -18,7 +30,6 @@
           <Property Name="DogId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Profile" Type="ntext" />
-          <Property Name="Age" Type="nvarchar" MaxLength="100" />
           <Property Name="Birthday" Type="datetime" />
           <Property Name="AdoptedDate" Type="datetime" />
           <Property Name="Image" Type="varbinary(max)" />
@@ -68,6 +79,7 @@
           <EntitySet Name="NewsStories" EntityType="votsdradminModel.NewsStory" />
           <EntitySet Name="SpecialNeedsStories" EntityType="votsdradminModel.SpecialNeedsStory" />
           <EntitySet Name="Events" EntityType="votsdradminModel.Event" />
+          <EntitySet Name="Contents" EntityType="votsdradminModel.Content" />
         </EntityContainer>
         <EntityType Name="Dog">
           <Key>
@@ -116,6 +128,17 @@
           <Property Type="String" Name="Date" MaxLength="300" FixedLength="false" Unicode="true" Nullable="true" />
           <Property Type="DateTime" Name="DateCreated" />
         </EntityType>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="ContentId" />
+          </Key>
+          <Property Type="Guid" Name="ContentId" Nullable="false" />
+          <Property Type="String" Name="Area" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Markup" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="PublishOn" />
+          <Property Type="DateTime" Name="PublishUntil" />
+          <Property Type="Boolean" Name="IsDefault" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -161,6 +184,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Contents">
+            <EntityTypeMapping TypeName="votsdradminModel.Content">
+              <MappingFragment StoreEntitySet="Content">
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="PublishUntil" ColumnName="PublishUntil" />
+                <ScalarProperty Name="PublishOn" ColumnName="PublishOn" />
+                <ScalarProperty Name="Markup" ColumnName="Markup" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -182,10 +217,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="DataRepository">
-        <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.75" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="votsdradminModel.NewsStory" Width="1.5" PointX="2.5" PointY="3" Height="1.787985026041667" IsExpanded="true" />
-        <EntityTypeShape EntityType="votsdradminModel.SpecialNeedsStory" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="votsdradminModel.Event" Width="1.5" PointX="2.875" PointY="0.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="votsdradminModel.Dog" Width="1.5" PointX="0.5" PointY="0.5" Height="3.1340950520833331" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.NewsStory" Width="1.5" PointX="5.375" PointY="0.5" Height="1.9802864583333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.SpecialNeedsStory" Width="1.5" PointX="3.75" PointY="0.5" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="votsdradminModel.Event" Width="1.5" PointX="2.125" PointY="0.5" Height="2.172587890625" />
+        <EntityTypeShape EntityType="votsdradminModel.Content" Width="1.5" PointX="3.75" PointY="2.75" Height="2.1725878906249996" />
       </Diagram>
     </Diagrams>
   </Designer>

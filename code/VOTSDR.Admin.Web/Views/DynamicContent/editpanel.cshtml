@@ -1,0 +1,62 @@
+﻿@model VOTSDR.Data.Content
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Content</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Area)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Area)
+            @Html.ValidationMessageFor(model => model.Area)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Markup)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Markup, new { @class = "edit-textarea" })
+            @Html.ValidationMessageFor(model => model.Markup)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PublishOn)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.PublishOn, new { @class = "edit-date" })
+            @Html.ValidationMessageFor(model => model.PublishOn)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PublishUntil)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.PublishUntil, new { @class = "edit-date" })
+            @Html.ValidationMessageFor(model => model.PublishUntil)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsDefault)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsDefault)
+            @Html.ValidationMessageFor(model => model.IsDefault)
+        </div>
+        
+        <p>        
+            @if (ViewBag.FormType == "Edit") {
+                <input type="submit" value="Save" />
+            }
+            @if (ViewBag.FormType == "Create") {
+                <input type="submit" value="Create" />
+            }
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

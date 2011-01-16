@@ -1,0 +1,60 @@
+﻿@model IEnumerable<VOTSDR.Data.Content>
+@using VOTSDR.Utils;
+@{
+    ViewBag.Title = "Dynamic Content Listing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dynamic Content Listing</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Area
+        </th>
+        <th>
+            Markup
+        </th>
+        <th>
+            Publish On
+        </th>
+        <th>
+            Publish Until
+        </th>
+        <th>
+            IsDefault
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ContentId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ContentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ContentId })
+        </td>
+        <td>
+            @item.Area
+        </td>
+        <td>
+            @item.Markup.Summarize(30)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PublishOn)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PublishUntil)
+        </td>
+        <td>
+            @item.IsDefault
+        </td>
+    </tr>
+}
+
+</table>
+

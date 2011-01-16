@@ -1,6 +1,12 @@
 ﻿
 
-.edit-textarea {height: 90px !important; width: 650px !important;}
+.edit-textarea {height: 175px !important; width: 650px !important;}
+
+.content-area {margin: 5px; float:left;}
+.content-isdefault {margin: 5px; float: left; font-weight: bold;}
+.content-publishon {margin: 5px; float: left;}
+.content-publishuntil {margin: 5px; float: left;}
+.content-markup {margin: 10px 5px; padding: 10px; clear:both; border: 1px solid #6699BB;}
 
 
 .dog-name { margin: 5px;}

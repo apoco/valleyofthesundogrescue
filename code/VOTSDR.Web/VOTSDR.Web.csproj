@@ -84,9 +84,11 @@
     </Compile>
     <Compile Include="Models\AdoptableDogViewModel.cs" />
     <Compile Include="Models\ContactUsViewModel.cs" />
+    <Compile Include="Models\EducationModel.cs" />
     <Compile Include="Models\HomeIndexViewModel.cs" />
     <Compile Include="Models\NewsOrEventSummaryViewModel.cs" />
     <Compile Include="Models\NewsOrEventViewModel.cs" />
+    <Compile Include="Models\SponsorsAndLinksModel.cs" />
     <Compile Include="Models\SuccessStoryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

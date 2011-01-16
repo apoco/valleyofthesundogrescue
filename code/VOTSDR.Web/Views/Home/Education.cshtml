@@ -1,11 +1,17 @@
-﻿@{
+﻿@using VOTSDR.Web.Models
+@model EducationModel
+           
+@{
     ViewBag.Title = "Education";
     ViewBag.PageClass = "education";
 }
 
-@section head { }
+@section head { 
+<style>
+    h3, h4 { margin: 10px 0 5px;}
+</style>
+}
 
 <h2>Education</h2>
-<p>
-  We expect to have educational material soon.  Please check back later.
-</p>
+
+<p>@Html.Partial("TextBlock", Model.Markup)</p>

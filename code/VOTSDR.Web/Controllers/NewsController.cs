@@ -16,7 +16,7 @@ namespace VOTSDR.Web.Controllers
             var news =
                 from article in entities
                     .NewsStories
-                    .OrderByDescending(s => s.Date)
+                    .OrderByDescending(s => s.DateCreated)
                     .Take(10)
                     .ToList()
                 select new NewsOrEventViewModel
@@ -31,7 +31,7 @@ namespace VOTSDR.Web.Controllers
             var events =
                 from evt in entities
                     .Events
-                    .OrderByDescending(e => e.Date)
+                    .OrderByDescending(e => e.DateCreated)
                     .Take(10)
                     .ToList()
                 select new NewsOrEventViewModel

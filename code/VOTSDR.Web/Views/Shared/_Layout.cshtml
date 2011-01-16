@@ -71,15 +71,51 @@
 				<div id="footer-nav">
 					<div id="footerbkg"></div>
 					<ul>
-						<li><a id="fnav-link-home" href="#" class="fnav-link first">Home</a></li>
-						<li><a id="fnav-link-adoptable" href="#" class="fnav-link">Adoptable Dogs</a></li>
-						<li><a id="fnav-link-stories" href="#" class="fnav-link">Happy Tails</a></li>
-						<li><a id="fnav-link-howtohelp" href="#" class="fnav-link">How YOU Can Help</a></li>
-						<li><a id="fnav-link-news" href="#" class="fnav-link">News / Events</a></li>
-						<li><a id="fnav-link-education" href="#" class="fnav-link">Education</a></li>
-						<li><a id="fnav-link-sponsors" href="#" class="fnav-link">Sponsors / Links</a></li>
-						<li><a id="fnav-link-shop" href="#" class="fnav-link">Shop</a></li>
-						<li><a id="fnav-link-contact" href="#" class="fnav-link last">Contact Us</a></li>
+						<li>
+              @Html.ActionLink(
+                  "Home", "Index", "Home", null,
+                  new { id = "fnav-link-home", @class = "fnav-link first" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Adoptable Dogs", "Available", "Dog", null,
+                  new { id = "fnav-link-adoptable", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Happy Tails", "SuccessStories", "Dog", null,
+                  new { id = "fnav-link-stories", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "How YOU Can Help", "HowToHelp", "Home", null,
+                  new { id = "fnav-link-howtohelp", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "News / Events", "Index", "News", null,
+                  new { id = "fnav-link-news", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Education", "Education", "Home", null,
+                  new { id = "fnav-link-education", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Sponsors / Links", "SponsorsAndLinks", "Home", null,
+                  new { id = "fnav-link-sponsors", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Shop", "Shop", "Home", null,
+                  new { id = "fnav-link-shop", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Contact Us", "ContactUs", "Home", null,
+                  new { id = "fnav-link-contact", @class = "fnav-link last" })
+            </li>
 					</ul>
 				</div>
 			</div>

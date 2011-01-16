@@ -97,6 +97,7 @@
     <Content Include="Content\images\bg-f-bars.jpg" />
     <Content Include="Content\images\bg-h-bars.jpg" />
     <Content Include="Content\images\btn-donate.gif" />
+    <Content Include="Content\images\facebooksmall.png" />
     <Content Include="Content\images\shop\bumpersticker.JPG" />
     <Content Include="Content\images\logo-header.png" />
     <Content Include="Content\images\logo.png" />
@@ -110,6 +111,7 @@
     <Content Include="Content\images\nav-h-t-howtohelp.png" />
     <Content Include="Content\images\nav-h-t-stories.png" />
     <Content Include="Content\images\shop\punishteeshirt.JPG" />
+    <Content Include="Content\images\twitterbirdsmall.png" />
     <Content Include="Content\images\txt-fst-donations.png" />
     <Content Include="Content\images\txt-fst-dotw.png" />
     <Content Include="Content\images\txt-fst-times.png" />

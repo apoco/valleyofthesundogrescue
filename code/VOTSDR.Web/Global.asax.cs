@@ -66,6 +66,10 @@ namespace VOTSDR.Web
                 new { controller = "News", action = "Index" });
 
             routes.MapRoute(
+                "SpecialNeedsImage", "news/special-needs/{id}.jpg",
+                new { controller = "News", action = "SpecialNeedsImage" });
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults

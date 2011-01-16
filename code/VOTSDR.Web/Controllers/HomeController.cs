@@ -75,9 +75,9 @@ namespace VOTSDR.Web.Controllers
                 .FirstOrDefault();
             if (featuredNeed != null)
             {
-                /*viewData.SpecialNeedThumbnail =Url.Action(
-                    "Image", "Image",
-                    new { id = featuredNeed.Image });*/
+                viewData.SpecialNeedThumbnailUrl = Url.Action(
+                    "SpecialNeedsImage", "News",
+                    new { id = featuredNeed.SpecialNeedsStoryId });
                 viewData.SpecialNeedDescription = featuredNeed.Text;
             }
             else

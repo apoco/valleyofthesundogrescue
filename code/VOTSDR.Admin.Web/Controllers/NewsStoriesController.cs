@@ -18,7 +18,7 @@ namespace VOTSDR.Admin.Web.Controllers
         public ActionResult Index()
         {
             var _db = new DataEntities();
-            var stories = _db.NewsStories;
+            var stories = _db.NewsStories.OrderByDescending(n => n.DateCreated);
             return View(stories);
         }
 

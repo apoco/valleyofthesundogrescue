@@ -15,7 +15,10 @@
     <tr>
         <th></th>
         <th>
-            Date
+            Sort Date
+        </th>
+        <th>
+            Friendly Date
         </th>
         <th>
             Title
@@ -29,6 +32,9 @@
             @Html.ActionLink("Edit", "Edit", new { id = item.NewsStoryId }) |
             @Html.ActionLink("Details", "Details", new { id = item.NewsStoryId }) | 
             @Html.ActionLink("Delete", "Delete", new { id = item.NewsStoryId })
+        </td>
+        <td>
+            @String.Format("{0:g}", item.DateCreated)
         </td>
         <td>
             @String.Format("{0:g}", item.Date)

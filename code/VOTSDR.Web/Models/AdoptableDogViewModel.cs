@@ -13,5 +13,8 @@ namespace VOTSDR.Web.Models
         public string ImageUrl { get; set; }
         public string ThumbnailUrl { get; set; }
         public string Profile { get; set; }
+        public string Age { get; set; }
+        public bool Featured { get; set; }
+        public string Breed { get; set; }
     }
 }

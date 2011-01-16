@@ -25,6 +25,7 @@ namespace VOTSDR.Web.Controllers
                     Date = article.Date,
                     Title = article.Title,
                     Summary = article.Text,
+                    IsEvent = false
                 };
 
             var events =
@@ -40,6 +41,7 @@ namespace VOTSDR.Web.Controllers
                     Location = evt.Location,
                     Title = evt.Name,
                     Summary = evt.Description,
+                    IsEvent = true
                 };
 
             return View(

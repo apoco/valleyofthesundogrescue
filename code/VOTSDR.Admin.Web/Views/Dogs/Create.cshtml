@@ -52,7 +52,7 @@
             @Html.LabelFor(model => model.Birthday)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Birthday)
+            @Html.TextBoxFor(model => model.Birthday, new { @class = "edit-date" })
             @Html.ValidationMessageFor(model => model.Birthday)
         </div>
 
@@ -76,15 +76,7 @@
             @Html.LabelFor(model => model.DateFeatured)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.DateFeatured)
-            @Html.ValidationMessageFor(model => model.DateFeatured)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DateFeatured)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DateFeatured)
+            @Html.TextBoxFor(model => model.DateFeatured, new { @class = "edit-date" })
             @Html.ValidationMessageFor(model => model.DateFeatured)
         </div>
 

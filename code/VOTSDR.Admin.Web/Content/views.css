@@ -1,10 +1,11 @@
 ﻿.edit-textarea {height: 90px; width: 650px;}
 
-.newsstory-createdate { margin: 5px;}
+.newsstory-datecreated { margin: 5px; }
 .newsstory-date { margin: 5px;}
 .newsstory-title { margin: 5px;}
 .newsstory-content { margin: 5px;}
 
+.event-datecreated { margin: 5px; }
 .event-date { margin: 5px;}
 .event-name { margin: 5px;}
 .event-location { margin: 5px;}

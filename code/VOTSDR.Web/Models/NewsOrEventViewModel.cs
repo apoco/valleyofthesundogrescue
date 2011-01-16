@@ -17,6 +17,6 @@ namespace VOTSDR.Web.Models
 
         public string Location { get; set; }
 
-        public string IsEvent { get; set; }
+        public bool IsEvent { get; set; }
     }
 }

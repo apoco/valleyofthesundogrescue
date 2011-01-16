@@ -5,11 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using VOTSDR.Data;
 using VOTSDR.Web.Models;
+using System.Web.UI;
 
 namespace VOTSDR.Web.Controllers
 {
     public class DogController : Controller
     {
+        [OutputCache(Location=OutputCacheLocation.ServerAndClient, Duration=300)]
         public ActionResult Image(Guid id)
         {
             var dog = new DataEntities()
@@ -19,10 +21,13 @@ namespace VOTSDR.Web.Controllers
             {
                 throw new HttpException(404, "Not Found");
             }
-
-            return File(dog.Image, "image/jpeg");
+            else
+            {
+                return File(dog.Image, "image/jpeg");
+            }
         }
 
+        [OutputCache(Location = OutputCacheLocation.ServerAndClient, Duration=300)]
         public ActionResult Thumbnail(Guid id)
         {
             var dog = new DataEntities()
@@ -32,8 +37,10 @@ namespace VOTSDR.Web.Controllers
             {
                 throw new HttpException(404, "Not Found");
             }
-
-            return File(dog.Thumbnail, "image/jpeg");
+            else
+            {
+                return File(dog.Thumbnail, "image/jpeg");
+            }
         }
 
         public ActionResult Available()

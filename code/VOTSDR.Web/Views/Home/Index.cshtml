@@ -63,6 +63,15 @@
         padding-bottom: 1em;
         border-bottom: 1px solid #fffdc1;
     }
+    .date
+    {
+    	font-size: 11pt;
+    	margin: 4px 0;
+    }
+    .summary
+    {
+        margin: 0 0 5px 0;
+    }
     
     .main-content
     {
@@ -130,23 +139,23 @@
       <div class="news-and-events">
         <h2>Latest News:</h2>
         @foreach (var item in Model.NewsAndEvents)
-        {
+        {  
           if (!string.IsNullOrEmpty(item.Title))
           {
-            <div class="article">
-              @Html.ActionLink(
-                item.Title,
-                "NewsAndArticles",
-                new { ArticleId = item.Id },
-                new { @class = "title" })
-              <div class="date">@item.Date</div>
-              <div class="summary">@item.Summary</div>
-              @Html.ActionLink(
-                "More Info...",
-                "Index", "News",
-                new { ArticleId = item.Id },
-                new { @class = "more" })
-            </div>
+          <div class="article">
+            @Html.ActionLink(
+              item.Title,
+              "Index", "News",
+              new { ArticleId = item.Id },
+              new { @class = "title" })
+            <div class="date">@item.Date</div>
+            <div class="summary">@item.Summary</div>
+            @Html.ActionLink(
+              "More Info...",
+              "Index", "News",
+              new { ArticleId = item.Id },
+              new { @class = "more" })
+          </div>
           }
         }
  
@@ -163,8 +172,8 @@
                   @Model.FeaturedDogProfile.Summarize()
                 </div>
                 @Html.ActionLink(
-                  "See more...", "Available", "Dog",
-                  new { id = Model.FeaturedDogId }, null)
+                  "See more...", "Available", "Dog", 
+                  new { id=Model.FeaturedDogId }, null)
               </div>
 
               <div class="special-need">

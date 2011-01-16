@@ -1,22 +1,31 @@
 ﻿@model IEnumerable<VOTSDR.Data.Dog>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div>
-    <label><input type="radio" id="Available" name="Available" value="Available" title="Available" checked="checked" />&nbsp;Available</label>
-    <label><input type="radio" id="Adopted" name="Adopted" value="Adopted" title="Adopted">&nbsp;Adopted</label>
-</div>
+    <label>
+        Now Viewing:&nbsp;</label>@ViewBag.viewType
+    @switch ((String)ViewBag.viewType)
+    {
+        case "Adopted":
+        @Html.ActionLink("View Available", "Index", new { ViewType = "Available", pageNumber = 1 });
+                                                                                                  break;
+        case "Available":
+        @Html.ActionLink("View Adopted", "Index", new { ViewType = "Adopted", pageNumber = 1 });
+                                                                                               break;
 
-<h2>Index</h2>
+    }
+</div>
+<h2>
+    Index</h2>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table>
     <tr>
-        <th></th>
+        <th>
+        </th>
         <th>
             Name
         </th>
@@ -48,49 +57,50 @@
             DateFeatured
         </th>
     </tr>
-
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DogId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DogId })
+            </td>
+            <td>
+                @item.Name
+            </td>
+            <td>@item.Gender
+            </td>
+            <td>@item.Breed
+            </td>
+            <td>
+                @item.Profile
+            </td>
+            <td>
+                @String.Format("{0:g}", item.Birthday)
+            </td>
+            <td>
+                @String.Format("{0:g}", item.AdoptedDate)
+            </td>
+            <td>
+                <img alt="@item.Name" width="60px" height="60px" src="@Url.Action("Thumbnail", new { id = item.DogId })" />
+            </td>
+            <td>
+                <img alt="@item.Name" width="60px" height="60px" src="@Url.Action("Image", new { id = item.DogId })" />
+            </td>
+            <td>
+                @item.AdoptionStory
+            </td>
+            <td>
+                @String.Format("{0:g}", item.DateFeatured)
+            </td>
+        </tr>
+    }
     <tr>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DogId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DogId })
-        </td>
-        <td>
-            @item.Name
-        </td>
-        <td>@item.Gender</td>
-        <td>@item.Breed</td>
-        <td>
-            @item.Profile
-        </td>
-        <td>
-            @String.Format("{0:g}", item.Birthday)
-        </td>
-        <td>
-            @String.Format("{0:g}", item.AdoptedDate)
-        </td>
-        <td>
-            <img alt="@item.Name" width="60px" height="60px" src="@Url.Action("Thumbnail", new { id=item.DogId })" />
-        </td>
-        <td>
-            <img alt="@item.Name" width="60px" height="60px" src="@Url.Action("Image", new { id=item.DogId })" />
-        </td>
-        <td>
-            @item.AdoptionStory
-        </td>
-        <td>
-            @String.Format("{0:g}", item.DateFeatured)
+            @for (int i = 1; i <= ViewBag.totalPages; i++)
+            {
+                @Html.ActionLink(i.ToString(), "Index", new { pageNumber = i }, new { style = (ViewBag.currentPage == i) ? "font-weight:bold;" : String.Empty });
+                @Html.Raw("&nbsp;");
+            }
         </td>
     </tr>
-}
-<tr>
-    <td>
-        @for (int i = 1; i <= ViewBag.totalPages; i++)
-        {
-            @Html.ActionLink(i.ToString(), "Index", new { pageNumber = i }, new { style=(ViewBag.currentPage==i)? "font-weight:bold;" : String.Empty });
-            @Html.Raw("&nbsp;");                                                                                                                                                       
-        }
-    </td>
-</tr>
 </table>
-

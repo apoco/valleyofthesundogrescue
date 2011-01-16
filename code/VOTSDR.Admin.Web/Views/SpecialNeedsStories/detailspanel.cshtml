@@ -1,0 +1,17 @@
+﻿@model VOTSDR.Data.SpecialNeedsStory
+
+<fieldset>
+
+    <legend>Special Needs Story</legend>
+
+    <div class="special-date">Created: @String.Format("{0:g}", Model.DateCreated)</div>
+
+    <div class="special-featured">@(Model.IsFeatured ? "Featured!" : "")</div>    
+
+    <div class="special-image"><img alt="dog picture" width="225px" height="225px" src="@Url.Action("Image", new { id = Model.SpecialNeedsStoryId })" /></div>
+
+    <div class="special-text">@Model.Text</div>
+
+</fieldset>
+
+

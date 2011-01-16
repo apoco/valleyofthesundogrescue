@@ -5,17 +5,52 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section head { }
+@section head { 
+<style type="text/css">
+.news h2
+{
+    margin-bottom: 7px;
+    padding: 5px 0 5px 10px;
+    border-top: 3px solid #fffdc1;
+    border-bottom: 3px solid #fffdc1;
+    text-transform: uppercase;
+    background: transparent url(../Content/images/bg-content-blocks.jpg) repeat-x 0 -5px;
+    color: #9f282f;
+    width: 974px;
+}
 
-<h2>News &amp; Events</h2>
+.article-or-event
+{
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #fffdc1;
+}
+.title
+{
+	font-size: 16pt;
+	margin: 0 0 5px 0;
+}
+.date
+{
+    font-size: 11pt;
+    margin: 4px 0;
+}
+.summary
+{
+    margin: 0 0 5px 0;
+}
+</style>
+}
+
+<h2>The Latest</h2>
 
 @foreach (var item in Model)
 {
   <div class="article-or-event">
     <a id="@item.Id"></a>
     <div class="date">@item.Date</div>
-    <div class="title">@item.Title</div>
-    if (@string.IsNullOrEmpty(item.Location))
+    <div class="title">@item.Title </div>
+    @if (string.IsNullOrEmpty(item.Location))
     {
       <div class="location">@item.Location</div>
     }

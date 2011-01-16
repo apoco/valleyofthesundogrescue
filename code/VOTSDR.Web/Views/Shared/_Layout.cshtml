@@ -41,7 +41,7 @@
 				<div id="footer-donations" class="footer-section">
 					<span id="fst-donations">Donations Welcome!</span>
 					<p>Your tax-deductible support for surgery, vet care and supplies is always appreciated.</p>
-					<p>
+					<div>
             We accept donations through PayPal.
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display: inline">
               <input type="hidden" name="cmd" value="_s-xclick">
@@ -53,7 +53,7 @@
             @Html.ActionLink(
               "ways you can help.", "HowToHelp", "Home", null,
               new { style = "font-weight: bold" })
-          </p>
+          </div>
 				</div>
 				<div id="footer-locations" class="footer-section">
                     <a id="adoptiontimesandlocations"></a>
@@ -72,17 +72,19 @@
 				<div id="footer-dotw" class="footer-section">
 					<span id="fst-dotw">Dog of the Week</span>
 					<div id="fs-dotw-thumb">
-            <a href="@Url.Action("Available", "Dog")">
-              Pic goes here.
+            <a href="@Url.Action("Available", "Dog")#dog-@ViewBag.DogOfTheWeek.Id">
+              <img src="@ViewBag.DogOfTheWeek.ThumbnailUrl" 
+                alt="@ViewBag.DogOfTheWeek.Name" />
             </a>
 					</div>
 					<div id="fs-dotw-details">
-						<div id="fs-dotw-details-name">Lucky</div>
-						<div id="fs-dotw-details-breed">Pit-bull mix</div>
-						<div id="fs-dotw-details-desc">Sweet, Loves Kids</div>
+						<div id="fs-dotw-details-name">@ViewBag.DogOfTheWeek.Name</div>
+						<div id="fs-dotw-details-breed">@ViewBag.DogOfTheWeek.Breed,</div>
+						<div id="fs-dotw-details-desc">@ViewBag.DogOfTheWeek.Age</div>
+            @{ string dogId = ViewBag.DogOfTheWeek.Id.ToString(); }
             @Html.ActionLink(
-                "Learn more...", "Available", "Dog", null, 
-                new { id = "fs-dotw-details-link" })
+                "Learn more...", "Available", "Dog", null, null, 
+                "dog-" + dogId, null, new { id = "fs-dotw-details-link" } )
 					</div>
 				</div>
 				<div id="footer-nav">

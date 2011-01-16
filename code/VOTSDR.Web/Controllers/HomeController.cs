@@ -27,6 +27,7 @@ namespace VOTSDR.Web.Controllers
                 {
                     Id = article.NewsStoryId,
                     Date = article.Date,
+                    SortDate = article.DateCreated,
                     Title = article.Title,
                     Summary = article.Text.Summarize(200),
                 };
@@ -41,6 +42,7 @@ namespace VOTSDR.Web.Controllers
                 {
                     Id = evt.EventId,
                     Date = evt.Date,
+                    SortDate = evt.DateCreated,
                     Title = evt.Name,
                     Summary = evt.Description.Summarize(200),
                 };
@@ -49,7 +51,8 @@ namespace VOTSDR.Web.Controllers
             {
                 NewsAndEvents = news
                     .Concat(events)
-                    .OrderByDescending(i => i.Date),
+                    .OrderByDescending(i => i.SortDate)
+                    .Take(10),
             };
 
             // Load the latest featured dog

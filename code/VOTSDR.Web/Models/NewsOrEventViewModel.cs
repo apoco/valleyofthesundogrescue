@@ -11,6 +11,8 @@ namespace VOTSDR.Web.Models
 
         public string Date { get; set; }
 
+        public DateTime? SortDate { get; set; }
+
         public string Title { get; set; }
 
         public string Summary { get; set; }
@@ -18,5 +20,7 @@ namespace VOTSDR.Web.Models
         public string Location { get; set; }
 
         public bool IsEvent { get; set; }
+
+        public bool IsUpcoming { get; set; }
     }
 }

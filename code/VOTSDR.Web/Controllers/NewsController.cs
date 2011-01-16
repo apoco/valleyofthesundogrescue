@@ -25,7 +25,8 @@ namespace VOTSDR.Web.Controllers
                     Date = article.Date,
                     Title = article.Title,
                     Summary = article.Text,
-                    IsEvent = false
+                    IsEvent = false,
+                    SortDate = article.DateCreated
                 };
 
             var events =
@@ -41,11 +42,18 @@ namespace VOTSDR.Web.Controllers
                     Location = evt.Location,
                     Title = evt.Name,
                     Summary = evt.Description,
-                    IsEvent = true
+                    IsEvent = true,
+                    IsUpcoming = 
+                        evt.DateCreated.HasValue 
+                        && evt.DateCreated > DateTime.Now,
+                    SortDate = evt.DateCreated
                 };
 
             return View(
-                events.Concat(news).OrderByDescending(i => i.Date).Take(10));
+                events
+                    .Concat(news)
+                    .OrderByDescending(i => i.SortDate)
+                    .Take(10));
         }
 
         public ActionResult SpecialNeedsImage(Guid id)

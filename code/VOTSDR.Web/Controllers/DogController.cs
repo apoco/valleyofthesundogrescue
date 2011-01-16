@@ -45,10 +45,12 @@ namespace VOTSDR.Web.Controllers
 
         public ActionResult Available()
         {
+            var entities = new DataEntities();
+            var latestFeatureDate = entities.Dogs.Max(d => d.DateFeatured);
             var dogs = (
-                from dog in new DataEntities().Dogs
+                from dog in entities.Dogs
                 where !dog.AdoptedDate.HasValue
-                orderby dog.DateFeatured
+                orderby dog.DateFeatured descending 
                 select new { 
                     dog.DogId, dog.Profile, dog.Name, dog.Birthday, 
                     dog.DateFeatured, dog.Breed, dog.Gender }
@@ -61,12 +63,15 @@ namespace VOTSDR.Web.Controllers
                     Id = dog.DogId,
                     Profile = dog.Profile,
                     ImageUrl = Url.Action("Image", new { id = dog.DogId }),
-                    ThumbnailUrl = Url.Action("Thumbnail", new { id = dog.DogId }),
+                    ThumbnailUrl = Url.Action(
+                        "Thumbnail", new { id = dog.DogId }),
                     Name = dog.Name,
                     Age = GetDogAge(dog.Birthday ?? DateTime.Today),
-                    Featured = dog.DateFeatured != null,
+                    Featured = 
+                        dog.DateFeatured.HasValue 
+                        && dog.DateFeatured == latestFeatureDate,
                     Breed = dog.Breed,
-                    Gender = dog.Gender.ToLower() == "m" ? "Male" : "Female"
+                    Gender = (dog.Gender ?? "m").ToLower() == "m" ? "Male" : "Female"
                 }
             );
         }

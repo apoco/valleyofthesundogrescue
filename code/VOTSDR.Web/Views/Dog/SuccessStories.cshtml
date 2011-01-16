@@ -12,5 +12,5 @@
 @foreach (var story in Model)
 {
   <img src="@story.ImageUrl" alt="@story.DogName" />
-  @Html.Partial("TextBlock", story.Story)
+  @Html.Partial("TextBlock", story.Story ?? string.Empty)
 }

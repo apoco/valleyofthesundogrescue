@@ -22,15 +22,30 @@
 .article-or-event
 {
     margin-bottom: 1em;
-    padding-bottom: 1em;
+    padding: 15px 20px;
     border-bottom: 1px solid #fffdc1;
+    width: 939px;
 }
+
+.event 
+{
+	background:	#fffdc1;
+}
+
 .title
 {
 	font-size: 16pt;
 	margin: 0 0 5px 0;
 }
-.date
+.event .date
+{
+    font-size: 11pt;
+    margin: 4px 0;
+    padding: 0 0 3px 0;
+    border-bottom: 2px solid white;
+}
+
+.newsarticle .date
 {
     font-size: 11pt;
     margin: 4px 0;
@@ -46,19 +61,20 @@
 
 @foreach (var item in Model)
 {
-  <div class="article-or-event">
+    string which = item.IsEvent ? "event" : "newsarticle";
+           
+  <div class="article-or-event @which">
     <a id="@item.Id"></a>
-    <div class="date">
     @if (item.IsEvent)
     {
-        <span>Event: </span>
+        <div class="date"><span>Upcoming Event: </span>@item.Date</div>
+        <div class="title">@item.Title </div>
     }
     else
     {
-        <span>News: </span>
+        <div class="title"><span>News: </span> @item.Title - <span class="date">@item.Date</span></div>
+        
     }
-    @item.Date</div>
-    <div class="title">@item.Title </div>
     @if (string.IsNullOrEmpty(item.Location))
     {
       <div class="location">@item.Location</div>
@@ -68,3 +84,43 @@
     </div>
   </div>
 }
+
+<div id="facebook">
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fvalleyofthesundogrescue.com&layout=standard&show_faces=false&width=450&action=like&colorscheme=light&height=35" scrolling="no" frameborder="0" style="position: relative; border:none; overflow:hidden; width:450px; height:35px; " allowTransparency="true"></iframe>
+<iframe src="http://www.facebook.com/plugins/likebox.php?href=facebook.com%2FValleyOfTheSunDogRescue&width=974&colorscheme=light&show_faces=true&stream=true&header=true&height=427" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:974px; height:427px;" allowTransparency="true"></iframe>
+<div style="margin: 20px 0 0 0; padding: 20px; background: transparent url(../Content/images/bg-content-blocks.jpg) repeat-x 0 -5px; width: 930px; border: 4px solid #fffdc1;">
+<a href="http://www.twitter.com/AZDogRescue" style="display: block; line-height: 28px; text-decoration:none; font-weight: bold; font-size: 13pt;"><img style="margin: 0 5px 0 0; padding: 0; float: left;border:none;" src="http://twitter-badges.s3.amazonaws.com/t_small-b.png" alt="Follow Valley Of The Sun Dog Rescue on Twitter"/> Follow us on Twitter!</a>
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+    new TWTR.Widget({
+        version: 2,
+        type: 'profile',
+        rpp: 10,
+        interval: 6000,
+        width: 930,
+        height: 300,
+        theme: {
+            shell: {
+                background: 'transparent',
+                color: '#000000'
+            },
+            tweets: {
+                background: '#fffdc1',
+                color: '#000000',
+                links: '#9f282f'
+            }
+        },
+        features: {
+            scrollbar: true,
+            loop: false,
+            live: true,
+            hashtags: true,
+            timestamp: true,
+            avatars: false,
+            behavior: 'all'
+        }
+    }).render().setUser('AZDogRescue').start();
+</script>
+</div>
+
+</div>

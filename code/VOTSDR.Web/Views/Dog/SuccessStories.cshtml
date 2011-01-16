@@ -5,12 +5,46 @@
     ViewBag.PageClass = "stories";
 }
 
-@section head { }
+@section head { 
+<style type="text/css">
+.profile
+{
+	border: 4px solid #fffdc1;
+	padding: 0 20px 20px 20px;
+	margin: 15px 0 30px 0;
+	width: 940px;
+	clear: both;
+	overflow: hidden;
+	background: transparent url(../Content/images/bg-content-blocks.jpg) repeat-x 0 -5px;
+}
+.profile h3
+{
+	margin: 10px 0;
+	font-size: 16pt; 
+}
+.profile img
+{
+	float: left;
+	margin: 0 20px 20px 0;
+	border: 4px solid #fffdc1;
+}
 
-<h2>Happy Tails</h2>
+.profile p
+{
+	margin-bottom: 7px;
+}
+</style>
+
+}
 
 @foreach (var story in Model)
 {
-  <img src="@story.ImageUrl" alt="@story.DogName" />
-  @Html.Partial("TextBlock", story.Story)
+    if (story.Story != null)
+    {
+        <div class="profile">
+          <h3>&ldquo;@story.DogName&rdquo;</h3>
+          <img src="@story.ImageUrl" alt="@story.DogName" />
+          @Html.Partial("TextBlock", story.Story ?? string.Empty)
+        </div>
+    }
 }

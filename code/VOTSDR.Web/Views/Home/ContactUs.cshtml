@@ -17,6 +17,8 @@
     clear: both;
     overflow: hidden;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 #contact label
 {
@@ -34,8 +36,8 @@
 
 #contact .submit
 {
-	margin: 20px auto;
-	width: 100px;
+	margin: 10px 0 0 248px;
+	width: 80px;
 }
 #contact .streetaddress input
 {
@@ -43,15 +45,25 @@
 }
 #contact .comments textarea
 {
-	width: 320px;
-	height: 8em;
+	width: 325px;
+	height: 10em;
+}
+#contact .comments label
+{
+	text-align: left;
+}
+p.blurb
+{
+	margin-bottom: 7px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 350px;
 }
 </style>
  }
 
-<h2>Contact Us</h2>
-
-<p>
+<div class="section">
+<p class="blurb">
   Please specify in “comments” as to what you are contacting us for to receive 
   a prompt response. Thank You.
 </p>
@@ -84,3 +96,5 @@
           <input class="submit" type="submit" value="Contact Us" name="SendContactUsMessage" />
       </div>
 }
+<div style="clear:both;"></div>
+</div>

@@ -161,7 +161,7 @@ p
       <p><b>Age:</b> @dog.Age</p>
       <p><b>Gender:</b> @dog.Gender</p>
       <p><b>Breed:</b> @dog.Breed</p>
-      @Html.Partial("TextBlock", dog.Profile)
+      @Html.Partial("TextBlock", dog.Profile ?? string.Empty)
 
       <a href="#gallery-anchor" class="link-gallery">Back to Gallery</a>
   </div>

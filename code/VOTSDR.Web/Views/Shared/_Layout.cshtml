@@ -6,35 +6,36 @@
     <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
     @RenderSection("head")
 </head>
-
 <body>
-        <div id="page" class="@ViewBag.PageClass">
-		<div id="page-container">
-			<div id="header">
-				<div id="logo"></div>
-				<div id="page-title">About Valley of the Sun Dog Rescue</div>
-				<div id="header-top-nav">
-					<ul>
-						<li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "hnav-link-top", id = "hnav-link-home" })</li>
-						<li>@Html.ActionLink("Adoptable Dogs", "Available", "Dog", null, new { @class = "hnav-link-top", id = "hnav-link-adoptable" })</li>
-						<li>@Html.ActionLink("Happy Tails", "SuccessStories", "Dog", null, new { @class = "hnav-link-top", id = "hnav-link-stories" })</li>
-						<li>@Html.ActionLink("How YOU Can Help", "HowToHelp", "Home", null, new { @class = "hnav-link-top", id = "hnav-link-howtohelp" })</li>
-					</ul>
-				</div>
-				<div id="header-bottom-nav">
-					<ul>
-						<li>@Html.ActionLink("News / Events", "Index", "News", null, new { @class = "hnav-link-bottom", id = "hnav-link-news" })</li>
-						<li>@Html.ActionLink("Education", "Education", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-education" })</li>
-						<li>@Html.ActionLink("Sponsors / Links", "SponsorsAndLinks", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-sponsors" })</li>
-						<li>@Html.ActionLink("Shop", "Shop", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-shop" })</li>
-						<li>@Html.ActionLink("Contact Us", "ContactUs", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-contact" })</li>
-                        <li>- <a id="hnav-link-phone" class="hnav-link-bottom" href="tel:480-228-0126">480.228.0126</a></li>
-					</ul>
-				</div>
-			</div>
-			<div id="content-wrapper">
+    <div id="page" class="@ViewBag.PageClass">
+        <div id="page-container">
+            <div id="header">
+                <div id="logo">
+                </div>
+                <div id="page-title">
+                    About Valley of the Sun Dog Rescue</div>
+                <div id="header-top-nav">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "hnav-link-top", id = "hnav-link-home" })</li>
+                        <li>@Html.ActionLink("Adoptable Dogs", "Available", "Dog", null, new { @class = "hnav-link-top", id = "hnav-link-adoptable" })</li>
+                        <li>@Html.ActionLink("Happy Tails", "SuccessStories", "Dog", null, new { @class = "hnav-link-top", id = "hnav-link-stories" })</li>
+                        <li>@Html.ActionLink("How YOU Can Help", "HowToHelp", "Home", null, new { @class = "hnav-link-top", id = "hnav-link-howtohelp" })</li>
+                    </ul>
+                </div>
+                <div id="header-bottom-nav">
+                    <ul>
+                        <li>@Html.ActionLink("News / Events", "Index", "News", null, new { @class = "hnav-link-bottom", id = "hnav-link-news" })</li>
+                        <li>@Html.ActionLink("Education", "Education", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-education" })</li>
+                        <li>@Html.ActionLink("Sponsors / Links", "SponsorsAndLinks", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-sponsors" })</li>
+                        <li>@Html.ActionLink("Shop", "Shop", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-shop" })</li>
+                        <li>@Html.ActionLink("Contact Us", "ContactUs", "Home", null, new { @class = "hnav-link-bottom", id = "hnav-link-contact" })</li>
+                        <li><a id="hnav-link-phone" class="hnav-link-bottom" href="tel:480-228-0126">480.228.0126</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content-wrapper">
                 <div id="content">
-				@RenderBody()
+                    @RenderBody()
                 </div>
 			</div>
 			<div id="footer">
@@ -80,70 +81,77 @@
             <a href="@Url.Action("Available", "Dog")#dog-@ViewBag.DogOfTheWeek.Id">
               <img src="@ViewBag.DogOfTheWeek.ThumbnailUrl" 
                 alt="@ViewBag.DogOfTheWeek.Name" />
-            </a>
-					</div>
-					<div id="fs-dotw-details">
-						<div id="fs-dotw-details-name">@ViewBag.DogOfTheWeek.Name</div>
-						<div id="fs-dotw-details-breed">@ViewBag.DogOfTheWeek.Breed,</div>
-						<div id="fs-dotw-details-desc">@ViewBag.DogOfTheWeek.Age</div>
-            @{ string dogId = ViewBag.DogOfTheWeek.Id.ToString(); }
-            @Html.ActionLink(
-                "Learn more...", "Available", "Dog", null, null, 
-                "dog-" + dogId, null, new { id = "fs-dotw-details-link" } )
-					</div>
-				</div>
-				<div id="footer-nav">
-					<div id="footerbkg"></div>
-					<ul>
-						<li>
-              @Html.ActionLink(
+                        </a>
+                    </div>
+                    <div id="fs-dotw-details">
+                        <div id="fs-dotw-details-name">@ViewBag.DogOfTheWeek.Name</div>
+                        <div id="fs-dotw-details-breed">@ViewBag.DogOfTheWeek.Breed,</div>
+                        <div id="fs-dotw-details-desc">@ViewBag.DogOfTheWeek.Age</div>
+                        @{ string dogId = ViewBag.DogOfTheWeek.Id.ToString(); }
+                        @Html.ActionLink(
+                "Learn more...", "Available", "Dog", null, null,
+                "dog-" + dogId, null, new { id = "fs-dotw-details-link" })
+                    </div>
+                </div>
+                <div id="footer-nav">
+                    <div id="footerbkg">
+                    </div>
+                    <ul>
+                        <li>
+                            @Html.ActionLink(
                   "Home", "Index", "Home", null,
                   new { id = "fnav-link-home", @class = "fnav-link first" })
-            </li>
-						<li>
-              @Html.ActionLink(
+                        </li>
+                        <li>
+                            @Html.ActionLink(
                   "Adoptable Dogs", "Available", "Dog", null,
                   new { id = "fnav-link-adoptable", @class = "fnav-link" })
-            </li>
-						<li>
-              @Html.ActionLink(
+                        </li>
+                        <li>
+                            @Html.ActionLink(
                   "Happy Tails", "SuccessStories", "Dog", null,
                   new { id = "fnav-link-stories", @class = "fnav-link" })
-            </li>
-						<li>
-              @Html.ActionLink(
+                        </li>
+                        <li>
+                            @Html.ActionLink(
                   "How YOU Can Help", "HowToHelp", "Home", null,
                   new { id = "fnav-link-howtohelp", @class = "fnav-link" })
-            </li>
-						<li>
-              @Html.ActionLink(
+                        </li>
+                        <li>
+                            @Html.ActionLink(
                   "News / Events", "Index", "News", null,
                   new { id = "fnav-link-news", @class = "fnav-link" })
-            </li>
-						<li>
-              @Html.ActionLink(
+                        </li>
+                        <li>
+                            @Html.ActionLink(
                   "Education", "Education", "Home", null,
                   new { id = "fnav-link-education", @class = "fnav-link" })
-            </li>
-						<li>
-              @Html.ActionLink(
+                        </li>
+                        <li>
+                            @Html.ActionLink(
                   "Sponsors / Links", "SponsorsAndLinks", "Home", null,
                   new { id = "fnav-link-sponsors", @class = "fnav-link" })
-            </li>
-						<li>
-              @Html.ActionLink(
+                        </li>
+                        <li>
+                            @Html.ActionLink(
                   "Shop", "Shop", "Home", null,
                   new { id = "fnav-link-shop", @class = "fnav-link" })
-            </li>
-						<li>
-              @Html.ActionLink(
+                        </li>
+                        <li>
+                            @Html.ActionLink(
                   "Contact Us", "ContactUs", "Home", null,
                   new { id = "fnav-link-contact", @class = "fnav-link last" })
-            </li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+                        </li>
+                        <li>
+                            <a href="http://twitter.com/azdogrescue" target="_blank"><img alt="twitter" src="@Url.Content("~/Content/images/twitterbirdsmall.png")" /></a>
+                        </li>
+                        <li>
+                            <a href="http://www.facebook.com/ValleyOfTheSunDogRescue" target="_blank"><img alt="facebook" src="@Url.Content("~/Content/images/facebooksmall.png")" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

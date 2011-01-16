@@ -76,12 +76,14 @@ namespace VOTSDR.Admin.Web.Controllers
         // URL: /Account/Register
         // **************************************
 
+        [Authorize]
         public ActionResult Register()
         {
             ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
@@ -141,7 +143,7 @@ namespace VOTSDR.Admin.Web.Controllers
         // **************************************
         // URL: /Account/ChangePasswordSuccess
         // **************************************
-
+        [Authorize]
         public ActionResult ChangePasswordSuccess()
         {
             return View();

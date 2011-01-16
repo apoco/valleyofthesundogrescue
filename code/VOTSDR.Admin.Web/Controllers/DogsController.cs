@@ -8,40 +8,68 @@ using VOTSDR.Data;
 
 namespace VOTSDR.Admin.Web.Controllers
 {
+    [Authorize]
     public class DogsController : Controller
     {
         //
         // GET: /Dogs/
-        private const int pageSize = 3;
+        private const int pageSize = 10;
 
-        public ActionResult Index(int pageNumber = 1)
+        public ActionResult Index(string viewType = "Available", int pageNumber = 1)
         {
             Data.DataEntities de = new DataEntities();
 
-            int totalDogs = de.Dogs.Count();
+            int totalDogs;
+
+            IEnumerable<Dog> dogs = null;
+            switch (viewType)
+            {
+                case "Adopted":
+                    totalDogs = de.Dogs
+                        .Where(w=>w.AdoptedDate != null)
+                        .Count();
+                    break;
+                case "Available":
+                default:
+                    totalDogs = de.Dogs
+                        .Where(w => w.AdoptedDate == null)
+                        .Count();
+                    break;
+            }
 
             int totalPages = (int)Math.Ceiling((double)totalDogs / (double)pageSize);
             ViewBag.totalPages = totalPages;
             ViewBag.currentPage = pageNumber;
+            ViewBag.viewType = viewType;
 
-            return View(de.Dogs.OrderBy(o=>o.Name).Skip((pageNumber-1)*pageSize).Take(pageSize));
-        }
+            switch (viewType)
+            {
+                case "Adopted":
+                    dogs = de.Dogs
+                        .OrderBy(o => o.Name)
+                        .Where(w => w.AdoptedDate != null)
+                        .Skip((pageNumber - 1) * pageSize)
+                        .Take(pageSize);
+                    break;
+                case "Available":
+                default:
+                    dogs = de.Dogs
+                        .OrderBy(o => o.Name)
+                        .Where(w => w.AdoptedDate == null)
+                        .Skip((pageNumber - 1) * pageSize)
+                        .Take(pageSize);
+                    break;
+            }
 
-        //
-        // GET: /Dogs/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
+            return View(dogs);
         }
 
         //
         // GET: /Dogs/Create
-
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /Dogs/Create
@@ -74,10 +102,10 @@ namespace VOTSDR.Admin.Web.Controllers
                 }
 
                 de.Dogs.AddObject(dog);
-                de.SaveChanges();                
+                de.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }
@@ -123,7 +151,7 @@ namespace VOTSDR.Admin.Web.Controllers
 
         //
         // GET: /Dogs/Edit/5
- 
+
         public ActionResult Edit(Guid id)
         {
             DataEntities de = new DataEntities();
@@ -166,8 +194,8 @@ namespace VOTSDR.Admin.Web.Controllers
                     HttpPostedFileBase dogThumbnailFile = Request.Files["dogThumbnail"];
                     if (dogThumbnailFile != null && dogThumbnailFile.ContentLength > 0)
                         dog.Thumbnail = GetBytes(dogThumbnailFile.InputStream);
-                }                
-                
+                }
+
                 UpdateModel<Dog>(dog);
                 de.SaveChanges();
 

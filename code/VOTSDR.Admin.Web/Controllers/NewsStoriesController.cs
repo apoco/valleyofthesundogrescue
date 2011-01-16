@@ -9,6 +9,7 @@ using VOTSDR.Admin.Web.Models;
 
 namespace VOTSDR.Admin.Web.Controllers
 {
+    [Authorize]
     public class NewsStoriesController : Controller
     {
         //

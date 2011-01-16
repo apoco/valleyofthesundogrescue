@@ -17,7 +17,7 @@ namespace VOTSDR.Web.Controllers
             var dog = new DataEntities()
                 .Dogs
                 .FirstOrDefault(d => d.DogId == id);
-            if (dog == null)
+            if (dog == null || dog.Image == null)
             {
                 return HttpNotFound();
             }
@@ -33,7 +33,7 @@ namespace VOTSDR.Web.Controllers
             var dog = new DataEntities()
                 .Dogs
                 .FirstOrDefault(d => d.DogId == id);
-            if (dog == null)
+            if (dog == null || dog.Thumbnail == null)
             {
                 return HttpNotFound();
             }

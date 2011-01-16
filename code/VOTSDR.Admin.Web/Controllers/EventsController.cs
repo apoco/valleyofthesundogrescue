@@ -9,6 +9,7 @@ using VOTSDR.Data;
 
 namespace VOTSDR.Admin.Web.Controllers
 {
+    [Authorize]
     public class EventsController : Controller
     {
         //

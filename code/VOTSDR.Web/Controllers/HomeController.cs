@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using VOTSDR.Web.Models;
 using VOTSDR.Data;
 using VOTSDR.Utils;
+using System.Net.Mail;
+using System.Configuration;
 
 namespace VOTSDR.Web.Controllers
 {
@@ -107,6 +109,78 @@ namespace VOTSDR.Web.Controllers
         }
 
         public ActionResult ContactUs()
+        {
+            return View(new ContactUsViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult ContactUs(ContactUsViewModel contactForm)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var smtpClient = new SmtpClient())
+                {
+                    var mailMsg = new MailMessage {
+                        Body = string.Format(@"
+                            <html>
+                              <head></head>
+                              <body>
+                                <p>
+                                    Received the following from a visitor to 
+                                    http://valleyofthesundogrescue.com/
+                                </p>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <th>Name:</th>
+                                      <td>{0}</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Phone Number:</th>
+                                      <td>{1}</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Email Address:</th>
+                                      <td>{2}</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Street Address:</th>
+                                      <td>{3}</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Comments:</th>
+                                      <td>{4}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </body>
+                            </html>", 
+                            HttpUtility.HtmlEncode(contactForm.Name), 
+                            HttpUtility.HtmlEncode(contactForm.PhoneNumber),
+                            HttpUtility.HtmlEncode(contactForm.EmailAddress), 
+                            HttpUtility.HtmlEncode(contactForm.StreetAddress),
+                            HttpUtility.HtmlEncode(contactForm.Comments)
+                                .Replace("\r\n", "<br/>")
+                                .Replace("\n", "<br/>")),
+                        From = new MailAddress("noreply@valleyofthesundogrescue.com"),
+                        IsBodyHtml = true,
+                        Subject = "Contact message from " + contactForm.Name };
+                    mailMsg.To.Add(
+                        ConfigurationManager.AppSettings["ContactUsEmailAddress"]);
+                    mailMsg.ReplyToList.Add(
+                        contactForm.EmailAddress
+                        ?? "noreply@valleyofthesundogrescue.com");
+                    smtpClient.Send(mailMsg);
+                    return Redirect("ContactUsSuccess");
+                }
+            }
+            else
+            {
+                return View(contactForm);
+            }
+        }
+
+        public ActionResult ContactUsSuccess()
         {
             return View();
         }

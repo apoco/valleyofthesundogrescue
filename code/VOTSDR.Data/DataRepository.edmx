@@ -74,7 +74,6 @@
           <Property Name="DogId" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Profile" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Age" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Birthday" Type="DateTime" />
           <Property Name="AdoptedDate" Type="DateTime" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
@@ -126,7 +125,6 @@
                 <ScalarProperty Name="DogId" ColumnName="DogId" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Profile" ColumnName="Profile" />
-            <ScalarProperty Name="Age" ColumnName="Age" />
             <ScalarProperty Name="Birthday" ColumnName="Birthday" />
             <ScalarProperty Name="AdoptedDate" ColumnName="AdoptedDate" />
             <ScalarProperty Name="Image" ColumnName="Image" />

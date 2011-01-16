@@ -543,6 +543,7 @@ div#title
 {
 	width: 1024px;
 	min-height: 400px;
+	height: 100%;
 }
 #content
 {

@@ -741,7 +741,7 @@ div#title
 {
     width: 70px;
     height: 70px;
-    border: none;
+    border: none !important;
 }
 
 #footerbkg

@@ -80,7 +80,7 @@
       <div class="location">@item.Location</div>
     }
     <div class="content">
-      @Html.Partial("TextBlock", item.Summary)
+      @Html.Partial("TextBlock", item.Summary ?? string.Empty)
     </div>
   </div>
 }

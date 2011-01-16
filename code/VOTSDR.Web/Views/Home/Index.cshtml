@@ -230,7 +230,7 @@
               <div class="special-need feature-section">
                 <h3>Special Needs</h3>
                 <div class="description">
-                  @Html.Partial("TextBlock", Model.SpecialNeedDescription)
+                  @Html.Partial("TextBlock", Model.SpecialNeedDescription ?? string.Empty)
                 </div>
                 <img src="@Model.SpecialNeedThumbnailUrl" alt="Special Need" />
               </div>

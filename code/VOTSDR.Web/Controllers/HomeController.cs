@@ -20,7 +20,7 @@ namespace VOTSDR.Web.Controllers
             var news =
                 from article in entities
                     .NewsStories
-                    .OrderByDescending(s => s.Date)
+                    .OrderByDescending(s => s.DateCreated)
                     .Take(10)
                     .ToList()
                 select new NewsOrEventSummaryViewModel
@@ -34,7 +34,7 @@ namespace VOTSDR.Web.Controllers
             var events =
                 from evt in entities
                     .Events
-                    .OrderByDescending(e => e.Date)
+                    .OrderByDescending(e => e.DateCreated)
                     .Take(10)
                     .ToList()
                 select new NewsOrEventSummaryViewModel
@@ -95,14 +95,51 @@ namespace VOTSDR.Web.Controllers
 
         public ActionResult Education()
         {
-            return View();
+            var content = GetCurrentContent("education") ;
+            var model = new EducationModel { Markup = content.Markup };
+            return View(model);
         }
 
         public ActionResult SponsorsAndLinks()
         {
-            return View();
+            var sponsorContent = GetCurrentContent("sponsors");
+            //var linksContent = GetCurrentContent("links");
+            var model = new SponsorsAndLinksModel { SponsorMarkup = sponsorContent.Markup };
+            
+            return View(model);
         }
-
+        private static Content GetCurrentContent(string area)
+        {
+            var allSponsorContent = new DataEntities().Contents.Where(c => c.Area.ToLower() == area.ToLower()).OrderByDescending(c => c.PublishOn);
+            var defaultSponsor = allSponsorContent.FirstOrDefault<Content>(c => c.IsDefault == true);
+            Content content = defaultSponsor;
+            foreach (var contentItem in allSponsorContent)
+            {
+                if (contentItem.PublishOn <= DateTime.Now)
+                {
+                    if (contentItem.PublishUntil.HasValue)
+                    {
+                        if (contentItem.PublishUntil.Value >= DateTime.Now)
+                        {
+                            // we are in the sweetspot
+                            content = contentItem;
+                            break;
+                        }
+                        else
+                        {
+                            // we are past the publish until date, keep looking
+                        }
+                    }
+                    else
+                    {
+                        // there's a publish on without an end date, so use it
+                        content = contentItem;
+                        break; // take the first one
+                    }
+                }
+            }
+            return content ?? new Content { Markup = "****Coming Soon" };
+        }
         public ActionResult Shop()
         {
             return View();

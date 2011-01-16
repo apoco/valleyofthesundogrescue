@@ -1,0 +1,23 @@
+﻿@model VOTSDR.Data.Content
+
+<fieldset>
+    <legend>Content</legend>
+
+    <div class="content-area">@Model.Area</div>
+    
+    <div class="content-isdefault">@(Model.IsDefault  ? "Default" : "")</div>
+
+    <div class="content-publishon">Publish On: @String.Format("{0:g}", Model.PublishOn)</div>
+
+    <div class="content-publishuntil">Publish Until: @String.Format("{0:g}", Model.PublishUntil)</div>
+    
+    <div class="content-markup">
+    
+    <p>@Html.Partial("TextBlock", Model.Markup)</p>
+
+    </div>
+
+    <div style="clear: both;" />
+
+</fieldset>
+

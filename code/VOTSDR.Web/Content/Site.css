@@ -408,12 +408,13 @@ div#title
 	left: 620px;
 }
 
+
 #hnav-link-news
 {
 	width: 121px;
 	background-image: url(images/nav-h-b-news.png);
 	top: 109px;
-	left: 557px;
+	left: 457px;
 }
 
 #hnav-link-education
@@ -421,15 +422,7 @@ div#title
 	width: 75px;
 	background-image: url(images/nav-h-b-education.png);
 	top: 109px;
-	left: 671px;
-}
-
-#hnav-link-education
-{
-	width: 75px;
-	background-image: url(images/nav-h-b-education.png);
-	top: 109px;
-	left: 671px;
+	left: 571px;
 }
 
 #hnav-link-sponsors
@@ -437,7 +430,7 @@ div#title
 	width: 115px;
 	background-image: url(images/nav-h-b-sponsors.png);
 	top: 109px;
-	left: 756px;
+	left: 656px;
 }
 
 #hnav-link-shop
@@ -445,7 +438,7 @@ div#title
 	width: 41px;
 	background-image: url(images/nav-h-b-shop.png);
 	top: 109px;
-	left: 882px;
+	left: 782px;
 }
 
 #hnav-link-contact
@@ -453,7 +446,15 @@ div#title
 	width: 80px;
 	background-image: url(images/nav-h-b-contact.png);
 	top: 109px;
-	left: 929px;
+	left: 829px;
+}
+
+#hnav-link-phone
+{
+	width: 98px;
+	background-image: url(images/nav-h-b-phone.png);
+	top: 109px;
+	left: 907px;
 }
 
 #logo

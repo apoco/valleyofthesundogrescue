@@ -8,7 +8,9 @@
 <style type="text/css">
 #hych
 {
-    width: 974px;	
+    width: 970px;	
+    margin-left: 10px;
+    position: relative;
 }
 
 #hych h3
@@ -27,7 +29,9 @@
 }
 #btn-paypal
 {
-	display:inline;
+	position: absolute;
+	top: 100px;
+	left: 355px;
 }
 #hych .section
 {
@@ -36,6 +40,14 @@
 #hych .section.first
 {
 	margin-top: 0;
+}
+#hych ul
+{
+	margin: 0 0 0 30px;
+}
+#hych li
+{
+	
 }
 </style>
  }
@@ -50,16 +62,8 @@
           our dogs. </span>
         </p>
 
-        <p>Monetary donations are accepted through PayPal <form id="btn-paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="KMBFDNHC9EMQQ">
-    <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-    </form>    
-        <br />
-    
-        </p>
-        <p>or you may donate in person, via mail or by phone to<p>
+        <p>Monetary donations are accepted through PayPal: </p>
+        <p>Or you may donate in person, via mail or by phone to:<p>
 
         <address>
           Prestige Animal Clinic<br />
@@ -69,6 +73,14 @@
           <a href="http://www.prestigeanimalclinic.net/">http://www.prestigeanimalclinic.net/</a>
         </address>
         </p>
+
+        <div id="btn-paypal"><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="KMBFDNHC9EMQQ">
+            <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+        </div>
     </div>
 
     <div class="section">

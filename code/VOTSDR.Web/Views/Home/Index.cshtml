@@ -63,6 +63,15 @@
         padding-bottom: 1em;
         border-bottom: 1px solid #fffdc1;
     }
+    .date
+    {
+    	font-size: 11pt;
+    	margin: 4px 0;
+    }
+    .summary
+    {
+        margin: 0 0 5px 0;
+    }
     
     .main-content
     {
@@ -130,21 +139,24 @@
       <div class="news-and-events">
         <h2>Latest News:</h2>
         @foreach (var item in Model.NewsAndEvents)
-        {
+        {  
+          if (!string.IsNullOrEmpty(item.Title))
+          {
           <div class="article">
             @Html.ActionLink(
               item.Title,
-              "NewsAndArticles", 
+              "Index", "News",
               new { ArticleId = item.Id },
-              new { @class = "title" } )
+              new { @class = "title" })
             <div class="date">@item.Date</div>
             <div class="summary">@item.Summary</div>
             @Html.ActionLink(
               "More Info...",
-              "Index", "News", 
+              "Index", "News",
               new { ArticleId = item.Id },
-              new { @class = "more" } )
+              new { @class = "more" })
           </div>
+          }
         }
  
       </div>

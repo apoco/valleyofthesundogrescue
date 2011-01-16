@@ -81,14 +81,16 @@ namespace VOTSDR.Data
     public partial class Dog { }
     public class Dog_Validation
     {
-        [StringLength(100, MinimumLength = 1)]
+        [StringLength(100)]
         [Display(Name = "Name")]
         public string Name { get; set; }
-        
+
         [Display(Name = "Photo")]
         public Byte[] Image { get; set; }
 
         [Display(Name = "Gender (M/F)")]
+        [StringLength(1, MinimumLength=1)]
+        [Required(ErrorMessage = "Gender is required.")]
         public string Gender { get; set; }
         
         [Display(Name = "Adopted Date")]
@@ -102,7 +104,15 @@ namespace VOTSDR.Data
 
         [StringLength(250)]
         [Display(Name = "Breed")]
+        [Required(ErrorMessage = "Breed is required.")]
         public string Breed { get; set; }
+        
+        [Required(ErrorMessage = "Profile is required.")]
+        public string Profile { get; set; }
+
+        [Required(ErrorMessage = "Birthday is required. Try to estimate")]
+        public string Birthday { get; set; }
+        
     }
     #endregion
 

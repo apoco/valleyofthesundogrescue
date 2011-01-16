@@ -38,16 +38,27 @@
 			</div>
 			<div id="footer">
 				<div id="footer-donations" class="footer-section">
-					<a href="#" id="fst-donations">Donations Welcome!</a>
+					<span id="fst-donations">Donations Welcome!</span>
 					<p>Your tax-deductible support for surgery, vet care and supplies is always appreciated.</p>
-					<p>We accept donations through PayPal. <a id="link-paypal" href="#">Donate!</a><br/>
-					Or, learn about more <a href="#" style="font-weight: bold">ways you can help</a>.</p>
+					<p>
+            We accept donations through PayPal.
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display: inline">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="KMBFDNHC9EMQQ">
+              <input type="image" src="@Url.Content("~/Content/images/btn-donate.gif")" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" id="link-paypal">
+              <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form> 
+					  Or, learn about more 
+            @Html.ActionLink(
+              "ways you can help.", "HowToHelp", "Home", null,
+              new { style = "font-weight: bold" })
+          </p>
 				</div>
 				<div id="footer-locations" class="footer-section">
-					<a href="#" id="fst-locations">Adoption Times and Locations:</a>
+					<span id="fst-locations">Adoption Times and Locations:</span>
 					<div id="fs-location">
 						<p><b>East Valley</b></p>
-						<p><b><a href="#">PetSmart</a> <a href="#">Directions</a></b><br/>
+						<p><b><a href="http://goo.gl/maps/Ozpo" target="_blank">PetSmart Directions</a></b><br/>
 						6932 E. Hampton Ave<br/>Mesa</p>
 					</div>
 					<div id="fs-times">
@@ -57,29 +68,69 @@
 					</div>
 				</div>
 				<div id="footer-dotw" class="footer-section">
-					<a href="#" id="fst-dotw">Dog of the Week</a>
+					<span id="fst-dotw">Dog of the Week</span>
 					<div id="fs-dotw-thumb">
-						<a href="#">Pic goes here.</a>
+            <a href="@Url.Action("Available", "Dog")">
+              Pic goes here.
+            </a>
 					</div>
 					<div id="fs-dotw-details">
 						<div id="fs-dotw-details-name">Lucky</div>
 						<div id="fs-dotw-details-breed">Pit-bull mix</div>
 						<div id="fs-dotw-details-desc">Sweet, Loves Kids</div>
-						<a id="fs-dotw-details-link" href="#">Learn more...</a>
+            @Html.ActionLink(
+                "Learn more...", "Available", "Dog", null, 
+                new { id = "fs-dotw-details-link" })
 					</div>
 				</div>
 				<div id="footer-nav">
 					<div id="footerbkg"></div>
 					<ul>
-						<li><a id="fnav-link-home" href="#" class="fnav-link first">Home</a></li>
-						<li><a id="fnav-link-adoptable" href="#" class="fnav-link">Adoptable Dogs</a></li>
-						<li><a id="fnav-link-stories" href="#" class="fnav-link">Happy Tails</a></li>
-						<li><a id="fnav-link-howtohelp" href="#" class="fnav-link">How YOU Can Help</a></li>
-						<li><a id="fnav-link-news" href="#" class="fnav-link">News / Events</a></li>
-						<li><a id="fnav-link-education" href="#" class="fnav-link">Education</a></li>
-						<li><a id="fnav-link-sponsors" href="#" class="fnav-link">Sponsors / Links</a></li>
-						<li><a id="fnav-link-shop" href="#" class="fnav-link">Shop</a></li>
-						<li><a id="fnav-link-contact" href="#" class="fnav-link last">Contact Us</a></li>
+						<li>
+              @Html.ActionLink(
+                  "Home", "Index", "Home", null,
+                  new { id = "fnav-link-home", @class = "fnav-link first" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Adoptable Dogs", "Available", "Dog", null,
+                  new { id = "fnav-link-adoptable", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Happy Tails", "SuccessStories", "Dog", null,
+                  new { id = "fnav-link-stories", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "How YOU Can Help", "HowToHelp", "Home", null,
+                  new { id = "fnav-link-howtohelp", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "News / Events", "Index", "News", null,
+                  new { id = "fnav-link-news", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Education", "Education", "Home", null,
+                  new { id = "fnav-link-education", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Sponsors / Links", "SponsorsAndLinks", "Home", null,
+                  new { id = "fnav-link-sponsors", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Shop", "Shop", "Home", null,
+                  new { id = "fnav-link-shop", @class = "fnav-link" })
+            </li>
+						<li>
+              @Html.ActionLink(
+                  "Contact Us", "ContactUs", "Home", null,
+                  new { id = "fnav-link-contact", @class = "fnav-link last" })
+            </li>
 					</ul>
 				</div>
 			</div>

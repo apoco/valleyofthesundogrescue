@@ -37,6 +37,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Description" Type="ntext" />
           <Property Name="Date" Type="nvarchar" MaxLength="300" />
+          <Property Name="DateCreated" Type="datetime" />
         </EntityType>
         <EntityType Name="NewsStory">
           <Key>
@@ -46,6 +47,7 @@
           <Property Name="Text" Type="ntext" />
           <Property Name="Title" Type="nvarchar" MaxLength="100" />
           <Property Name="Date" Type="nvarchar" MaxLength="300" />
+          <Property Name="DateCreated" Type="datetime" />
         </EntityType>
         <EntityType Name="SpecialNeedsStory">
           <Key>
@@ -91,6 +93,7 @@
           <Property Name="Date" Type="String" Nullable="true" />
           <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Type="DateTime" Name="DateCreated" />
         </EntityType>
         <EntityType Name="SpecialNeedsStory">
           <Key>
@@ -111,6 +114,7 @@
           <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Date" MaxLength="300" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Type="DateTime" Name="DateCreated" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -132,7 +136,8 @@
             <ScalarProperty Name="DateFeatured" ColumnName="DateFeatured" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="NewsStories"><EntityTypeMapping TypeName="votsdradminModel.NewsStory"><MappingFragment StoreEntitySet="NewsStory">
-            <ScalarProperty Name="NewsStoryId" ColumnName="NewsStoryId" />
+            <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="NewsStoryId" ColumnName="NewsStoryId" />
             <ScalarProperty Name="Date" ColumnName="Date" />
             <ScalarProperty Name="Text" ColumnName="Text" />
             <ScalarProperty Name="Title" ColumnName="Title" />
@@ -147,6 +152,7 @@
           <EntitySetMapping Name="Events">
             <EntityTypeMapping TypeName="votsdradminModel.Event">
               <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

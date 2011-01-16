@@ -39,6 +39,18 @@ p
 	border: 4px solid #9f282f;
 	margin: 5px;
 	background-color: #fff;
+	position: relative;
+    text-decoration: none;
+    color: #fff;
+}
+#label-dotw
+{
+	font-size: 14pt;
+	text-transform: uppercase;
+	position: absolute;
+	bottom: 0;
+	right: 5px;
+	font-weight: bold;
 }
 #gallery-anchor
 {
@@ -93,6 +105,11 @@ p
 	border: 4px solid #fffdc1;
 }
 
+.profile p
+{
+	margin-bottom: 7px;
+}
+
 .adoptable h2
 {
     padding: 5px 0 5px 10px;
@@ -104,6 +121,7 @@ p
     width: 974px;
     position: relative;
 }
+
 </style>
 }
 
@@ -116,6 +134,10 @@ p
 {
   <a id="@dog.Id" href="#dog-@dog.Id">
     <img alt="@dog.Name" title="@dog.Name" src="@dog.ThumbnailUrl" />
+    @if (dog.Featured)
+    {
+        <div id="label-dotw">Dog of the Week!</div>
+    }
   </a>
 }
 </div>
@@ -127,13 +149,17 @@ p
       <a id="dog-@dog.Id"></a>
       @if (!string.IsNullOrEmpty(dog.Name))
       {
-           <h3>&ldquo;@dog.Name&rdquo;</h3>
+           <h3>&ldquo;@dog.Name&rdquo;
+           @if (dog.Featured)
+               { <span>&nbsp;is Dog of the Week!</span> } </h3>
       }
       else
       {
           <h3>&nbsp;</h3>
       }
       <img alt="@dog.Name" title="@dog.Name" src="@dog.ImageUrl" />
+      <p><b>Age:</b> @dog.Age</p>
+      <p><b>Breed:</b> @dog.Breed</p>
       @Html.Partial("TextBlock", dog.Profile)
 
       <a href="#gallery-anchor" class="link-gallery">Back to Gallery</a>

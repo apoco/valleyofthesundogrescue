@@ -613,6 +613,30 @@ namespace VOTSDR.Data
         private global::System.String _Date;
         partial void OnDateChanging(global::System.String value);
         partial void OnDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DateCreated
+        {
+            get
+            {
+                return _DateCreated;
+            }
+            set
+            {
+                OnDateCreatedChanging(value);
+                ReportPropertyChanging("DateCreated");
+                _DateCreated = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateCreated");
+                OnDateCreatedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DateCreated;
+        partial void OnDateCreatedChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateCreatedChanged();
 
         #endregion
     
@@ -740,6 +764,30 @@ namespace VOTSDR.Data
         private global::System.String _Title;
         partial void OnTitleChanging(global::System.String value);
         partial void OnTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DateCreated
+        {
+            get
+            {
+                return _DateCreated;
+            }
+            set
+            {
+                OnDateCreatedChanging(value);
+                ReportPropertyChanging("DateCreated");
+                _DateCreated = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateCreated");
+                OnDateCreatedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DateCreated;
+        partial void OnDateCreatedChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateCreatedChanged();
 
         #endregion
     

@@ -10,7 +10,10 @@
         }
         
         <div class="editor-label">Sort Date (not shown on site, used for soring events and stories)</div>
-        <div class="editor-field">TODO!</div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.DateCreated, new { @class = "edit-date" })
+            @Html.ValidationMessageFor(model => model.DateCreated)
+        </div>
 
         <div class="editor-label">Friendly Date (shown on site)</div>
         <div class="editor-field">
@@ -26,7 +29,7 @@
 
         <div class="editor-label">Story</div>
         <div class="editor-field">
-            @Html.TextAreaFor(model => model.Text, new { @class = "edit-textarea " })
+            @Html.TextAreaFor(model => model.Text, new { @class = "edit-textarea" })
             @Html.ValidationMessageFor(model => model.Text)
         </div>
 

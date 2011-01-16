@@ -25,6 +25,7 @@ namespace VOTSDR.Web.Controllers
                     Date = article.Date,
                     Title = article.Title,
                     Summary = article.Text,
+                    IsEvent = false
                 };
 
             var events =
@@ -40,10 +41,26 @@ namespace VOTSDR.Web.Controllers
                     Location = evt.Location,
                     Title = evt.Name,
                     Summary = evt.Description,
+                    IsEvent = true
                 };
 
             return View(
                 events.Concat(news).OrderByDescending(i => i.Date).Take(10));
+        }
+
+        public ActionResult SpecialNeedsImage(Guid id)
+        {
+            var story = new DataEntities()
+                .SpecialNeedsStories
+                .FirstOrDefault(s => s.SpecialNeedsStoryId == id);
+            if (story == null || story.Image == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return File(story.Image, "image/jpeg");
+            }
         }
     }
 }

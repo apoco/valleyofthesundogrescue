@@ -1,17 +1,29 @@
-﻿.edit-textarea {height: 90px; width: 650px;}
+﻿
 
-.newsstory-createdate { margin: 5px;}
+.edit-textarea {height: 90px !important; width: 650px !important;}
+
+
+.dog-name { margin: 5px;}
+.dog-gender { margin: 5px; width: 15px;}
+.dog-breed { margin: 5px; width: 400px;}
+
+.dog-edit-name {width: 200px !important; }
+.dog-edit-gender {width: 17px !important; }
+.dog-edit-breed {width: 400px !important; }
+.edit-date {width: 170px !important; }
+
+.newsstory-datecreated { margin: 5px; }
 .newsstory-date { margin: 5px;}
 .newsstory-title { margin: 5px;}
 .newsstory-content { margin: 5px;}
 
+
+.event-datecreated { margin: 5px; }
 .event-date { margin: 5px;}
 .event-name { margin: 5px;}
 .event-location { margin: 5px;}
 .event-description { margin: 5px;}
 
-
-.special-edit-text {height: 90px; width: 650px;}
 
 .special-date { margin: 5px;}
 .special-featured { margin: 5px;}

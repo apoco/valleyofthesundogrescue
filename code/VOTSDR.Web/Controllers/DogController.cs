@@ -5,11 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using VOTSDR.Data;
 using VOTSDR.Web.Models;
+using System.Web.UI;
 
 namespace VOTSDR.Web.Controllers
 {
     public class DogController : Controller
     {
+        [OutputCache(Location=OutputCacheLocation.ServerAndClient, Duration=300)]
         public ActionResult Image(Guid id)
         {
             var dog = new DataEntities()
@@ -25,6 +27,7 @@ namespace VOTSDR.Web.Controllers
             }
         }
 
+        [OutputCache(Location = OutputCacheLocation.ServerAndClient, Duration=300)]
         public ActionResult Thumbnail(Guid id)
         {
             var dog = new DataEntities()

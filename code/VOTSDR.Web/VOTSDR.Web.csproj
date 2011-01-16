@@ -91,6 +91,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\bg-content-blocks.jpg" />
     <Content Include="Content\images\bg-f-bars.jpg" />
     <Content Include="Content\images\bg-h-bars.jpg" />
     <Content Include="Content\images\btn-donate.gif" />
@@ -176,6 +177,12 @@
     <Content Include="Views\Dog\SuccessStories.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Home\HowToHelp.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup />
@@ -187,9 +194,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\ContactUs.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\HowToHelp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\News\Index.cshtml" />

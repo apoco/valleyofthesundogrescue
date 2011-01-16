@@ -1,4 +1,6 @@
-﻿@{
+﻿@model VOTSDR.Web.Models.ContactUsViewModel
+
+@{
     ViewBag.Title = "ContactUs";
     ViewBag.PageClass = "contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,4 +8,36 @@
 
 @section head { }
 
+<h2>Contact Us</h2>
 
+<p>
+  Please specify in “comments” as to what you are contacting us for to receive 
+  a prompt response. Thank You.
+</p>
+
+@using (Html.BeginForm())
+{
+  <div class="field">
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+  </div>
+  <div class="field">
+    @Html.LabelFor(m => m.PhoneNumber)
+    @Html.TextBoxFor(m => m.PhoneNumber)
+  </div>
+  <div class="field">
+    @Html.LabelFor(m => m.EmailAddress)
+    @Html.TextBoxFor(m => m.EmailAddress)
+  </div>
+  <div class="field">
+    @Html.LabelFor(m => m.StreetAddress)
+    @Html.TextBoxFor(m => m.StreetAddress)
+  </div>
+  <div class="field">
+    @Html.LabelFor(m => m.Comments)
+    @Html.TextAreaFor(m => m.Comments)
+    @Html.ValidationMessageFor(m => m.Comments)
+  </div>
+  <input type="submit" value="Contact Us" name="SendContactUsMessage" />
+}

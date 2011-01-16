@@ -6,9 +6,11 @@ using System.Web.Mvc;
 
 using VOTSDR.Data;
 using VOTSDR.Utils;
+using VOTSDR.Admin.Web.Models;
 
 namespace VOTSDR.Admin.Web.Controllers
 {
+    [Authorize]
     public class SpecialNeedsStoriesController : Controller
     {
         //

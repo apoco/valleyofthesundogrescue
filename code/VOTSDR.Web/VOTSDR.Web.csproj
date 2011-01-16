@@ -78,12 +78,12 @@
   <ItemGroup>
     <Compile Include="Controllers\DogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdoptableDogViewModel.cs" />
+    <Compile Include="Models\ContactUsViewModel.cs" />
     <Compile Include="Models\HomeIndexViewModel.cs" />
     <Compile Include="Models\NewsOrEventSummaryViewModel.cs" />
     <Compile Include="Models\NewsOrEventViewModel.cs" />
@@ -180,12 +180,11 @@
     <Content Include="Views\Home\HowToHelp.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\News\List.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Home\ContactUsSuccess.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\SponsorsAndLinks.cshtml" />
   </ItemGroup>

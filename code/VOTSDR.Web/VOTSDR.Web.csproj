@@ -99,6 +99,8 @@
     <Content Include="Content\images\bg-f-bars.jpg" />
     <Content Include="Content\images\bg-h-bars.jpg" />
     <Content Include="Content\images\btn-donate.gif" />
+    <Content Include="Content\images\default-dog-pic.png" />
+    <Content Include="Content\images\default-dog-thumb.png" />
     <Content Include="Content\images\nav-h-b-phone.png" />
     <Content Include="Content\images\facebooksmall.png" />
     <Content Include="Content\images\shop\bumpersticker.JPG" />

@@ -216,7 +216,7 @@ namespace VOTSDR.Web.Controllers
                         contactForm.EmailAddress
                         ?? "noreply@valleyofthesundogrescue.com");
                     smtpClient.Send(mailMsg);
-                    return Redirect("ContactUsSuccess");
+                    return RedirectToAction("ContactUsSuccess");
                 }
             }
             else

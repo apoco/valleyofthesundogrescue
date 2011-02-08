@@ -68,7 +68,7 @@
             Pages: 
             @for (int i = 1; i <= ViewBag.totalPages; i++)
             {
-                @Html.ActionLink(i.ToString(), "Index", new { pageNumber = i }, new { style = (ViewBag.currentPage == i) ? "font-weight:bold;" : String.Empty });
+                @Html.ActionLink(i.ToString(), "Index", new { pageNumber = i, ViewType = (String)ViewBag.viewType }, new { style = (ViewBag.currentPage == i) ? "font-weight:bold;" : String.Empty });
                 @Html.Raw("&nbsp;");
             }
         </td>

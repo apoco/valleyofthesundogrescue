@@ -2,10 +2,12 @@
     ViewBag.Title = "Contact Us - Success";
 }
 
+@section head {}
+
 <h2>Thank You</h2>
 
 <p>
   Thank you!  Your message has been sent.
 
-  @Html.Action("Back to Home Page", "Index")
+  @Html.ActionLink("Back to Home Page", "Index")
 </p>

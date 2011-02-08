@@ -58,7 +58,7 @@ namespace VOTSDR.Web
                 new { controller = "Home", action = "ContactUs" });
 
             routes.MapRoute(
-                "ContactUsSuccess", "contact",
+                "ContactUsSuccess", "contact-us-success",
                 new { controller = "Home", action = "ContactUsSuccess" });
 
             routes.MapRoute(

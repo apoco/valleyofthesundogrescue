@@ -115,7 +115,10 @@
     <Content Include="Content\images\nav-h-t-home.png" />
     <Content Include="Content\images\nav-h-t-howtohelp.png" />
     <Content Include="Content\images\nav-h-t-stories.png" />
+    <Content Include="Content\images\shop\frame.jpg" />
+    <Content Include="Content\images\shop\proudlyowned.JPG" />
     <Content Include="Content\images\shop\punishteeshirt.JPG" />
+    <Content Include="Content\images\shop\votsdrteefront.JPG" />
     <Content Include="Content\images\twitterbirdsmall.png" />
     <Content Include="Content\images\txt-fst-donations.png" />
     <Content Include="Content\images\txt-fst-dotw.png" />

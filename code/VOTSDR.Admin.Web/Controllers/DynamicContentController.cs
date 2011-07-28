@@ -12,7 +12,7 @@ namespace VOTSDR.Admin.Web.Controllers
     {
         //
         // GET: /Content/
-
+        [Authorize]
         public ActionResult Index()
         {
             var _db = new DataEntities();
@@ -23,6 +23,7 @@ namespace VOTSDR.Admin.Web.Controllers
         //
         // GET: /Content/Details/5
 
+        [Authorize]
         public ActionResult Details(Guid id)
         {
             var _db = new DataEntities();
@@ -34,7 +35,7 @@ namespace VOTSDR.Admin.Web.Controllers
 
         //
         // GET: /Content/Create
-
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.FormType = "Create";
@@ -45,6 +46,7 @@ namespace VOTSDR.Admin.Web.Controllers
         // POST: /Content/Create
 
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Content content)
         {
             ViewBag.exMsg = "";
@@ -71,7 +73,7 @@ namespace VOTSDR.Admin.Web.Controllers
         
         //
         // GET: /Content/Edit/5
-
+        [Authorize]
         public ActionResult Edit(Guid id)
         {
             ViewBag.FormType = "Edit";
@@ -86,6 +88,7 @@ namespace VOTSDR.Admin.Web.Controllers
         // POST: /Content/Edit/5
 
         [HttpPost]
+        [Authorize]
         public ActionResult Edit(Guid id, FormCollection collection)
         {
             ViewBag.FormType = "Edit";
@@ -111,7 +114,7 @@ namespace VOTSDR.Admin.Web.Controllers
 
         //
         // GET: /Content/Delete/5
- 
+        [Authorize]
         public ActionResult Delete(Guid id)
         {
 
@@ -125,6 +128,7 @@ namespace VOTSDR.Admin.Web.Controllers
         // POST: /Content/Delete/5
 
         [HttpPost]
+        [Authorize]
         public ActionResult Delete(Guid id, FormCollection collection)
         {
             try

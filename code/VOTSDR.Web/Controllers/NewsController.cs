@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using VOTSDR.Data;
 using VOTSDR.Web.Models;
+using System.Web.Hosting;
 
 namespace VOTSDR.Web.Controllers
 {
@@ -69,6 +70,12 @@ namespace VOTSDR.Web.Controllers
             {
                 return File(story.Image, "image/jpeg");
             }
+        }
+
+        public ActionResult FidoFestRegistrationForm()
+        {
+            return Redirect("./Content/RegistrationformFidoFestWalkforRescue.doc");
+            
         }
     }
 }

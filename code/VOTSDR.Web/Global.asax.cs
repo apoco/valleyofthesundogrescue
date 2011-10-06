@@ -58,6 +58,10 @@ namespace VOTSDR.Web
                 new { controller = "News", action = "FidoFestRegistrationForm"});
 
             routes.MapRoute(
+                "FidoFest", "fidofest",
+                new { controller = "News", action = "FidoFestRegistrationForm" });
+
+            routes.MapRoute(
                 "ContactUs", "contact",
                 new { controller = "Home", action = "ContactUs" });
 
